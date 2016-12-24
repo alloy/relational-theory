@@ -1,0 +1,9 @@
+{
+  "name": "relational-theory",
+  "version": "0.0.1",
+  "description": "A prototype of server-side React+Relay rendering.",
+  "main": "index.js",
+  "repository": "https://github.com/alloy/relational-theory.git",
+  "author": "Eloy Durán",
+  "license": "MIT"
+}
