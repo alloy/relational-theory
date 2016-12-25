@@ -1,12 +1,12 @@
 {
     "presets": [
         "es2015",
-        "stage-3"
+        "stage-3",
+        "react"
     ],
     "plugins": [
         "transform-flow-strip-types",
         "syntax-async-functions",
-        "transform-regenerator",
-        "transform-react-jsx"
+        "transform-regenerator"
     ]
 }

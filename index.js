@@ -1,10 +1,10 @@
 import express from 'express'
+import morgan from 'morgan'
+
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 
 import App from './app/components/app'
-
-const http = express()
 
 const props = {
   items: [
@@ -13,13 +13,20 @@ const props = {
   ],
 }
 
+const http = express()
+
+http.use(express.static('public'))
+http.use(morgan('combined'))
+
 http.get('/', (req, res) => {
   res.send(`
     <html>
+    <head>
+      <script type="text/javascript" src="bundle.js" defer></script>
+      <script type="text/javascript">var APP_PROPS = ${JSON.stringify(props)}</script>
+    </head>
     <body>
-      <div id="content">
-        ${ReactDOMServer.renderToString(<App {...props} />)}
-      </div>
+      <div id="content">${ReactDOMServer.renderToString(<App {...props} />)}</div>
     </body>
     </html>
   `)
