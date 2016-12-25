@@ -23,5 +23,9 @@
     "eslint-plugin-standard": "^2.0.1",
     "flow-bin": "^0.37.4",
     "jest": "^18.0.0"
+  },
+  "dependencies": {
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
   }
 }
