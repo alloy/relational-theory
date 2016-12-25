@@ -9,6 +9,7 @@
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
     "babel-plugin-syntax-async-functions": "^6.13.0",
     "babel-plugin-transform-flow-strip-types": "^6.21.0",
     "babel-plugin-transform-react-jsx": "^6.8.0",
@@ -23,11 +24,10 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^2.0.1",
     "flow-bin": "^0.37.4",
-    "jest": "^18.0.0"
+    "jest": "^18.0.0",
+    "webpack": "^1.14.0"
   },
   "dependencies": {
-    "browserify": "^13.1.1",
-    "literalify": "^0.4.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1"
   }
