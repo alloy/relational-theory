@@ -5,7 +5,7 @@ var http = require('http'),
     ReactDOMServer = require('react-dom/server'),
     DOM = React.DOM, body = DOM.body, div = DOM.div, script = DOM.script,
     // This is our React component, shared by server and browser thanks to browserify
-    App = React.createFactory(require('./components/app'))
+    App = require('./components/app').default
 
 
 // Just create a plain old HTTP server that responds to two endpoints ('/' and
@@ -44,7 +44,7 @@ http.createServer(function(req, res) {
       // pass our data in as `props`. This div is the same one that the client
       // will "render" into on the browser from browser.js
       div({id: 'content', dangerouslySetInnerHTML: {__html:
-        ReactDOMServer.renderToString(App(props))
+        ReactDOMServer.renderToString(<App {...props} />)
       }}),
 
       // The props should match on the client and server, so we stringify them
@@ -56,8 +56,8 @@ http.createServer(function(req, res) {
 
       // We'll load React from a CDN - you don't have to do this,
       // you can bundle it up or serve it locally if you like
-      script({src: '//cdnjs.cloudflare.com/ajax/libs/react/15.3.0/react.min.js'}),
-      script({src: '//cdnjs.cloudflare.com/ajax/libs/react/15.3.0/react-dom.min.js'}),
+      script({src: '//cdnjs.cloudflare.com/ajax/libs/react/15.4.1/react.min.js'}),
+      script({src: '//cdnjs.cloudflare.com/ajax/libs/react/15.4.1/react-dom.min.js'}),
 
       // Then the browser will fetch and run the browserified bundle consisting
       // of browser.js and all its dependencies.
@@ -81,7 +81,7 @@ http.createServer(function(req, res) {
     // so that it uses the global variable (from the CDN JS file) instead of
     // bundling it up with everything else
     browserify()
-      .add('./browser.js')
+      .add('./app/browser.js')
       .transform(literalify.configure({
         'react': 'window.React',
         'react-dom': 'window.ReactDOM',

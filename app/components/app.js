@@ -24,7 +24,7 @@ class App extends React.Component {
           Add
         </button>
         <ul>
-          {this.state.items.map(item => <li>{item}</li>)}
+          {this.state.items.map((item, i) => <li key={'item-' + i}>{item}</li>)}
         </ul>
       </div>
     )
