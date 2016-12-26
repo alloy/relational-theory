@@ -1,3 +1,16 @@
+### Setup
+
+```
+$ npm install yarn -g
+$ yarn install
+```
+
+Then starg the development server with:
+
+```
+$ yarn start
+```
+
 ### Development environment
 
 * Rather than restart the full server process, which is often done with tools like `nodemon`, this project only reloads
