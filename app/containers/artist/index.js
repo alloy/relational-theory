@@ -1,6 +1,6 @@
 import React from 'react'
 
-class App extends React.Component {
+class Artist extends React.Component {
   constructor(props) {
     super(props)
 
@@ -13,7 +13,7 @@ class App extends React.Component {
 
   handleClick() {
     this.setState({
-      items: this.state.items.concat('Item ' + this.state.items.length),
+      items: this.state.items.concat('Another Item ' + this.state.items.length),
     })
   }
 
@@ -31,4 +31,4 @@ class App extends React.Component {
   }
 }
 
-export default App
+export default Artist
