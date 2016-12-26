@@ -9,8 +9,7 @@ var path = require('path')
 module.exports = {
   entry: [
     './app/containers/artist/browser',
-    // 'webpack-dev-server/client?http://0.0.0.0:8080', // WebpackDevServer host and port
-    // 'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
+    'webpack-hot-middleware/client',
   ],
   output: {
     path: path.join(__dirname, 'assets'),

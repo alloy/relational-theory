@@ -13,7 +13,7 @@ class Artist extends React.Component {
 
   handleClick() {
     this.setState({
-      items: this.state.items.concat('Another Item ' + this.state.items.length),
+      items: this.state.items.concat('Item ' + this.state.items.length),
     })
   }
 

@@ -7,7 +7,7 @@
   "author": "Eloy Durán",
   "license": "MIT",
   "scripts": {
-    "start": "babel-node index.js",
+    "start": "babel-node index.js"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
