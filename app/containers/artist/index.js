@@ -1,13 +1,6 @@
 import React from 'react'
 import Relay from 'react-relay'
 
-  // constructor(props) {
-  //   super(props)
-  // }
-
-  // componentDidMount() {
-  // }
-
 export class Artist extends React.Component {
   render() {
     return (
@@ -39,7 +32,6 @@ export default Relay.createContainer(Artist, {
     artist: () => Relay.QL`
       fragment on Artist {
         name
-        has_metadata
         counts {
           artworks,
           partner_shows
