@@ -7,7 +7,8 @@
   "author": "Eloy Durán",
   "license": "MIT",
   "scripts": {
-    "start": "babel-node index.js"
+    "start": "babel-node index.js",
+    "sync-schema": "cd externals/metaphysics && git fetch && git checkout origin/master && yarn install && npm run dump-schema -- ../../data"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
