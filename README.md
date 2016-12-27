@@ -1,3 +1,7 @@
+### About
+
+These are some experiments with using React and Relay for both server and client side rendering.
+
 ### Setup
 
 ```
