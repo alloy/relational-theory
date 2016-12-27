@@ -1,34 +1,50 @@
 import React from 'react'
+import Relay from 'react-relay'
 
 class Artist extends React.Component {
-  constructor(props) {
-    super(props)
+  // constructor(props) {
+  //   super(props)
+  // }
 
-    this.state = { items: props.items, disabled: true }
-  }
-
-  componentDidMount() {
-    this.setState({ disabled: false })
-  }
-
-  handleClick() {
-    this.setState({
-      items: this.state.items.concat('Item ' + this.state.items.length),
-    })
-  }
+  // componentDidMount() {
+  // }
 
   render() {
     return (
       <div>
-        <button onClick={this.handleClick.bind(this)} disabled={this.state.disabled}>
-          Add
-        </button>
-        <ul>
-          {this.state.items.map((item, i) => <li key={'item-' + i}>{item}</li>)}
-        </ul>
+        <h1>{this.props.artist.name}</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Artworks Count</th>
+              <th>Shows Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{this.props.artist.counts.artworks}</td>
+              <td>{this.props.artist.counts.partner_shows}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     )
   }
 }
 
-export default Artist
+export default Relay.createContainer(Artist, {
+  fragments: {
+    artist: () => Relay.QL`
+      fragment on Artist {
+        name
+        has_metadata
+        counts {
+          artworks,
+          partner_shows,
+          related_artists,
+          articles
+        }
+      }
+    `,
+  }
+})
