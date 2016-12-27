@@ -1835,6 +1835,12 @@ globby@^5.0.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
 
+gql2flow@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/gql2flow/-/gql2flow-0.1.2.tgz#aa64fc919e55b8cedf8e5fa86a0df5db151088b9"
+  dependencies:
+    commander "^2.9.0"
+
 graceful-fs@^4.1.2, graceful-fs@^4.1.4, graceful-fs@^4.1.6:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
