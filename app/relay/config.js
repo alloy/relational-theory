@@ -1,3 +1,5 @@
+// @flow
+
 import Relay from 'react-relay'
 
 const metaphysicsURL = 'https://metaphysics-staging.artsy.net'
@@ -14,7 +16,7 @@ export function artsyNetworkLayer() {
 /*
  * For the server.
  */
-export function artsyRelayMiddleware(req, res, next) {
+export function artsyRelayMiddleware(req: any, res: any, next: any) {
   res.locals.networkLayer = artsyNetworkLayer()
   next()
 }

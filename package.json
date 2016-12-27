@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "babel-node index.js",
+    "test": "eslint . && flow .",
     "sync-schema": "cd externals/metaphysics && git fetch && git checkout origin/master && yarn install && npm run dump-schema -- ../../data",
     "create-types": "gql2flow data/schema.json"
   },
@@ -31,6 +32,7 @@
     "eslint-plugin-flowtype": "^2.29.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-react": "^6.8.0",
     "eslint-plugin-standard": "^2.0.1",
     "flow-bin": "^0.37.4",
     "gql2flow": "^0.1.2",
