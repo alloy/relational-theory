@@ -45,31 +45,12 @@ if (process.env.NODE_ENV === 'production') {
       })
     })
   })
-
-  // Do "hot-reloading" of react stuff on the server
-  // Throw away the cached client modules and let them be re-required next time
-  // compiler.plugin('done', function() {
-  //   console.log("Clearing /client/ module cache from server");
-  //   Object.keys(require.cache).forEach(function(id) {
-  //     if (/[\/\\]client[\/\\]/.test(id)) delete require.cache[id];
-  //   });
-  // });
 }
 
 // Dynamically load app routes so that they can be reloaded in development.
 app.use(function(req, res, next) {
   require('./app/routes').default(req, res, next)
 })
-
-// TODO Don’t know what this is about yet.
-//
-// Anything else gets passed to the client app's server rendering
-// app.get('*', function(req, res, next) {
-//   require('./client/server-render')(req.path, function(err, page) {
-//     if (err) return next(err);
-//     res.send(page);
-//   });
-// });
 
 app.listen(3000, () => {
   console.log('Example app listening on port 3000!')
