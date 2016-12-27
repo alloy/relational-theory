@@ -9,7 +9,7 @@ $ npm install yarn -g
 $ yarn install
 ```
 
-Then starg the development server with:
+Then start the development server with:
 
 ```
 $ yarn start
