@@ -16,14 +16,16 @@ class Artist extends React.Component {
         <table>
           <thead>
             <tr>
-              <th>Artworks Count</th>
-              <th>Shows Count</th>
+              <th>Artworks</th>
+              <th>Shows</th>
+              <th>Articles</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>{this.props.artist.counts.artworks}</td>
               <td>{this.props.artist.counts.partner_shows}</td>
+              <td>{this.props.artist.counts.articles}</td>
             </tr>
           </tbody>
         </table>
@@ -40,8 +42,7 @@ export default Relay.createContainer(Artist, {
         has_metadata
         counts {
           artworks,
-          partner_shows,
-          related_artists,
+          partner_shows
           articles
         }
       }
