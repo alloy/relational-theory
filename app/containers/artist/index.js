@@ -1,7 +1,6 @@
 import React from 'react'
 import Relay from 'react-relay'
 
-class Artist extends React.Component {
   // constructor(props) {
   //   super(props)
   // }
@@ -9,6 +8,7 @@ class Artist extends React.Component {
   // componentDidMount() {
   // }
 
+export class Artist extends React.Component {
   render() {
     return (
       <div>

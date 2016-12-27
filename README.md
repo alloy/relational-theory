@@ -32,3 +32,19 @@ This setup is largely based on https://github.com/glenjamin/ultimate-hot-reloadi
 
 * Take a look at react-native-web, how well it works, and if it would make sharing our components across platforms
   possible out of the box.
+
+### Notes
+
+* In order for `react-hot-loader` to be able to reload components and maintain their current state, rather than a page
+  reload, the components have to be exported themselves, not just the Relay wrapper container
+  ([more info](https://github.com/fortruce/relay-skeleton/issues/1)). E.g.
+
+```js
+export class Artist extends React.component {
+  ...
+}
+
+export default Relay.createContainer(Artist, {
+  ...
+})
+```
