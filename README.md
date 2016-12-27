@@ -27,3 +27,8 @@ $ yarn start
   triggers a re-render of the React components that are on screen.
 
 This setup is largely based on https://github.com/glenjamin/ultimate-hot-reloading-example.
+
+### TODO
+
+* Take a look at react-native-web, how well it works, and if it would make sharing our components across platforms
+  possible out of the box.
