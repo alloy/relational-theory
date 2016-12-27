@@ -9,9 +9,13 @@
   "scripts": {
     "start": "babel-node index.js",
     "sync-schema": "cd externals/metaphysics && git fetch && git checkout origin/master && yarn install && npm run dump-schema -- ../../data",
-    "create-types": "gql2flow data/schema.json"
+    "create-types": "gql2ts data/schema.json",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
+    "@kadira/storybook": "^2.21.0",
+    "@types/react-relay": "^0.9.8",
     "babel-cli": "^6.18.0",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",
@@ -33,15 +37,17 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^2.0.1",
     "flow-bin": "^0.37.4",
-    "gql2flow": "^0.1.2",
+    "getstorybook": "^1.7.0",
     "jest": "^18.0.0",
     "react-hot-loader": "^1.3.1",
+    "react-storybooks-relay-container": "^1.0.1",
     "webpack": "^1.14.0",
     "webpack-dev-middleware": "^1.9.0",
     "webpack-hot-middleware": "^2.14.0"
   },
   "dependencies": {
     "express": "^4.14.0",
+    "gql2ts": "^0.4.0",
     "isomorphic-relay": "^0.7.3",
     "morgan": "^1.7.0",
     "react": "^15.4.1",

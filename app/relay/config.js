@@ -1,6 +1,6 @@
-import Relay from 'react-relay'
+import Relay from "react-relay"
 
-const metaphysicsURL = 'https://metaphysics-staging.artsy.net'
+const metaphysicsURL = "https://metaphysics-staging.artsy.net"
 
 export default function artsyNetworkLayer() {
   return new Relay.DefaultNetworkLayer(metaphysicsURL, {

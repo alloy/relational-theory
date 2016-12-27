@@ -1,0 +1,5 @@
+{
+    // This needs to make sure that the relative path of the
+    // relay config babel extension is set to the right path.
+    "extends": "../.babelrc"
+}
