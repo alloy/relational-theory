@@ -2,9 +2,9 @@ import React from "react"
 import Relay from "react-relay"
 import ArtistHeader from "./components/header"
 
-class Artist extends React.Component {
-  props: { artist: ArtistItem }
+export class Artist extends React.Component {
 
+  props: { artist: ArtistItem }
   render() {
     return (
       <div>

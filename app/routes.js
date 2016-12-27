@@ -1,5 +1,4 @@
 import express from "express"
-
 import React from "react"
 import ReactDOMServer from "react-dom/server"
 
@@ -9,13 +8,13 @@ import IsomorphicRelay from "isomorphic-relay"
 import artsyNetworkLayer from "./relay/config"
 import { ArtistQueryConfig } from "./relay/root_queries"
 import Artist from "./containers/artist"
+import { artsyRelayMiddleware } from "./relay/config"
+import { ArtistQueryConfig } from "./relay/root_queries"
+import Artist from "./containers/artist"
 
 const app = express.Router()
 
-app.use((req, res, next) => {
-  res.locals.networkLayer = artsyNetworkLayer()
-  next()
-})
+app.use(artsyRelayMiddleware)
 
 app.get("/artist/:id", (req, res, next) => {
   // TODO We can use this to programatically add script tags and CSS links once we have more than just 1 JS file.

@@ -47,7 +47,6 @@
   },
   "dependencies": {
     "express": "^4.14.0",
-    "gql2ts": "^0.4.0",
     "isomorphic-relay": "^0.7.3",
     "morgan": "^1.7.0",
     "react": "^15.4.1",
