@@ -2,12 +2,7 @@ import React from 'react'
 import Relay from 'react-relay'
 
 class Artist extends React.Component {
-  // constructor(props) {
-  //   super(props)
-  // }
-
-  // componentDidMount() {
-  // }
+  props: { artist: ArtistItem } 
 
   render() {
     return (
