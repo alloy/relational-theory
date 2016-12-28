@@ -53,5 +53,5 @@ app.use(function(req: any, res: any, next: any) {
 })
 
 app.listen(3000, () => {
-  console.log('Example app listening on port 3000!')
+  console.log('✨ Opened on http://localhost:3000')
 })

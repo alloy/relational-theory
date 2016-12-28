@@ -4,7 +4,7 @@
     "jest": true
   },
   "parser": "babel-eslint",
-  "extends": "standard",
+  "extends": ["standard", "plugin:react/recommended"],
   "plugins": [
     "standard",
     "promise",

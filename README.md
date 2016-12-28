@@ -15,6 +15,12 @@ Then start the development server with:
 $ yarn start
 ```
 
+To run storybooks:
+
+```
+$ yarn run storybooks
+```
+
 ## Development environment
 
 * Rather than restart the full server process, which is often done with tools like `nodemon`, this project only reloads
