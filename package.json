@@ -13,7 +13,8 @@
     "sync-schema": "cd externals/metaphysics && git fetch && git checkout origin/master && yarn install && npm run dump-schema -- ../../data",
     "create-types": "gql2ts data/schema.json",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "flow" : "flow"
   },
   "devDependencies": {
     "@kadira/storybook": "^2.21.0",

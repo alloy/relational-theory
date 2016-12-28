@@ -1,6 +1,9 @@
+// @flow
+
 import React from 'react'
 import Relay from 'react-relay'
 import ArtistHeader from './components/header'
+import type { ArtistItem } from '../../../data/graphql-export.flow'
 
 export class Artist extends React.Component {
 

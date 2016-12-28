@@ -1,4 +1,7 @@
+// @flow
+
 import express from 'express'
+import type { $Request, $Response, NextFunction } from 'express' // eslint-disable-line no-duplicate-imports
 
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
@@ -14,7 +17,7 @@ const app = express.Router()
 
 app.use(artsyRelayMiddleware)
 
-app.get('/artist/:id', (req: $Request, res: $Response, NextFunction) => {
+app.get('/artist/:id', (req: $Request, res: $Response, next: NextFunction) => {
   // TODO We can use this to programatically add script tags and CSS links once we have more than just 1 JS file.
   // const assetsByChunkName = res.locals.webpackStats.toJson().assetsByChunkName
 
