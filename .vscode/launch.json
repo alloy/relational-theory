@@ -1,0 +1,37 @@
+{
+  // Use IntelliSense to find out which attributes exist for node debugging
+  // Use hover for the description of the existing attributes
+  // For further information visit https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Program",
+      "type": "node2",
+      "request": "launch",
+      "program": "${workspaceRoot}/index.js",
+      "cwd": "${workspaceRoot}"
+    },
+    {
+      "name": "Attach to Process",
+      "type": "node2",
+      "request": "attach",
+      "port": 9229
+    },
+    {
+      "name": "Run Tests With Debugger (slower, use npm run watch for normal work)",
+      "type": "node2",
+      "request": "launch",
+      "port": 5858,
+      "address": "localhost",
+      "sourceMaps": true,
+      "stopOnEntry": false,
+      "runtimeExecutable": null,
+      "runtimeArgs": [
+        "--debug-brk",
+        "./node_modules/.bin/jest",
+        "-i"
+      ],
+      "cwd": "${workspaceRoot}"
+    }
+  ]
+}

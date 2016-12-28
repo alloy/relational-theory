@@ -1,0 +1,15 @@
+exports[`Storyshots Artist Header For Stubbed Data 1`] = `
+<div>
+  <h1>
+    Another Example
+  </h1>
+  <div>
+    <i>
+      OK, b. 1999
+    </i>
+  </div>
+  <i>
+    12 Followers
+  </i>
+</div>
+`;
