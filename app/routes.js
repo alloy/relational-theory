@@ -1,22 +1,20 @@
-import express from "express"
-import React from "react"
-import ReactDOMServer from "react-dom/server"
+import express from 'express'
 
-import Relay from "react-relay"
-import IsomorphicRelay from "isomorphic-relay"
+import React from 'react'
+import ReactDOMServer from 'react-dom/server'
 
-import artsyNetworkLayer from "./relay/config"
-import { ArtistQueryConfig } from "./relay/root_queries"
-import Artist from "./containers/artist"
-import { artsyRelayMiddleware } from "./relay/config"
-import { ArtistQueryConfig } from "./relay/root_queries"
-import Artist from "./containers/artist"
+import Relay from 'react-relay' // eslint-disable-line no-unused-vars
+import IsomorphicRelay from 'isomorphic-relay'
+
+import Artist from './containers/artist'
+import { ArtistQueryConfig } from './relay/root_queries'
+import { artsyRelayMiddleware } from './relay/config'
 
 const app = express.Router()
 
 app.use(artsyRelayMiddleware)
 
-app.get("/artist/:id", (req, res, next) => {
+app.get('/artist/:id', (req: $Request, res: $Response, NextFunction) => {
   // TODO We can use this to programatically add script tags and CSS links once we have more than just 1 JS file.
   // const assetsByChunkName = res.locals.webpackStats.toJson().assetsByChunkName
 

@@ -4,12 +4,13 @@
     "jest": true
   },
   "parser": "babel-eslint",
-  "extends": "standard",
+  "extends": ["standard", "plugin:react/recommended"],
   "plugins": [
     "standard",
     "promise",
     "flowtype",
-    "import"
+    "import",
+    "react"
   ],
   "presets": ["es2015"],
   "rules": {
@@ -21,7 +22,7 @@
         "ignoreReadBeforeAssign": false
     }],
     "space-before-function-paren": ["error", "never"],
-    "quotes": [1, "double", "avoid-escape"],
+    "quotes": [1, "single", "avoid-escape"],
     "comma-dangle": ["error", "always-multiline"],
     "flowtype/define-flow-type": 1,
     "flowtype/require-parameter-type": [1, { "excludeArrowFunctions": true }],
@@ -30,7 +31,8 @@
     "flowtype/space-before-type-colon": [ 1, "never" ],
     "flowtype/type-id-match": [ 0, "^([A-Z][a-z0-9]+)+Type$" ],
     "flowtype/use-flow-type": 1,
-    "flowtype/valid-syntax": 1
+    "flowtype/valid-syntax": 1,
+    "react/jsx-uses-react": "error"
   },
   "settings": {
       "flowtype": {

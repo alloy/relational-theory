@@ -1,6 +1,6 @@
-import React from "react"
-import Relay from "react-relay"
-import ArtistHeader from "./components/header"
+import React from 'react'
+import Relay from 'react-relay'
+import ArtistHeader from './components/header'
 
 export class Artist extends React.Component {
 
@@ -21,7 +21,7 @@ export default Relay.createContainer(Artist, {
       fragment on Artist {
         _id
         id
-        ${ArtistHeader.getFragment("artist")}
+        ${ArtistHeader.getFragment('artist')}
       }
     `,
   },

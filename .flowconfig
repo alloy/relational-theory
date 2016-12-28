@@ -1,0 +1,9 @@
+[ignore]
+<PROJECT_ROOT>/node_modules/
+<PROJECT_ROOT>/externals/
+
+[include]
+
+[libs]
+
+[options]
