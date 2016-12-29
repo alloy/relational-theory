@@ -8,7 +8,7 @@ var path = require('path')
 
 module.exports = {
   entry: [
-    './app/containers/artist/browser',
+    './app/containers/react-native-web/artist/browser',
     'webpack-hot-middleware/client',
   ],
   output: {
@@ -27,5 +27,10 @@ module.exports = {
         loaders: ['react-hot', 'babel-loader'],
       },
     ],
+  },
+  resolve: {
+    alias: {
+      'react-native': 'react-native-web/core',
+    },
   },
 }

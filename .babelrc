@@ -9,6 +9,7 @@
         "transform-flow-strip-types",
         "syntax-async-functions",
         "transform-regenerator",
-        "transform-class-properties"
+        "transform-class-properties",
+        ["module-resolver", { "alias": { "react-native": "react-native-web" } }]
     ]
 }

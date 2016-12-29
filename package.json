@@ -23,6 +23,7 @@
     "babel-cli": "^6.18.0",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",
+    "babel-plugin-module-resolver": "^2.4.0",
     "babel-plugin-syntax-async-functions": "^6.13.0",
     "babel-plugin-transform-class-properties": "^6.19.0",
     "babel-plugin-transform-flow-strip-types": "^6.21.0",
@@ -57,6 +58,7 @@
     "morgan": "^1.7.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
+    "react-native-web": "^0.0.61",
     "react-relay": "https://github.com/alloy/relay/releases/download/v0.9.3/react-relay-0.9.3.tgz"
   }
 }

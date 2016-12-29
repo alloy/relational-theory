@@ -9,15 +9,15 @@ import ReactDOMServer from 'react-dom/server'
 import Relay from 'react-relay' // eslint-disable-line no-unused-vars
 import IsomorphicRelay from 'isomorphic-relay'
 
-import Artist from './containers/artist'
-import { ArtistQueryConfig } from './relay/root_queries'
 import { artsyRelayMiddleware } from './relay/config'
+import { ArtistQueryConfig } from './relay/root_queries'
+import Artist from './containers/react-native-web/artist'
 
 const app = express.Router()
 
 app.use(artsyRelayMiddleware)
 
-app.get('/artist/:id', (req: $Request, res: $Response, next: NextFunction) => {
+app.get('/react-native-web/artist/:id', (req: $Request, res: $Response, next: NextFunction) => {
   // TODO We can use this to programatically add script tags and CSS links once we have more than just 1 JS file.
   // const assetsByChunkName = res.locals.webpackStats.toJson().assetsByChunkName
 
@@ -25,6 +25,9 @@ app.get('/artist/:id', (req: $Request, res: $Response, next: NextFunction) => {
     Container: Artist,
     queryConfig: new ArtistQueryConfig({ artistID: req.params.id }),
   }, res.locals.networkLayer).then(({ data, props }) => {
+    const content = ReactDOMServer.renderToString(<IsomorphicRelay.Renderer {...props} />)
+    // TODO What do we do with this stylesheet?
+    // const stylesheet = ReactDOMServer.renderToString(ReactNative.StyleSheet.render())
     res.send(`
       <html>
       <head>
@@ -32,7 +35,7 @@ app.get('/artist/:id', (req: $Request, res: $Response, next: NextFunction) => {
         <script type="text/javascript">var ARTIST_ID = "${req.params.id}"; var ARTIST_PROPS = ${JSON.stringify(data)}</script>
       </head>
       <body>
-        <div id="root">${ReactDOMServer.renderToString(<IsomorphicRelay.Renderer {...props} />)}</div>
+        <div id="root">${content}</div>
       </body>
       </html>
     `)
