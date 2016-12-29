@@ -1,3 +1,5 @@
+// @flow
+
 import Relay from 'react-relay'
 
 const metaphysicsURL = 'https://metaphysics-staging.artsy.net'

@@ -1,3 +1,5 @@
+// @flow
+
 import Relay from 'react-relay'
 
 export class ArtistQueryConfig extends Relay.Route {

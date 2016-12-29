@@ -4,7 +4,7 @@
     "jest": true
   },
   "parser": "babel-eslint",
-  "extends": ["standard", "plugin:react/recommended"],
+  "extends": ["standard", "plugin:react/recommended", "plugin:flowtype/recommended"],
   "plugins": [
     "standard",
     "promise",
@@ -23,16 +23,7 @@
     }],
     "space-before-function-paren": ["error", "never"],
     "quotes": [1, "single", "avoid-escape"],
-    "comma-dangle": ["error", "always-multiline"],
-    "flowtype/define-flow-type": 1,
-    "flowtype/require-parameter-type": [1, { "excludeArrowFunctions": true }],
-    "flowtype/require-return-type": [ 0,"always", { "annotateUndefined": "never" } ],
-    "flowtype/space-after-type-colon": [ 1, "always" ],
-    "flowtype/space-before-type-colon": [ 1, "never" ],
-    "flowtype/type-id-match": [ 0, "^([A-Z][a-z0-9]+)+Type$" ],
-    "flowtype/use-flow-type": 1,
-    "flowtype/valid-syntax": 1,
-    "react/jsx-uses-react": "error"
+    "comma-dangle": ["error", "always-multiline"]
   },
   "settings": {
       "flowtype": {

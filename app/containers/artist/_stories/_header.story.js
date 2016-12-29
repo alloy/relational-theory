@@ -3,14 +3,13 @@ import Relay from 'react-relay'
 import { storiesOf } from '@kadira/storybook'
 import Header from '../components/header'
 import { ArtistQueryConfig } from '../../../relay/root_queries'
-import artsyNetworkLayer from '../../../relay/config'
+import { artsyNetworkLayer } from '../../../relay/config'
 
 import StubContainer from 'react-storybooks-relay-container'
 
 storiesOf('Artist Header', module)
-  .add('Real Artist - Leda Catunda', () => {
+  .add('Relay : Artist - Leda Catunda', () => {
     Relay.injectNetworkLayer(artsyNetworkLayer())
-
     const artistRoute = new ArtistQueryConfig({ artistID: 'leda-catunda' })
     return <Relay.RootContainer Component={Header} route={artistRoute}/>
   })
