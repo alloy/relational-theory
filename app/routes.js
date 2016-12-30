@@ -16,6 +16,9 @@ import ReactNativeWebArtist from './containers/react-native-web/artist'
 import PureReactArtist from './containers/pure-react/artist'
 import ReactInlineCSSArtist from './containers/react-inline-css/artist'
 
+import { StyleSheetServer } from 'aphrodite'
+import ReactAphroditeArtist from './containers/react-aphrodite/artist'
+
 const app = express.Router()
 
 app.use(artsyRelayMiddleware)
@@ -85,6 +88,46 @@ app.get('/react-inline-css/artist/:id', (req: $Request, res: $Response, next: Ne
       </head>
       <body>
         <div id="root">${content}</div>
+      </body>
+      </html>
+    `)
+  }).catch(next)
+})
+
+/*
+ * REACT with aphrodite for inline CSS
+ *
+ * [x] Server-side rendering
+ * [x] Client-side rendering
+ * [x] Client-side rehydration
+ * [x] No limitation in CSS possibilities:
+ * [ ] Styling cachable by client
+ * [ ] Small data size: inline styles are repetitive and thus add byte size linearly
+ * [-] Vendor prefixes: tooling should exist, but which to use for an isomorphic app wasn’t immediately clear.
+ * [x] Code+Style locality
+ * [-] Portability of mobile app code: no `StyleSheet` API and no: `<element style={[style1, style2]} />`
+ */
+app.get('/react-aphrodite/artist/:id', (req: $Request, res: $Response, next: NextFunction) => {
+  IsomorphicRelay.prepareData({
+    Container: ReactAphroditeArtist,
+    queryConfig: new ArtistQueryConfig({ artistID: req.params.id }),
+  }, res.locals.networkLayer).then(({ data, props }) => {
+    const { html, css } = StyleSheetServer.renderStatic(() => {
+      return ReactDOMServer.renderToString(<IsomorphicRelay.Renderer {...props} />)
+    })
+    res.send(`
+      <html>
+      <head>
+        <style data-aphrodite>${css.content}</style>
+        <script type="text/javascript" src="/assets/react-aphrodite.js" defer></script>
+        <script type="text/javascript">
+          var ARTIST_ID = "${req.params.id}";
+          var ARTIST_PROPS = ${JSON.stringify(data)};
+          var STYLE_SHEET = ${JSON.stringify(css.renderedClassNames)};
+        </script>
+      </head>
+      <body>
+        <div id="root">${html}</div>
       </body>
       </html>
     `)
