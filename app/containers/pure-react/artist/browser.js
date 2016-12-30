@@ -1,11 +1,9 @@
-// @flow
-
 import React from 'react'
 import ReactDOM from 'react-dom'
 import IsomorphicRelay from 'isomorphic-relay'
 
-import { artsyRelayEnvironment } from '../../relay/config'
-import { ArtistQueryConfig } from '../../relay/root_queries'
+import { artsyRelayEnvironment } from '../../../relay/config'
+import { ArtistQueryConfig } from '../../../relay/root_queries'
 
 import Artist from './index'
 
