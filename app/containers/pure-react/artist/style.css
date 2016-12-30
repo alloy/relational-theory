@@ -1,0 +1,36 @@
+.grid {
+  display: flex;
+  flex-direction: row;
+}
+
+.grid .column {
+  flex-direction: column;
+  flex: 1 0 0px;
+  max-width: 300px;
+  margin-right: 20px;
+}
+
+.grid .column .artwork {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.artwork img {
+  width: 100%;
+}
+
+.artwork h3,h4 {
+  margin: 4px 0;
+  color: rgb(102, 102, 102);
+  font-size: 15px;
+}
+
+.artwork h3 {
+  font-style: normal;
+  font-weight: bold;
+}
+
+.artwork h4 {
+  font-style: italic;
+  font-weight: normal
+}

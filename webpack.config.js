@@ -7,13 +7,19 @@ var webpack = require('webpack')
 var path = require('path')
 
 module.exports = {
-  entry: [
-    './app/containers/react-native-web/artist/browser',
-    'webpack-hot-middleware/client',
-  ],
+  entry: {
+    'pure-react': [
+      './app/containers/pure-react/artist/browser',
+      'webpack-hot-middleware/client',
+    ],
+    'react-native-web': [
+      './app/containers/react-native-web/artist/browser',
+      'webpack-hot-middleware/client',
+    ],
+  },
   output: {
     path: path.join(__dirname, 'assets'),
-    filename: 'bundle.js',
+    filename: '[name].js',
     publicPath: '/assets',
   },
   plugins: [
