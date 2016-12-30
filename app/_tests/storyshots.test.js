@@ -1,5 +1,5 @@
-import initStoryshots from 'storyshots'
-
-initStoryshots({
-  storyRegex: /^((?!(r|R)elay).)*$/,
-})
+"use strict";
+var storyshots_1 = require("storyshots");
+storyshots_1["default"]({
+    storyRegex: /^((?!(r|R)elay).)*$/
+});

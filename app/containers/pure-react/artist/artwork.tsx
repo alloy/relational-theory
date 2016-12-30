@@ -1,7 +1,13 @@
-import React from 'react'
-import Relay from 'react-relay'
+import * as React from 'react'
+import * as Relay from 'react-relay'
 
-export class Artwork extends React.Component {
+interface Props {
+  artwork: any
+}
+interface State {
+ }
+
+export class Artwork extends React.Component<Props, State> {
   render() {
     return (
       <div className='artwork'>

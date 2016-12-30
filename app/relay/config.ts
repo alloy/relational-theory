@@ -1,8 +1,6 @@
-// @flow
+import * as Relay from "react-relay"
 
-import Relay from 'react-relay'
-
-const metaphysicsURL = 'https://metaphysics-staging.artsy.net'
+const metaphysicsURL = "https://metaphysics-staging.artsy.net"
 
 export function artsyNetworkLayer() {
   return new Relay.DefaultNetworkLayer(metaphysicsURL, {
@@ -21,11 +19,18 @@ export function artsyRelayMiddleware(req: any, res: any, next: any) {
   next()
 }
 
+//TODO: Send to definitely typed?
+declare module "react-relay" {
+    class Environment {
+        injectNetworkLayer(networkLayer: RelayNetworkLayer): void
+    }
+}
+
 /*
  * For the client.
  */
 export function artsyRelayEnvironment() {
-  const env = new Relay.Environment()
+  const env: any = new Relay.Environment()
   env.injectNetworkLayer(artsyNetworkLayer())
   return env
 }

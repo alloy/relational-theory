@@ -54,6 +54,7 @@
     "webpack-hot-middleware": "^2.14.0"
   },
   "dependencies": {
+    "@types/react": "^0.14.55",
     "aphrodite": "^1.1.0",
     "express": "^4.14.0",
     "isomorphic-relay": "^0.7.3",
@@ -61,6 +62,7 @@
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-native-web": "^0.0.61",
-    "react-relay": "https://github.com/alloy/relay/releases/download/v0.9.3/react-relay-0.9.3.tgz"
+    "react-relay": "https://github.com/alloy/relay/releases/download/v0.9.3/react-relay-0.9.3.tgz",
+    "typescript": "^2.1.4"
   }
 }

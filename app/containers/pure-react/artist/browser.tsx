@@ -1,9 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
 import IsomorphicRelay from 'isomorphic-relay'
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
 
 import { artsyRelayEnvironment } from '../../../relay/config'
 import { ArtistQueryConfig } from '../../../relay/root_queries'
+
+declare var document: any
+declare var window: any
 
 import Artist from './index'
 

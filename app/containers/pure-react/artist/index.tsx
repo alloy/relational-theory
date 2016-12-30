@@ -1,10 +1,18 @@
-import React from 'react'
-import Relay from 'react-relay'
+import * as React from 'react'
+import * as Relay from 'react-relay'
 
-import Grid from './grid'
 import ArtistHeader from '../../../components/artist/header'
+import Grid from './grid'
 
-export class Artist extends React.Component {
+interface Props {
+  artist: any
+}
+interface State {
+      following: boolean | null,
+    followersCount: number,
+ }
+
+export class Artist extends React.Component<Props, State> {
   render() {
     return (
       <div>

@@ -1,38 +1,42 @@
-'use strict'
+"use strict"
 
-import React from 'react'
-import Relay from 'react-relay'
+import * as React from "react"
+import * as Relay from "react-relay"
 
-type ArtistHeaderProps = { artist: ArtistItem }
+// type ArtistHeaderProps = { artist: ArtistItem }
 
-class Header extends React.Component {
-  props: ArtistHeaderProps
-  state: {
-    following: ?boolean,
-    followersCount: number
-  }
+interface Props {
+  artist: any
+}
+interface State {
+      following: boolean | null,
+    followersCount: number,
+ }
+
+class Header extends React.Component<Props, State> {
 
   static propTypes: Object = {
     artist: React.PropTypes.shape({
-      name: React.PropTypes.string,
-      nationality: React.PropTypes.string,
       birthday: React.PropTypes.string,
       counts: React.PropTypes.shape({
         follows: React.PropTypes.number,
       }),
+      name: React.PropTypes.string,
+      nationality: React.PropTypes.string,
     }),
-  };
+  }
 
-  constructor(props: ArtistHeaderProps) {
+  constructor(props: any) {
     super(props)
     this.state = { following: null, followersCount: props.artist.counts.follows }
   }
 
   render() {
+
     const artist = this.props.artist
     return (
       <div>
-        <h1>{artist.name}</h1>
+        <h1> {artist.name} </h1>
         {this.renderByline()}
         {this.renderFollowersCount()}
       </div>
@@ -41,9 +45,9 @@ class Header extends React.Component {
 
   renderFollowersCount() {
     const count = this.state.followersCount
-    const followerString = count + (count === 1 ? ' Follower' : ' Followers')
+    const followerString = count + (count === 1 ? " Follower" : " Followers")
     return (
-      <i>{followerString}</i>
+      <i> {followerString} </i>
     )
   }
 
@@ -53,7 +57,7 @@ class Header extends React.Component {
     if (bylineRequired) {
       return (
         <div>
-          <i>{this.descriptiveString()}</i>
+          <i> {this.descriptiveString()} </i>
         </div>
       )
     } else {
@@ -63,27 +67,28 @@ class Header extends React.Component {
 
   descriptiveString() {
     const artist = this.props.artist
-    const descriptiveString = (artist.nationality || '') + this.birthdayString()
+    const descriptiveString = (artist.nationality || "") + this.birthdayString()
     return descriptiveString
   }
 
   birthdayString() {
     const birthday = this.props.artist.birthday
-    if (!birthday) { return '' }
+    if (!birthday) { return "" }
 
-    const leadingSubstring = this.props.artist.nationality ? ', b.' : ''
+    const leadingSubstring = this.props.artist.nationality ? ", b." : ""
 
-    if (birthday.includes('born')) {
-      return birthday.replace('born', leadingSubstring)
-    } else if (birthday.includes('Est.') || birthday.includes('Founded')) {
-      return ' ' + birthday
+    if (birthday.includes("born")) {
+      return birthday.replace("born", leadingSubstring)
+    } else if (birthday.includes("Est.") || birthday.includes("Founded")) {
+      return " " + birthday
     }
 
-    return leadingSubstring + ' ' + birthday
+    return leadingSubstring + " " + birthday
   }
 }
 
-export default Relay.createContainer(Header, {
+// TODO: what's up with this?
+export default Relay.createContainer(Header as any, {
   fragments: {
     artist: () => Relay.QL`
       fragment on Artist {

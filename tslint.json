@@ -1,0 +1,9 @@
+{
+  "extends": "tslint:recommended",
+  "rules": {
+    "semicolon": [true, "never", "ignore-interfaces", "ignore-bound-class-methods"],
+    "interface-name": [true, "never-prefix"],
+    "quotemark": [true, "single"],
+    "member-access": [false, "check-accessor", "check-constructor"]
+  }
+}

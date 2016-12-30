@@ -1,9 +1,18 @@
-import React from 'react'
-import Relay from 'react-relay'
+import * as React from 'react'
+import * as Relay from 'react-relay'
 
 import Artwork from './artwork'
 
-export class Grid extends React.Component {
+interface Props {
+  sectionMargin: number,
+  itemMargin: number,
+  artworks: any[]
+}
+interface State {
+    sectionCount: number,
+ }
+
+export class Grid extends React.Component<Props, State> {
   // state: {
   //   sectionDimension: number,
   //   sectionCount: number,
@@ -11,8 +20,8 @@ export class Grid extends React.Component {
 
   static defaultProps = {
     // sectionDirection: 'column',
-    sectionMargin: 20,
     itemMargin: 20,
+    sectionMargin: 20,
   }
 
   constructor(props) {
@@ -61,7 +70,7 @@ export class Grid extends React.Component {
 
       if (artwork.image) {
         let lowestRatioSum = Number.MAX_VALUE
-        let sectionIndex: ?number = null
+        let sectionIndex: number | null = null
 
         for (let j = 0; j < sectionRatioSums.length; j++) {
           const ratioSum = sectionRatioSums[j]
@@ -108,43 +117,26 @@ export class Grid extends React.Component {
       // }
       sections.push(
         // <div style={[styles.section, sectionSpecificStlye]} key={i} accessibilityLabel={'Section ' + i}>
-        <div style={styles.column} key={i}>
+        <div className='column' key={i}>
           {artworkComponents}
-        </div>
-      )
+        </div>)
     }
     return sections
   }
 
   render() {
-    return <div style={styles.container}>{this.renderSections()}</div>
+    return <div className='grid'>{this.renderSections()}</div>
   }
 }
 
-// .grid {
-//   display: flex;
-//   flex-direction: row;
-// }
-
-// .grid .column {
-//   flex-direction: column;
-//   flex: 1 0 0px;
-//   max-width: 300px;
-//   margin-right: 20px;
-// }
-
-const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'row',
-  },
-  column: {
-    flexDirection: 'column',
-    flex: '1 0 0px',
-    maxWidth: 300,
-    marginRight: 20,
-  },
-}
+// const styles = StyleSheet.create({
+//   container: {
+//     flexDirection: 'row',
+//   },
+//   section: {
+//     flexDirection: 'column',
+//   },
+// })
 
 export default Relay.createContainer(Grid, {
   fragments: {
