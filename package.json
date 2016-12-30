@@ -54,6 +54,7 @@
     "webpack-hot-middleware": "^2.14.0"
   },
   "dependencies": {
+    "aphrodite": "^1.1.0",
     "express": "^4.14.0",
     "isomorphic-relay": "^0.7.3",
     "morgan": "^1.7.0",
