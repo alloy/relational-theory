@@ -12,6 +12,10 @@ module.exports = {
       './app/containers/pure-react/artist/browser',
       'webpack-hot-middleware/client',
     ],
+    'react-inline-css': [
+      './app/containers/react-inline-css/artist/browser',
+      'webpack-hot-middleware/client',
+    ],
     'react-native-web': [
       './app/containers/react-native-web/artist/browser',
       'webpack-hot-middleware/client',

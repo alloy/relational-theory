@@ -14,22 +14,26 @@ import { ArtistQueryConfig } from './relay/root_queries'
 
 import ReactNativeWebArtist from './containers/react-native-web/artist'
 import PureReactArtist from './containers/pure-react/artist'
+import ReactInlineCSSArtist from './containers/react-inline-css/artist'
 
 const app = express.Router()
 
 app.use(artsyRelayMiddleware)
 
 /*
+ * PURE REACT/CSS
+ *
  * [x] Server-side rendering
  * [x] Client-side rendering
  * [x] Client-side rehydration
  * [x] No limitation in CSS possibilities
- * [x] CSS separately cachable
+ * [x] Styling cachable by client
+ * [x] Small data size
+ * [x] Vendor prefixes: possible with tooling such as PostCSS (autoprefixer)
+ * [ ] Code+Style locality
  * [ ] Portability of mobile app code
  */
 app.get('/pure-react/artist/:id', (req: $Request, res: $Response, next: NextFunction) => {
-  const assetsByChunkName = res.locals.webpackStats.toJson().assetsByChunkName
-  console.log(assetsByChunkName)
   IsomorphicRelay.prepareData({
     Container: PureReactArtist,
     queryConfig: new ArtistQueryConfig({ artistID: req.params.id }),
@@ -55,6 +59,41 @@ app.get('/pure-react/style.css', (req: $Request, res: $Response, next: NextFunct
 })
 
 /*
+ * REACT with builtin inline CSS support
+ *
+ * [x] Server-side rendering
+ * [x] Client-side rendering
+ * [x] Client-side rehydration
+ * [ ] No limitation in CSS possibilities: e.g. keyframe animation and media queries don’t work inline
+ * [ ] Styling cachable by client
+ * [ ] Small data size: inline styles are repetitive and thus add byte size linearly
+ * [-] Vendor prefixes: tooling should exist, but which to use for an isomorphic app wasn’t immediately clear.
+ * [x] Code+Style locality
+ * [-] Portability of mobile app code: no `StyleSheet` API and no: `<element style={[style1, style2]} />`
+ */
+app.get('/react-inline-css/artist/:id', (req: $Request, res: $Response, next: NextFunction) => {
+  IsomorphicRelay.prepareData({
+    Container: ReactInlineCSSArtist,
+    queryConfig: new ArtistQueryConfig({ artistID: req.params.id }),
+  }, res.locals.networkLayer).then(({ data, props }) => {
+    const content = ReactDOMServer.renderToString(<IsomorphicRelay.Renderer {...props} />)
+    res.send(`
+      <html>
+      <head>
+        <script type="text/javascript" src="/assets/react-inline-css.js" defer></script>
+        <script type="text/javascript">var ARTIST_ID = "${req.params.id}"; var ARTIST_PROPS = ${JSON.stringify(data)}</script>
+      </head>
+      <body>
+        <div id="root">${content}</div>
+      </body>
+      </html>
+    `)
+  }).catch(next)
+})
+
+/*
+ * ReactNativeWeb
+ *
  * [x] Server-side rendering
  * [x] Client-side rendering
  * [ ] Client-side rehydration
