@@ -100,12 +100,12 @@ app.get('/react-inline-css/artist/:id', (req: $Request, res: $Response, next: Ne
  * [x] Server-side rendering
  * [x] Client-side rendering
  * [x] Client-side rehydration
- * [x] No limitation in CSS possibilities:
+ * [x] No limitation in CSS possibilities: at least I believe media queries and keyframe animations are native?
  * [ ] Styling cachable by client
- * [ ] Small data size: inline styles are repetitive and thus add byte size linearly
- * [-] Vendor prefixes: tooling should exist, but which to use for an isomorphic app wasn’t immediately clear.
+ * [x] Small data size: regular class based styling is added to a style tag
+ * [x] Vendor prefixes: tooling should exist, but which to use for an isomorphic app wasn’t immediately clear.
  * [x] Code+Style locality
- * [-] Portability of mobile app code: no `StyleSheet` API and no: `<element style={[style1, style2]} />`
+ * [-] Portability of mobile app code: uses `className` attribute rather than `style`
  */
 app.get('/react-aphrodite/artist/:id', (req: $Request, res: $Response, next: NextFunction) => {
   IsomorphicRelay.prepareData({
