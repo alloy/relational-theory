@@ -3,33 +3,17 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import Relay from 'react-relay'
-import ArtistHeader from './components/header'
-import type { ArtistItem } from '../../../data/graphql-export.flow'
+import ArtistHeader from '../../../components/artist/header'
+import type { ArtistItem } from '../../../../data/graphql-export.flow'
 
 export class Artist extends React.Component {
-
   props: { artist: ArtistItem }
+
   render() {
     return (
       <View style={[{ backgroundColor: 'red' }, styles.appContainer]}>
         <ArtistHeader artist={this.props.artist}/>
         <hr/>
-        <table>
-          <thead>
-            <tr>
-              <th>Artworks</th>
-              <th>Shows</th>
-              <th>Articles</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{this.props.artist.counts.artworks}</td>
-              <td>{this.props.artist.counts.partner_shows}</td>
-              <td>{this.props.artist.counts.articles}</td>
-            </tr>
-          </tbody>
-        </table>
       </View>
     )
   }
