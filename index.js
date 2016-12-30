@@ -15,6 +15,9 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   app.use(morgan('dev'))
 
+  // Long stack traces
+  require('longjohn')
+
   const webpack = require('webpack')
   const config = require('./webpack.config')
   const compiler = webpack(config)
@@ -44,6 +47,30 @@ if (process.env.NODE_ENV === 'production') {
         }
       })
     })
+  })
+
+  // In case of an uncaught exception show it to the user and proceed, rather than exiting the process.
+  // NOTE: This is a bad thing when it comes to concurrency, basically you can’t have 2 requests at the same time.
+  let currentResponse = null
+  app.use(function(req: any, res: any, next: any) {
+    if (currentResponse) {
+      console.error('No concurrent requests may be made, only 1 at a time.')
+      process.abort()
+    }
+    currentResponse = res
+    res.on('finish', () => {
+      currentResponse = null
+    })
+    next()
+  })
+  process.on('uncaughtException', (error) => {
+    if (currentResponse) {
+      currentResponse.status(500).send(`<html><body><pre>${error.stack}</pre></body></html>`)
+      currentResponse = null
+    } else {
+      console.error(error)
+      process.abort()
+    }
   })
 }
 
