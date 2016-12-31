@@ -1,9 +1,7 @@
 "use strict"
 
-import * as React from "react"
-import * as Relay from "react-relay"
-
-// type ArtistHeaderProps = { artist: ArtistItem }
+import React from "react"
+import Relay from "react-relay"
 
 interface Props {
   artist: any

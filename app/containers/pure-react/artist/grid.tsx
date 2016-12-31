@@ -1,7 +1,7 @@
-import * as React from 'react'
-import * as Relay from 'react-relay'
+import React from "react"
+import Relay from "react-relay"
 
-import Artwork from './artwork'
+import Artwork from "./artwork"
 
 interface Props {
   sectionMargin: number,
@@ -107,7 +107,7 @@ export class Grid extends React.Component<Props, State> {
         artworkComponents.push(<Artwork artwork={artwork} key={artwork.__id} />)
         if (j < artworks.length - 1) {
           // artworkComponents.push(<div style={spacerStyle} key={'spacer-' + j} accessibilityLabel="Spacer div" />)
-          artworkComponents.push(<div className='spacer' key={'spacer-' + j} />)
+          artworkComponents.push(<div className="spacer" key={"spacer-" + j} />)
         }
       }
 
@@ -117,7 +117,7 @@ export class Grid extends React.Component<Props, State> {
       // }
       sections.push(
         // <div style={[styles.section, sectionSpecificStlye]} key={i} accessibilityLabel={'Section ' + i}>
-        <div className='column' key={i}>
+        <div className="column" key={i}>
           {artworkComponents}
         </div>)
     }
@@ -125,7 +125,7 @@ export class Grid extends React.Component<Props, State> {
   }
 
   render() {
-    return <div className='grid'>{this.renderSections()}</div>
+    return <div className="grid">{this.renderSections()}</div>
   }
 }
 
@@ -146,7 +146,7 @@ export default Relay.createContainer(Grid, {
         image {
           aspect_ratio
         }
-        ${Artwork.getFragment('artwork')}
+        ${Artwork.getFragment("artwork")}
       }
     `,
   },

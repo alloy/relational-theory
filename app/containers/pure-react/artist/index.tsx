@@ -1,5 +1,5 @@
-import * as React from 'react'
-import * as Relay from 'react-relay'
+import React from 'react'
+import Relay from 'react-relay'
 
 import ArtistHeader from '../../../components/artist/header'
 import Grid from './grid'

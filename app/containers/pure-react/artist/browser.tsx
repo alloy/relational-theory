@@ -1,16 +1,16 @@
-import IsomorphicRelay from 'isomorphic-relay'
-import * as React from 'react'
-import * as ReactDOM from 'react-dom'
+import IsomorphicRelay from "isomorphic-relay"
+import React from "react"
+import ReactDOM from "react-dom"
 
-import { artsyRelayEnvironment } from '../../../relay/config'
-import { ArtistQueryConfig } from '../../../relay/root_queries'
+import { artsyRelayEnvironment } from "../../../relay/config"
+import { ArtistQueryConfig } from "../../../relay/root_queries"
 
 declare var document: any
 declare var window: any
 
-import Artist from './index'
+import Artist from "./index"
 
-const rootElement = document.getElementById('root')
+const rootElement = document.getElementById("root")
 
 const environment = artsyRelayEnvironment()
 IsomorphicRelay.injectPreparedData(environment, window.ARTIST_PROPS)
@@ -19,6 +19,6 @@ IsomorphicRelay.prepareInitialRender({
   Container: Artist,
   queryConfig: new ArtistQueryConfig({ artistID: window.ARTIST_ID }),
   environment,
-}).then(props => {
+}).then((props) => {
   ReactDOM.render(<IsomorphicRelay.Renderer {...props} />, rootElement)
 })
