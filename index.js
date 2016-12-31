@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   app.use(morgan('dev'))
 
-  // Long stack traces
+  // Long symbolicated stack traces
   require('longjohn')
 
   const webpack = require('webpack')
