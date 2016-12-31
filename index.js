@@ -32,22 +32,8 @@ if (process.env.NODE_ENV === 'production') {
   // Allow client to be notified of changes to sources.
   app.use(require('webpack-hot-middleware')(compiler))
 
-  // Watch for FS changes in ./app and clear cached modules when a change occurs,
-  // thus effectively reloading the file on a subsequent request.
-  const appPath = path.join(__dirname, 'app')
-  const watcher = require('chokidar').watch(appPath)
-  watcher.on('ready', function() {
-    // TODO See if this can be optimsed to reload less files.
-    //      Basically need to know dependency graph of modules, maybe flow can help?
-    watcher.on('all', function() {
-      // console.log(`Clearing module cache in: ${appPath}`)
-      Object.keys(require.cache).forEach(function(id: string) {
-        if (id.startsWith(appPath)) {
-          delete require.cache[id]
-        }
-      })
-    })
-  })
+  // Reload server-side modules when they change.
+  require('./lib/dev/reloadModules')(path.join(__dirname, 'app'))
 
   // In case of an uncaught exception show it to the user and proceed, rather than exiting the process.
   // NOTE: This is a bad thing when it comes to concurrency, basically you can’t have 2 requests at the same time.
