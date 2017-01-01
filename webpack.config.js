@@ -20,6 +20,10 @@ module.exports = {
       './app/containers/react-aphrodite/artist/browser',
       'webpack-hot-middleware/client',
     ],
+    'react-jss': [
+      './app/containers/react-jss/artist/browser',
+      'webpack-hot-middleware/client',
+    ],
     'react-native-web': [
       './app/containers/react-native-web/artist/browser',
       'webpack-hot-middleware/client',
