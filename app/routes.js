@@ -19,6 +19,9 @@ import ReactInlineCSSArtist from './containers/react-inline-css/artist'
 import { StyleSheetServer } from 'aphrodite'
 import ReactAphroditeArtist from './containers/react-aphrodite/artist'
 
+import { SheetsRegistryProvider, SheetsRegistry } from 'react-jss'
+import ReactJSSArtist from './containers/react-jss/artist'
+
 const app = express.Router()
 
 app.use(artsyRelayMiddleware)
@@ -124,6 +127,48 @@ app.get('/react-aphrodite/artist/:id', (req: $Request, res: $Response, next: Nex
           var ARTIST_ID = "${req.params.id}";
           var ARTIST_PROPS = ${JSON.stringify(data)};
           var STYLE_SHEET = ${JSON.stringify(css.renderedClassNames)};
+        </script>
+      </head>
+      <body>
+        <div id="root">${html}</div>
+      </body>
+      </html>
+    `)
+  }).catch(next)
+})
+
+/*
+ * REACT with JSS for inline CSS
+ *
+ * [x] Server-side rendering
+ * [x] Client-side rendering
+ * [ ] Client-side rehydration: this is the only thing I can find on the topic https://github.com/cssinjs/react-jss/issues/2
+ * [x] No limitation in CSS possibilities: at least I believe media queries and keyframe animations are native?
+ * [ ] Styling cachable by client
+ * [x] Small data size: regular class based styling is added to a style tag
+ * [x] Vendor prefixes: tooling should exist, but which to use for an isomorphic app wasn’t immediately clear.
+ * [x] Code+Style locality
+ * [-] Portability of mobile app code: uses `className` attribute rather than `style`
+ */
+app.get('/react-jss/artist/:id', (req: $Request, res: $Response, next: NextFunction) => {
+  IsomorphicRelay.prepareData({
+    Container: ReactJSSArtist,
+    queryConfig: new ArtistQueryConfig({ artistID: req.params.id }),
+  }, res.locals.networkLayer).then(({ data, props }) => {
+    const sheets = new SheetsRegistry()
+    const html = ReactDOMServer.renderToString(
+      <SheetsRegistryProvider registry={sheets}>
+        <IsomorphicRelay.Renderer {...props} />)
+      </SheetsRegistryProvider>
+    )
+    res.send(`
+      <html>
+      <head>
+        <style type="text/css">${sheets.toString()}</style>
+        <script type="text/javascript" src="/assets/react-jss.js" defer></script>
+        <script type="text/javascript">
+          var ARTIST_ID = "${req.params.id}";
+          var ARTIST_PROPS = ${JSON.stringify(data)};
         </script>
       </head>
       <body>
