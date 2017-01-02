@@ -2,8 +2,5 @@
 {
     "javascript.validate.enable": false,
     "tslint.run": "onType",
-    "tslint.autoFixOnSave": true,
-    "files.associations": {
-        "*.ts": "typescriptreact"
-    }
+    "tslint.autoFixOnSave": true
 }

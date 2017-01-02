@@ -54,10 +54,10 @@ if (process.env.NODE_ENV === "production") {
   // NOTE: This is a bad thing when it comes to concurrency, basically you can’t have 2 requests at the same time.
   let currentResponse = null;
   app.use(function(req, res, next) {
-    if (currentResponse) {
-      console.error("No concurrent requests may be made, only 1 at a time.");
-      process.abort();
-    }
+    // if (currentResponse) {
+    //   console.error("No concurrent requests may be made, only 1 at a time.");
+    //   process.abort();
+    // }
     currentResponse = res;
     res.on("finish", () => {
       currentResponse = null;

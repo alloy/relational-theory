@@ -8,8 +8,8 @@ interface Props {
   artist: any
 }
 interface State {
-      following: boolean | null,
-    followersCount: number,
+  following: boolean | null,
+  followersCount: number,
  }
 
 export class Artist extends React.Component<Props, State> {
