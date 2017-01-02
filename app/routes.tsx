@@ -57,8 +57,8 @@ app.get("/pure-react/artist/:id", (req: express.Request, res: express.Response, 
   }).catch(next)
 })
 
-// app.get('/pure-react/style.css',  (req: express.Request, res: express.Response, next: express.NextFunction) => {
-//   res.sendFile('./containers/pure-react/artist/style.css', { root: __dirname })
-// })
+app.get('/pure-react/style.css',  (req: express.Request, res: express.Response, next: express.NextFunction) => {
+  res.sendFile('./containers/pure-react/artist/style.css', { root: __dirname })
+})
 
 export default app

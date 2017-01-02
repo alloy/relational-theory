@@ -80,8 +80,6 @@ app.use(function(req, res, next) {
   require("./app/routes").default(req, res, next);
 });
 
-require("./app/routes")
-
 app.listen(3000, () => {
   console.log("✨ Opened on http://localhost:3000");
 });
