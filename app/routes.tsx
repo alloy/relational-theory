@@ -1,21 +1,20 @@
 
 
-import express from 'express'
+import express from "express"
+import React from "react"
+import ReactDOMServer from "react-dom/server"
+import Relay from "react-relay" // eslint-disable-line no-unused-vars
 
-import * as React from 'react'
-import ReactDOMServer from 'react-dom/server'
-import * as Relay from 'react-relay' // eslint-disable-line no-unused-vars
+import IsomorphicRelay from "isomorphic-relay"
 
-import IsomorphicRelay from 'isomorphic-relay'
-
-import { artsyRelayMiddleware } from './relay/config'
-import { ArtistQueryConfig } from './relay/root_queries'
+import { artsyRelayMiddleware } from "./relay/config"
+import { ArtistQueryConfig } from "./relay/root_queries"
 
 // import ReactNativeWebArtist from './containers/react-native-web/artist'
-import PureReactArtist from './containers/pure-react/artist'
+import PureReactArtist from "./containers/pure-react/artist"
 // import ReactInlineCSSArtist from './containers/react-inline-css/artist'
 
-import { StyleSheetServer } from 'aphrodite'
+import { StyleSheetServer } from "aphrodite"
 // import ReactAphroditeArtist from './containers/react-aphrodite/artist'
 
 const app = express.Router()
@@ -35,7 +34,7 @@ app.use(artsyRelayMiddleware)
  * [ ] Code+Style locality
  * [ ] Portability of mobile app code
  */
-app.get('/pure-react/artist/:id', (req: express.Request, res: express.Response, next: express.NextFunction) => {
+app.get("/pure-react/artist/:id", (req: express.Request, res: express.Response, next: express.NextFunction) => {
   IsomorphicRelay.prepareData({
     Container: PureReactArtist,
     queryConfig: new ArtistQueryConfig({ artistID: req.params.id }),

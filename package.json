@@ -9,6 +9,7 @@
   "scripts": {
     "start": "babel-node out/index.js",
     "test": "eslint . && flow . && jest",
+    "compile": "tsc -watch -p ./",
     "sync-schema": "cd externals/metaphysics && git fetch && git checkout origin/master && yarn install && npm run dump-schema -- ../../data",
     "create-types": "gql2ts data/schema.json",
     "storybook": "start-storybook -p 6006",

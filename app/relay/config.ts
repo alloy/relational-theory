@@ -19,7 +19,7 @@ export function artsyRelayMiddleware(req: any, res: any, next: any) {
   next()
 }
 
-//TODO: Send to definitely typed?
+// TODO: Send to definitely typed?
 declare module "react-relay" {
     class Environment {
         injectNetworkLayer(networkLayer: RelayNetworkLayer): void
