@@ -23,14 +23,15 @@ module.exports = {
   ],
   module: {
     loaders: [
-      {
-        test: /\.js$/,
+        {
+        test: /\.tsx?$/,
         exclude: /node_modules/,
-        loaders: ["react-hot", "babel-loader", "ts-loader"],
+        loaders: ["react-hot", "/Users/orta/dev/js/apps/relational-theory/webpack", "babel-loader", "ts-loader"],
       },
     ],
   },
   resolve: {
+    extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js'],
     alias: {
       "react-native": "react-native-web/core",
     },

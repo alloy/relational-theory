@@ -1,6 +1,6 @@
 import IsomorphicRelay from "isomorphic-relay"
-import React from "react"
-import ReactDOM from "react-dom"
+import * as React from "react"
+import * as ReactDOM from "react-dom"
 
 import { artsyRelayEnvironment } from "../../../relay/config"
 import { ArtistQueryConfig } from "../../../relay/root_queries"

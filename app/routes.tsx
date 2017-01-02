@@ -1,9 +1,9 @@
 
 
-import express from "express"
-import React from "react"
-import ReactDOMServer from "react-dom/server"
-import Relay from "react-relay" // eslint-disable-line no-unused-vars
+import * as express from "express"
+import * as React from "react"
+import * as Relay from "react-relay"
+import * as ReactDOMServer from "react-dom/server"
 
 import IsomorphicRelay from "isomorphic-relay"
 

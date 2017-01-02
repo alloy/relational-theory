@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === "production") {
 } else {
   app.use(morgan("dev"));
 
-  // Long stack traces
+  // Long stack trace s
   require("longjohn");
 
   const webpack = require("webpack");
@@ -79,6 +79,8 @@ if (process.env.NODE_ENV === "production") {
 app.use(function(req, res, next) {
   require("./app/routes").default(req, res, next);
 });
+
+require("./app/routes")
 
 app.listen(3000, () => {
   console.log("✨ Opened on http://localhost:3000");

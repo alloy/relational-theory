@@ -1,7 +1,7 @@
 "use strict"
 
-import React from "react"
-import Relay from "react-relay"
+import * as React from "react"
+import * as Relay from "react-relay"
 
 interface Props {
   artist: any

@@ -1,4 +1,9 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-    "javascript.validate.enable": false
+    "javascript.validate.enable": false,
+    "tslint.run": "onType",
+    "tslint.autoFixOnSave": true,
+    "files.associations": {
+        "*.ts": "typescriptreact"
+    }
 }
