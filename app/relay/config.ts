@@ -11,6 +11,8 @@ export function artsyNetworkLayer() {
   })
 }
 
+type Thing = { req: any, res: any, next: any }
+
 /*
  * For the server.
  */

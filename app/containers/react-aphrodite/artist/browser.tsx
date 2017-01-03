@@ -1,20 +1,20 @@
-import IsomorphicRelay from 'isomorphic-relay'
-import React from 'react'
-import ReactDOM from 'react-dom'
+import IsomorphicRelay from "isomorphic-relay"
+import React from "react"
+import ReactDOM from "react-dom"
 
-import { StyleSheet } from 'aphrodite'
+import { StyleSheet } from "aphrodite"
 
-import { artsyRelayEnvironment } from '../../../relay/config'
-import { ArtistQueryConfig } from '../../../relay/root_queries'
+import { artsyRelayEnvironment } from "../../../relay/config"
+import { ArtistQueryConfig } from "../../../relay/root_queries"
 
-import Artist from './index'
+import Artist from "./index"
 
 declare var document: any
 declare var window: any
 
 StyleSheet.rehydrate(window.STYLE_SHEET)
 
-const rootElement = document.getElementById('root')
+const rootElement = document.getElementById("root")
 
 const environment = artsyRelayEnvironment()
 IsomorphicRelay.injectPreparedData(environment, window.ARTIST_PROPS)

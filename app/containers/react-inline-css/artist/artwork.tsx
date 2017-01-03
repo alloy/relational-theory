@@ -5,14 +5,15 @@ interface Props {
   artwork: any
 }
 interface State {
- }
+}
 
 export class Artwork extends React.Component<Props, State>  {
   render() {
+    const names = this.props.artwork.artists.map(artist => artist.name)
     return (
       <div style={styles.container}>
         <img style={styles.image} src={this.props.artwork.image.url} />
-        <h3 style={Object.assign({}, styles.heading, styles.artists)}>{this.props.artwork.artists.map(artist => artist.name).join(', ')}</h3>
+        <h3 style={Object.assign({}, styles.heading, styles.artists)}>{names.join(", ")}</h3>
         <h4 style={Object.assign({}, styles.heading, styles.title)}>{this.props.artwork.title}</h4>
       </div>
     )
@@ -45,25 +46,25 @@ export class Artwork extends React.Component<Props, State>  {
 // }
 
 const styles = {
+  artists: {
+    fontStyle: "normal",
+    fontWeight: "bold",
+  },
   container: {
     flex: 1,
     marginBottom: 20,
   },
-  image: {
-    width: '100%',
-  },
   heading: {
-    margin: '4px 0',
-    color: 'rgb(102, 102, 102)',
+    color: "rgb(102, 102, 102)",
     fontSize: 15,
+    margin: "4px 0",
   },
-  artists: {
-    fontStyle: 'normal',
-    fontWeight: 'bold',
+  image: {
+    width: "100%",
   },
   title: {
-    fontStyle: 'italic',
-    fontWeight: 'normal',
+    fontStyle: "italic",
+    fontWeight: "normal",
   },
 }
 

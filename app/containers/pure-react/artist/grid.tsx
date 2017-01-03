@@ -9,8 +9,8 @@ interface Props {
   artworks: any[]
 }
 interface State {
-    sectionCount: number,
- }
+  sectionCount: number,
+}
 
 export class Grid extends React.Component<Props, State> {
   // state: {
@@ -65,9 +65,7 @@ export class Grid extends React.Component<Props, State> {
     }
 
     const artworks = this.props.artworks
-    for (let i = 0; i < artworks.length; i++) {
-      const artwork = artworks[i]
-
+    for (const artwork of artworks) {
       if (artwork.image) {
         let lowestRatioSum = Number.MAX_VALUE
         let sectionIndex: number | null = null

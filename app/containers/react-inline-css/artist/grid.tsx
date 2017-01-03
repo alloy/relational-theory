@@ -8,20 +8,21 @@ interface Props {
   itemMargin: number,
   artworks: any[]
 }
-interface State {
-    sectionCount: number,
- }
 
-export class Grid extends React.Component<Props, State>{
+interface State {
+  sectionCount: number,
+}
+
+export class Grid extends React.Component<Props, State> {
   // state: {
   //   sectionDimension: number,
   //   sectionCount: number,
   // };
 
   static defaultProps = {
-    // sectionDirection: 'column',
-    sectionMargin: 20,
+    // sectionDirection: "column",
     itemMargin: 20,
+    sectionMargin: 20,
   }
 
   constructor(props) {
@@ -65,8 +66,7 @@ export class Grid extends React.Component<Props, State>{
     }
 
     const artworks = this.props.artworks
-    for (let i = 0; i < artworks.length; i++) {
-      const artwork = artworks[i]
+    for (const artwork of artworks) {
 
       if (artwork.image) {
         let lowestRatioSum = Number.MAX_VALUE
@@ -106,8 +106,8 @@ export class Grid extends React.Component<Props, State>{
         const artwork = artworks[j]
         artworkComponents.push(<Artwork artwork={artwork} key={artwork.__id} />)
         if (j < artworks.length - 1) {
-          // artworkComponents.push(<div style={spacerStyle} key={'spacer-' + j} accessibilityLabel="Spacer div" />)
-          artworkComponents.push(<div className='spacer' key={'spacer-' + j} />)
+          // artworkComponents.push(<div style={spacerStyle} key={"spacer-" + j} accessibilityLabel="Spacer div" />)
+          artworkComponents.push(<div className="spacer" key={"spacer-" + j} />)
         }
       }
 
@@ -116,7 +116,7 @@ export class Grid extends React.Component<Props, State>{
       //     marginRight: (i === this.state.sectionCount - 1 ? 0 : this.props.sectionMargin),
       // }
       sections.push(
-        // <div style={[styles.section, sectionSpecificStlye]} key={i} accessibilityLabel={'Section ' + i}>
+        // <div style={[styles.section, sectionSpecificStlye]} key={i} accessibilityLabel={"Section " + i}>
         <div style={styles.column} key={i}>
           {artworkComponents}
         </div>
@@ -143,15 +143,15 @@ export class Grid extends React.Component<Props, State>{
 // }
 
 const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'row',
-  },
   column: {
-    flexDirection: 'column',
-    flex: '1 0 0px',
-    maxWidth: 300,
+    flex: "1 0 0px",
+    flexDirection: "column",
     marginRight: 20,
+    maxWidth: 300,
+  },
+  container: {
+    display: "flex",
+    flexDirection: "row",
   },
 }
 
@@ -163,7 +163,7 @@ export default Relay.createContainer(Grid, {
         image {
           aspect_ratio
         }
-        ${Artwork.getFragment('artwork')}
+        ${Artwork.getFragment("artwork")}
       }
     `,
   },

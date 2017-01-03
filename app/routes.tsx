@@ -5,18 +5,18 @@ import * as Relay from "react-relay"
 
 import IsomorphicRelay from "isomorphic-relay"
 
-import { artsyRelayMiddleware } from './relay/config'
-import { ArtistQueryConfig } from './relay/root_queries'
+import { artsyRelayMiddleware } from "./relay/config"
+import { ArtistQueryConfig } from "./relay/root_queries"
 
-import PureReactArtist from './containers/pure-react/artist'
-import ReactInlineCSSArtist from './containers/react-inline-css/artist'
-import ReactNativeWebArtist from './containers/react-native-web/artist'
+import PureReactArtist from "./containers/pure-react/artist"
+import ReactInlineCSSArtist from "./containers/react-inline-css/artist"
+import ReactNativeWebArtist from "./containers/react-native-web/artist"
 
-import { StyleSheetServer } from 'aphrodite'
-import ReactAphroditeArtist from './containers/react-aphrodite/artist'
+import { StyleSheetServer } from "aphrodite"
+import ReactAphroditeArtist from "./containers/react-aphrodite/artist"
 
-import {SheetsRegistry, SheetsRegistryProvider } from 'react-jss'
-import ReactJSSArtist from './containers/react-jss/artist'
+import { SheetsRegistry, SheetsRegistryProvider } from "react-jss"
+import ReactJSSArtist from "./containers/react-jss/artist"
 
 const app = express.Router()
 
@@ -24,12 +24,12 @@ app.use(artsyRelayMiddleware)
 
 app.get("/", (req: any, res: any, next: any) => {
   res.send(`<html><body><ul>
-  <li><a href='/pure-react/artist/banksy'>pure-react</a></li>
-  <li><a href='/react-inline-css/artist/banksy'>react-inline-css</a></li>
-  <li><a href='/react-aphrodite/artist/banksy'>react-aphrodite</a></li>
-  <li><a href='/react-native-web/artist/banksy'>react-native-web</a></li>
-  <li><a href='/react-jss/artist/banksy'>react-jss</a></li>
-  `)
+  <li><a href="/pure-react/artist/banksy">pure-react</a></li>
+  <li><a href="/react-inline-css/artist/banksy">react-inline-css</a></li>
+  <li><a href="/react-aphrodite/artist/banksy">react-aphrodite</a></li>
+  <li><a href="/react-native-web/artist/banksy">react-native-web</a></li>
+  <li><a href="/react-jss/artist/banksy">react-jss</a></li>
+  </ul></body></html>`)
 })
 
 /*
@@ -45,7 +45,7 @@ app.get("/", (req: any, res: any, next: any) => {
  * [ ] Code+Style locality
  * [ ] Portability of mobile app code
  */
-app.get('/pure-react/artist/:id', (req: any, res: any, next: any) => {
+app.get("/pure-react/artist/:id", (req: any, res: any, next: any) => {
   IsomorphicRelay.prepareData({
     Container: PureReactArtist,
     queryConfig: new ArtistQueryConfig({ artistID: req.params.id }),
@@ -56,7 +56,9 @@ app.get('/pure-react/artist/:id', (req: any, res: any, next: any) => {
       <head>
         <link rel="stylesheet" type="text/css" href="/pure-react/style.css" />
         <script type="text/javascript" src="/assets/pure-react.js" defer></script>
-        <script type="text/javascript">var ARTIST_ID = "${req.params.id}"; var ARTIST_PROPS = ${JSON.stringify(data)}</script>
+        <script type="text/javascript">
+        var ARTIST_ID = "${req.params.id}"; var ARTIST_PROPS = ${JSON.stringify(data)}
+        </script>
       </head>
       <body>
         <div id="root">${content}</div>
@@ -66,8 +68,8 @@ app.get('/pure-react/artist/:id', (req: any, res: any, next: any) => {
   }).catch(next)
 })
 
-app.get('/pure-react/style.css', (req: any, res: any, next: any) => {
-  res.sendFile('./containers/pure-react/artist/style.css', { root: __dirname })
+app.get("/pure-react/style.css", (req: any, res: any, next: any) => {
+  res.sendFile("./containers/pure-react/artist/style.css", { root: __dirname })
 })
 
 /*
@@ -83,7 +85,7 @@ app.get('/pure-react/style.css', (req: any, res: any, next: any) => {
  * [x] Code+Style locality
  * [-] Portability of mobile app code: no `StyleSheet` API and no: `<element style={[style1, style2]} />`
  */
-app.get('/react-inline-css/artist/:id', (req: any, res: any, next: any) => {
+app.get("/react-inline-css/artist/:id", (req: any, res: any, next: any) => {
   IsomorphicRelay.prepareData({
     Container: ReactInlineCSSArtist,
     queryConfig: new ArtistQueryConfig({ artistID: req.params.id }),
@@ -93,7 +95,9 @@ app.get('/react-inline-css/artist/:id', (req: any, res: any, next: any) => {
       <html>
       <head>
         <script type="text/javascript" src="/assets/react-inline-css.js" defer></script>
-        <script type="text/javascript">var ARTIST_ID = "${req.params.id}"; var ARTIST_PROPS = ${JSON.stringify(data)}</script>
+        <script type="text/javascript">
+        var ARTIST_ID = "${req.params.id}"; var ARTIST_PROPS = ${JSON.stringify(data)}
+        </script>
       </head>
       <body>
         <div id="root">${content}</div>
@@ -116,7 +120,7 @@ app.get('/react-inline-css/artist/:id', (req: any, res: any, next: any) => {
  * [x] Code+Style locality
  * [-] Portability of mobile app code: uses `className` attribute rather than `style`
  */
-app.get('/react-aphrodite/artist/:id', (req: any, res: any, next: any) => {
+app.get("/react-aphrodite/artist/:id", (req: any, res: any, next: any) => {
   IsomorphicRelay.prepareData({
     Container: ReactAphroditeArtist,
     queryConfig: new ArtistQueryConfig({ artistID: req.params.id }),
@@ -148,7 +152,8 @@ app.get('/react-aphrodite/artist/:id', (req: any, res: any, next: any) => {
  *
  * [x] Server-side rendering
  * [x] Client-side rendering
- * [ ] Client-side rehydration: this is the only thing I can find on the topic https://github.com/cssinjs/react-jss/issues/2
+ * [ ] Client-side rehydration: this is the only thing I can find on the topic
+ *     https://github.com/cssinjs/react-jss/issues/2
  * [x] No limitation in CSS possibilities: at least I believe media queries and keyframe animations are native?
  * [ ] Styling cachable by client
  * [x] Small data size: regular class based styling is added to a style tag
@@ -156,7 +161,7 @@ app.get('/react-aphrodite/artist/:id', (req: any, res: any, next: any) => {
  * [x] Code+Style locality
  * [-] Portability of mobile app code: uses `className` attribute rather than `style`
  */
-app.get('/react-jss/artist/:id', (req: any, res: any, next: any) => {
+app.get("/react-jss/artist/:id", (req: any, res: any, next: any) => {
   IsomorphicRelay.prepareData({
     Container: ReactJSSArtist,
     queryConfig: new ArtistQueryConfig({ artistID: req.params.id }),
@@ -205,7 +210,7 @@ app.get('/react-jss/artist/:id', (req: any, res: any, next: any) => {
  *   (client) <div style="-webkit-align-items:stretch;
  *   (server) <div style="-webkit-flex-shrink:0;-ms-fl
  */
-app.get('/react-native-web/artist/:id', (req: any, res: any, next: any) => {
+app.get("/react-native-web/artist/:id", (req: any, res: any, next: any) => {
   IsomorphicRelay.prepareData({
     Container: ReactNativeWebArtist,
     queryConfig: new ArtistQueryConfig({ artistID: req.params.id }),
@@ -217,7 +222,9 @@ app.get('/react-native-web/artist/:id', (req: any, res: any, next: any) => {
       <html>
       <head>
         <script type="text/javascript" src="/assets/react-native-web.js" defer></script>
-        <script type="text/javascript">var ARTIST_ID = "${req.params.id}"; var ARTIST_PROPS = ${JSON.stringify(data)}</script>
+        <script type="text/javascript">
+        var ARTIST_ID = "${req.params.id}"; var ARTIST_PROPS = ${JSON.stringify(data)}
+        </script>
       </head>
       <body>
         <div id="root">${content}</div>

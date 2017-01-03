@@ -1,22 +1,24 @@
 import * as React from "react"
 import * as Relay from "react-relay"
-import injectSheet from 'react-jss'
+
+import injectSheet from "react-jss"
 
 interface Props {
   artwork: any
   sheet: any
 }
 interface State {
- }
+}
 
 export class Artwork extends React.Component<Props, State> {
   render() {
     const classes = this.props.sheet.classes
+    const names = this.props.artwork.artists.map(artist => artist.name)
     return (
       <div className={classes.container}>
         <img className={classes.image} src={this.props.artwork.image.url} />
-        <h3 className={[classes.heading, classes.artists].join(' ')}>{this.props.artwork.artists.map(artist => artist.name).join(', ')}</h3>
-        <h4 className={[classes.heading, classes.title].join(' ')}>{this.props.artwork.title}</h4>
+        <h3 className={[classes.heading, classes.artists].join(" ")}>{names.join(", ")}</h3>
+        <h4 className={[classes.heading, classes.title].join(" ")}>{this.props.artwork.title}</h4>
       </div>
     )
   }
@@ -48,25 +50,25 @@ export class Artwork extends React.Component<Props, State> {
 // }
 
 const styles = {
+  artists: {
+    fontStyle: "normal",
+    fontWeight: "bold",
+  },
   container: {
     flex: 1,
     marginBottom: 20,
   },
-  image: {
-    width: '100%',
-  },
   heading: {
-    margin: '4px 0',
-    color: 'rgb(102, 102, 102)',
+    color: "rgb(102, 102, 102)",
     fontSize: 15,
+    margin: "4px 0",
   },
-  artists: {
-    fontStyle: 'normal',
-    fontWeight: 'bold',
+  image: {
+    width: "100%",
   },
   title: {
-    fontStyle: 'italic',
-    fontWeight: 'normal',
+    fontStyle: "italic",
+    fontWeight: "normal",
   },
 }
 

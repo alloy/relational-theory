@@ -6,10 +6,11 @@ import * as Relay from "react-relay"
 interface Props {
   artist: any
 }
+
 interface State {
-      following: boolean | null,
-    followersCount: number,
- }
+  following: boolean | null,
+  followersCount: number,
+}
 
 class Header extends React.Component<Props, State> {
 
@@ -85,7 +86,7 @@ class Header extends React.Component<Props, State> {
   }
 }
 
-// TODO: what's up with this?
+// TODO: Orta - what's up with this?
 export default Relay.createContainer(Header as any, {
   fragments: {
     artist: () => Relay.QL`

@@ -1,19 +1,21 @@
-import { StyleSheet, css } from 'aphrodite/no-important'
 import * as React from "react"
 import * as Relay from "react-relay"
+
+import { css, StyleSheet } from "aphrodite/no-important"
 
 interface Props {
   artwork: any
 }
 interface State {
- }
+}
 
 export class Artwork extends React.Component<Props, State> {
   render() {
+    const artists = this.props.artwork.artists.map(artist => artist.name).join(", ")
     return (
       <div className={css(styles.container)}>
         <img className={css(styles.image)} src={this.props.artwork.image.url} />
-        <h3 className={css(styles.heading, styles.artists)}>{this.props.artwork.artists.map(artist => artist.name).join(', ')}</h3>
+        <h3 className={css(styles.artists, styles.heading)}>{artists}</h3>
         <h4 className={css(styles.heading, styles.title)}>{this.props.artwork.title}</h4>
       </div>
     )
@@ -46,25 +48,25 @@ export class Artwork extends React.Component<Props, State> {
 // }
 
 const styles = StyleSheet.create({
+  artists: {
+    fontStyle: "normal",
+    fontWeight: "bold",
+  },
   container: {
     flex: 1,
     marginBottom: 20,
   },
-  image: {
-    width: '100%',
-  },
   heading: {
-    margin: '4px 0',
-    color: 'rgb(102, 102, 102)',
+    color: "rgb(102, 102, 102)",
     fontSize: 15,
+    margin: "4px 0",
   },
-  artists: {
-    fontStyle: 'normal',
-    fontWeight: 'bold',
+  image: {
+    width: "100%",
   },
   title: {
-    fontStyle: 'italic',
-    fontWeight: 'normal',
+    fontStyle: "italic",
+    fontWeight: "normal",
   },
 })
 

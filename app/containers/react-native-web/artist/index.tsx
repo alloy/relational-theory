@@ -1,10 +1,9 @@
 // @flow
 
-import * as React from 'react'
-import { StyleSheet, View } from 'react-native-web'
-import * as Relay from 'react-relay'
-import ArtistHeader from '../../../components/artist/header'
-
+import * as React from "react"
+import { StyleSheet, View } from "react-native-web"
+import * as Relay from "react-relay"
+import ArtistHeader from "../../../components/artist/header"
 
 interface Props {
   artist: any
@@ -12,15 +11,15 @@ interface Props {
 interface State {
   following: boolean | null,
   followersCount: number,
- }
+}
 
 export class Artist extends React.Component<Props, State>  {
 
   render() {
     return (
-      <View style={[{ backgroundColor: 'red' }, styles.appContainer]}>
-        <ArtistHeader artist={this.props.artist}/>
-        <hr/>
+      <View style={[{ backgroundColor: "red" }, styles.appContainer]}>
+        <ArtistHeader artist={this.props.artist} />
+        <hr />
       </View>
     )
   }
@@ -31,11 +30,11 @@ const styles = StyleSheet.create({
    * Ensure that the application covers the whole screen.
    */
   appContainer: {
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    right: 0,
     bottom: 0,
+    left: 0,
+    position: "absolute",
+    right: 0,
+    top: 0,
   },
 })
 
@@ -45,7 +44,7 @@ export default Relay.createContainer(Artist, {
       fragment on Artist {
         _id
         id
-        ${ArtistHeader.getFragment('artist')}
+        ${ArtistHeader.getFragment("artist")}
       }
     `,
   },

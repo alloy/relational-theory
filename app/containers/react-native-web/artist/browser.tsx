@@ -1,13 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import IsomorphicRelay from 'isomorphic-relay'
+import React from "react"
+import ReactDOM from "react-dom"
 
-import { artsyRelayEnvironment } from '../../../relay/config'
-import { ArtistQueryConfig } from '../../../relay/root_queries'
+import IsomorphicRelay from "isomorphic-relay"
 
-import Artist from './index'
+import { artsyRelayEnvironment } from "../../../relay/config"
+import { ArtistQueryConfig } from "../../../relay/root_queries"
 
-const rootElement = document.getElementById('root')
+import Artist from "./index"
+
+const rootElement = document.getElementById("root")
 
 declare var window: any
 
