@@ -8,6 +8,7 @@ import { ArtistQueryConfig } from '../../../relay/root_queries'
 import Artist from './index'
 
 const rootElement = document.getElementById('root')
+declare var window: any
 
 const environment = artsyRelayEnvironment()
 IsomorphicRelay.injectPreparedData(environment, window.ARTIST_PROPS)

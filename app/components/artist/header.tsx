@@ -34,7 +34,7 @@ class Header extends React.Component<Props, State> {
     const artist = this.props.artist
     return (
       <div>
-        <h1> {artist.name}</h1>
+        <h1>{artist.name}</h1>
         {this.renderByline()}
         {this.renderFollowersCount()}
       </div>

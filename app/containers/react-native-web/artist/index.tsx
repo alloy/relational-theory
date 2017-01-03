@@ -1,8 +1,8 @@
 // @flow
 
-import React from 'react'
+import * as React from 'react'
 import { StyleSheet, View } from 'react-native-web'
-import Relay from 'react-relay'
+import * as Relay from 'react-relay'
 import ArtistHeader from '../../../components/artist/header'
 
 

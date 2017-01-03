@@ -8,19 +8,29 @@ import IsomorphicRelay from "isomorphic-relay"
 import { artsyRelayMiddleware } from './relay/config'
 import { ArtistQueryConfig } from './relay/root_queries'
 
-import ReactNativeWebArtist from './containers/react-native-web/artist'
 import PureReactArtist from './containers/pure-react/artist'
 import ReactInlineCSSArtist from './containers/react-inline-css/artist'
+import ReactNativeWebArtist from './containers/react-native-web/artist'
 
 import { StyleSheetServer } from 'aphrodite'
 import ReactAphroditeArtist from './containers/react-aphrodite/artist'
 
-import { SheetsRegistryProvider, SheetsRegistry } from 'react-jss'
+import {SheetsRegistry, SheetsRegistryProvider } from 'react-jss'
 import ReactJSSArtist from './containers/react-jss/artist'
 
 const app = express.Router()
 
 app.use(artsyRelayMiddleware)
+
+app.get("/", (req: any, res: any, next: any) => {
+  res.send(`<html><body><ul>
+  <li><a href='/pure-react/artist/banksy'>pure-react</a></li>
+  <li><a href='/react-inline-css/artist/banksy'>react-inline-css</a></li>
+  <li><a href='/react-aphrodite/artist/banksy'>react-aphrodite</a></li>
+  <li><a href='/react-native-web/artist/banksy'>react-native-web</a></li>
+  <li><a href='/react-jss/artist/banksy'>react-jss</a></li>
+  `)
+})
 
 /*
  * PURE REACT/CSS

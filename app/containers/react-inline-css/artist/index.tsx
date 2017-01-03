@@ -18,6 +18,7 @@ export class Artist extends React.Component<Props, State>  {
       <div>
         <ArtistHeader artist={this.props.artist} />
         <hr />
+
         <Grid artworks={this.props.artist.artworks} />
       </div>
     )
