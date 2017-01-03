@@ -12,28 +12,44 @@ module.exports = {
       "./app/containers/pure-react/artist/browser",
       "webpack-hot-middleware/client",
     ],
+    "react-aphrodite": [
+      "./app/containers/react-aphrodite/artist/browser",
+      "webpack-hot-middleware/client",
+    ],
+    "react-inline-css": [
+      "./app/containers/react-inline-css/artist/browser",
+      "webpack-hot-middleware/client",
+    ],
+    "react-jss": [
+      "./app/containers/react-jss/artist/browser",
+      "webpack-hot-middleware/client",
+    ],
+    "react-native-web": [
+      "./app/containers/react-native-web/artist/browser",
+      "webpack-hot-middleware/client",
+    ],
+  },
+  module: {
+    loaders: [
+      {
+        exclude: /node_modules/,
+        loaders: ["react-hot", "/Users/orta/dev/js/apps/relational-theory/webpack", "babel-loader", "ts-loader"],
+        test: /\.tsx?$/,
+      },
+    ],
   },
   output: {
-    path: path.join(__dirname, "assets"),
     filename: "[name].js",
+    path: path.join(__dirname, "assets"),
     publicPath: "/assets",
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
   ],
-  module: {
-    loaders: [
-        {
-        test: /\.tsx?$/,
-        exclude: /node_modules/,
-        loaders: ["react-hot", "/Users/orta/dev/js/apps/relational-theory/webpack", "babel-loader", "ts-loader"],
-      },
-    ],
-  },
   resolve: {
-    extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js'],
     alias: {
       "react-native": "react-native-web/core",
     },
+    extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"],
   },
 };
