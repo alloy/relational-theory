@@ -1,0 +1,27 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "react"
+  ],
+  "rules": {
+    "trailing-comma": [
+      false
+    ],
+    "arrow-parens": false,
+    "semicolon": [
+      true,
+      "never",
+      "ignore-interfaces",
+      "ignore-bound-class-methods"
+    ],
+    "interface-name": [
+      true,
+      "never-prefix"
+    ],
+    "member-access": [
+      false,
+      "check-accessor",
+      "check-constructor"
+    ]
+  }
+}

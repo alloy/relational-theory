@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "types": [
+            "react", "node"
+        ],
+        "sourceMap": true,
+        "rootDir": ".",
+        "jsx": "react",
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true
+    },
+    "exclude": [
+        "node_modules",
+        "out",
+        "dangerfile.js",
+        "data"
+    ]
+}
