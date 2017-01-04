@@ -31,6 +31,7 @@ module.exports = {
   },
   module: {
     loaders: [
+      { test: /\.json$/, loader: "json" },
       {
         exclude: /node_modules/,
         loaders: ["react-hot", "babel-loader", "ts-loader?logLevel=warn"],

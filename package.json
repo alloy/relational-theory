@@ -10,6 +10,7 @@
     "start": "ts-babel-node index.js",
     "test": "yarn run tslint --project tsconfig.json **/**/**.tsx && jest",
     "sync-schema": "cd externals/metaphysics && git fetch && git checkout origin/master && yarn install && npm run dump-schema -- ../../data",
+    "sync-colors": "cd externals/elan && git fetch && git checkout origin/master && cp components/lib/variables/colors.json ../../data",
     "create-types": "gql2ts data/schema.json",
     "storybook": "start-storybook -p 6006"
   },
@@ -36,6 +37,7 @@
     "babel-relay-plugin": "https://github.com/alloy/relay/releases/download/v0.9.3/babel-relay-plugin-0.9.3.tgz",
     "chokidar": "^1.6.1",
     "jest": "^18.0.0",
+    "json-loader": "^0.5.4",
     "longjohn": "alloy/longjohn#update-source-map-support",
     "react-hot-loader": "^1.3.1",
     "react-storybooks-relay-container": "^1.0.1",
