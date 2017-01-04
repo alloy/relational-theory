@@ -33,7 +33,7 @@ module.exports = {
     loaders: [
       {
         exclude: /node_modules/,
-        loaders: ["react-hot", "babel-loader", "ts-loader"],
+        loaders: ["react-hot", "babel-loader", "ts-loader?logLevel=warn"],
         test: /\.tsx?$/,
       },
     ],
