@@ -1,29 +1,14 @@
-// @flow
-
 import * as React from "react"
 import { StyleSheet, View } from "react-native-web"
 import * as Relay from "react-relay"
-import ArtistHeader from "../../../components/artist/header"
+import ArtistHeader from "./header"
 
-interface Props {
-  artist: any
-}
-interface State {
-  following: boolean | null,
-  followersCount: number,
-}
-
-export class Artist extends React.Component<Props, State>  {
-
-  render() {
-    return (
-      <View style={[{ backgroundColor: "red" }, styles.appContainer]}>
-        <ArtistHeader artist={this.props.artist} />
-        <hr />
-      </View>
-    )
-  }
-}
+export const Artist = ({ artist }) => (
+  <View style={styles.appContainer}>
+    <ArtistHeader artist={artist} />
+    <hr />
+  </View>
+)
 
 const styles = StyleSheet.create({
   /**

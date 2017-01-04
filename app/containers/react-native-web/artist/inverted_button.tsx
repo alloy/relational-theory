@@ -1,21 +1,39 @@
-/* @flow */
-'use strict'
+import * as React from "react"
+import { Animated, StyleSheet, Text, TouchableHighlight, View } from "react-native-web"
 
-import React from 'react'
-import { Animated, StyleSheet, TouchableHighlight, View } from 'react-native'
+// import Headline from '../text/headline'
+const Headline = ({ children = null, style }) => <Text style={style}>{children}</Text>
 
-import Headline from '../text/headline'
-import colors from '../../../data/colors'
-import Spinner from '../spinner'
+// import colors from '../../../data/colors'
+const colors = require("../../../../data/colors.json")
+
+// import Spinner from '../spinner'
+const Spinner = ({ spinnerColor, style }) => <div>SPINNER</div>
 
 const AnimationDuration = 250
 const AnimatedTouchable = Animated.createAnimatedComponent(TouchableHighlight)
 const AnimatedHeadline = Animated.createAnimatedComponent(Headline)
 
-export default class InvertedButton extends React.Component {
-  state: {
-    textOpacity: Animated.Value,
-    backgroundColor: Animated.Value
+interface Props {
+  text: string,
+  selected: boolean,
+  inProgress?: boolean,
+  onPress: () => void,
+  onSelectionAnimationFinished?: () => void,
+}
+
+interface State {
+  textOpacity: Animated.Value,
+  backgroundColor: Animated.Value
+}
+
+export default class InvertedButton extends React.Component<Props, State> {
+  static propTypes: Object = {
+    text: React.PropTypes.string,
+    selected: React.PropTypes.bool,
+    inProgress: React.PropTypes.bool,
+    onPress: React.PropTypes.func,
+    onSelectionAnimationFinished: React.PropTypes.func,
   }
 
   constructor(props: any) {
@@ -44,7 +62,7 @@ export default class InvertedButton extends React.Component {
   render() {
     const backgroundColor = this.state.backgroundColor.interpolate({
       inputRange: [0, 1],
-      outputRange: (['black', colors['purple-regular']]: string[])
+      outputRange: (['black', colors['purple-regular']])
     })
     const styling = {
       underlayColor: (this.props.selected ? 'black' : colors['purple-regular']),
@@ -62,14 +80,6 @@ export default class InvertedButton extends React.Component {
       </AnimatedTouchable>
     )
   }
-}
-
-InvertedButton.propTypes = {
-  text: React.PropTypes.string,
-  selected: React.PropTypes.bool,
-  inProgress: React.PropTypes.bool,
-  onPress: React.PropTypes.func,
-  onSelectionAnimationFinished: React.PropTypes.func,
 }
 
 const styles = StyleSheet.create({
