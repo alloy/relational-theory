@@ -4,7 +4,8 @@
         "target": "es6",
         "types": [
             "react",
-            "node"
+            "node",
+            "jest"
         ],
         "sourceMap": true,
         "rootDir": ".",
@@ -16,6 +17,7 @@
         "node_modules",
         "out",
         "dangerfile.js",
-        "data"
+        "data",
+        "externals"
     ]
 }
