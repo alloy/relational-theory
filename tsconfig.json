@@ -3,7 +3,8 @@
         "module": "commonjs",
         "target": "es6",
         "types": [
-            "react", "node"
+            "react",
+            "node"
         ],
         "sourceMap": true,
         "rootDir": ".",
