@@ -2,9 +2,10 @@
 
 import * as React from "react"
 import * as Relay from "react-relay"
+import GQL from "../../gql"
 
 interface Props {
-  artist: any
+  artist: GQL.ArtistType
 }
 
 interface State {
@@ -14,32 +15,21 @@ interface State {
 
 class Header extends React.Component<Props, State> {
 
-  static propTypes: Object = {
-    artist: React.PropTypes.shape({
-      birthday: React.PropTypes.string,
-      counts: React.PropTypes.shape({
-        follows: React.PropTypes.number,
-      }),
-      name: React.PropTypes.string,
-      nationality: React.PropTypes.string,
-    }),
-  }
-
   constructor(props: any) {
     super(props)
     this.state = { following: null, followersCount: props.artist.counts.follows }
   }
 
   render() {
-
     const artist = this.props.artist
-    return (
+    artist.
+      return(
       <div>
         <h1>{artist.name}</h1>
         {this.renderByline()}
         {this.renderFollowersCount()}
       </div>
-    )
+      )
   }
 
   renderFollowersCount() {
