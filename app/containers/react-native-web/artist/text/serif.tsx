@@ -1,22 +1,13 @@
-/* @flow */
-'use strict'
+import * as React from "react"
+import { StyleSheet, Text } from "react-native-web"
 
-import React from 'react'
-import { StyleSheet, Text } from 'react-native'
-
-export default class Serif extends React.Component {
-  render() {
-    const { children, style, ...props } = this.props
-    return (
-      <Text style={[styles.default, style, styles.required]} numberOfLines={1} {...props}>
-        {children}
-      </Text>
-    )
-  }
-}
-
-Serif.propTypes = {
-  ...Text.propTypes,
+export default (props: { children?: React.ReactNode, style: Object }) => {
+  const { children, style, ...rest } = props
+  return (
+    <Text style={[styles.default, style, styles.required]} numberOfLines={1} {...rest}>
+      {children}
+    </Text>
+  )
 }
 
 const styles = StyleSheet.create({
@@ -24,6 +15,6 @@ const styles = StyleSheet.create({
     fontSize: 17
   },
   required: {
-    fontFamily: 'AGaramondPro-Regular',
+    fontFamily: "'Adobe Garamond W08', adobe-garamond-pro, AGaramondPro-Regular, 'Times New Roman', Times, serif",
   }
 })

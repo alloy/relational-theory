@@ -7,14 +7,9 @@ import { StyleSheet, Text, View, Dimensions } from "react-native-web"
 // import colors from "../../../../data/colors"
 const colors = require("../../../../data/colors.json")
 
+import Headline from './text/headline'
 import InvertedButton from './inverted_button'
-// const InvertedButton = ({ text, selected, onPress }) => <button>{text}</button>
-
-// import SerifText from '../text/serif'
-const SerifText = ({ children = null, style }) => <Text style={style}>{children}</Text>
-
-// import Headline from '../text/headline'
-const Headline = ({ children = null, style }) => <Text style={style}>{children}</Text>
+import SerifText from './text/serif'
 
 const isPad = Dimensions.get('window').width > 700
 
@@ -25,7 +20,6 @@ interface State {
   following: boolean | null,
   followersCount: number,
 }
-
 
 class Header extends React.Component<Props, State> {
   static propTypes: Object = {

@@ -1,8 +1,7 @@
 import * as React from "react"
 import { Animated, StyleSheet, Text, TouchableHighlight, View } from "react-native-web"
 
-// import Headline from '../text/headline'
-const Headline = ({ children = null, style }) => <Text style={style}>{children}</Text>
+import Headline from './text/headline'
 
 // import colors from '../../../data/colors'
 const colors = require("../../../../data/colors.json")
