@@ -16,9 +16,9 @@ const styles = StyleSheet.create({
    */
   appContainer: {
     bottom: 0,
-    left: 0,
+    left: 40,
     position: "absolute",
-    right: 0,
+    right: 40,
     top: 0,
   },
 })
