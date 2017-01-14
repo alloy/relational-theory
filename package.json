@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "ts-babel-node index.js",
-    "test": "yarn run tslint --project tsconfig.json **/**/**.tsx && jest",
+    "test": "yarn run tslint -- --project tsconfig.json app/**/**.{ts,tsx} && jest",
     "sync-schema": "cd externals/metaphysics && git fetch && git checkout origin/master && yarn install && npm run dump-schema -- ../../data",
     "sync-colors": "cd externals/elan && git fetch && git checkout origin/master && cp components/lib/variables/colors.json ../../data",
     "create-types": "gql2ts data/schema.json",
