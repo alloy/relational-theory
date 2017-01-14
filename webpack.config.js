@@ -53,4 +53,5 @@ module.exports = {
     },
     extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"],
   },
+  devtool: "#inline-source-map", // TODO: For production we should output a source-map file instead.
 };
