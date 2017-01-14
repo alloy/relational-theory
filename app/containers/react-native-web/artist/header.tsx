@@ -1,6 +1,6 @@
 import * as React from "react"
 import * as Relay from "react-relay"
-import { StyleSheet, Text, View, Dimensions } from "react-native-web"
+import { FlexAlignType, StyleSheet, Text, TextStyle, View, ViewStyle, Dimensions } from "react-native-web"
 
 // import Events from '../../native_modules/events'
 
@@ -11,11 +11,13 @@ import Headline from './text/headline'
 import InvertedButton from './inverted_button'
 import SerifText from './text/serif'
 
-const isPad = Dimensions.get('window').width > 700
+// const isPad = Dimensions.get('window').width > 700
+const isPad = true
 
 interface Props {
   artist: any
 }
+
 interface State {
   following: boolean | null,
   followersCount: number,
@@ -137,9 +139,16 @@ class Header extends React.Component<Props, State> {
   }
 }
 
-const styles = StyleSheet.create({
+interface Styles {
+  base: TextStyle,
+  headline: TextStyle,
+  followCount: TextStyle,
+  followButton: ViewStyle,
+}
+
+const styles = StyleSheet.create<Styles>({
   base: {
-    textAlign: 'center',
+    textAlign: "center",
   },
   headline: {
     fontSize: 14,
@@ -151,10 +160,10 @@ const styles = StyleSheet.create({
   followButton: {
     height: 40,
     width: isPad ? 330 : null,
-    alignSelf: isPad ? 'center' : null,
+    alignSelf: isPad ? "center" : null,
     marginLeft: 0,
     marginRight: 0,
-  }
+  },
 })
 
 export default Relay.createContainer(Header as any, {

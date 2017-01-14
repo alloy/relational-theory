@@ -5,7 +5,8 @@
         "types": [
             "react",
             "node",
-            "jest"
+            "jest",
+            "isomorphic-fetch"
         ],
         "sourceMap": true,
         "rootDir": ".",

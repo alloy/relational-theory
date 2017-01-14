@@ -1,17 +1,22 @@
-/* @flow */
-'use strict'
-
-import Relay from 'react-relay'
-import React from 'react'
-import { Image, View, StyleSheet, TouchableWithoutFeedback } from 'react-native'
+import * as Relay from 'react-relay'
+import * as React from 'react'
+import { Image, TextStyle, View, ViewStyle, StyleSheet, TouchableWithoutFeedback } from "react-native-web"
 import { map } from 'lodash'
 
-import ImageView from '../opaque_image_view'
-import SerifText from '../text/serif'
-import colors from '../../../data/colors'
-import SwitchBoard from '../../native_modules/switch_board'
+// import ImageView from '../opaque_image_view'
+const ImageView = (props: { style: ViewStyle, aspectRatio: number, imageURL: string }) => <img src={props.imageURL} style={{ width: "100%" }} />
 
-class Artwork extends React.Component {
+import SerifText from './text/serif'
+const colors = require("../../../../data/colors.json")
+import GQL from "../../../gql"
+
+import SwitchBoard from './switch_board'
+
+interface Props {
+  artwork: GQL.ArtworkType,
+}
+
+class Artwork extends React.Component<Props, undefined> {
   handleTap() {
     SwitchBoard.presentNavigationViewController(this, this.props.artwork.href)
   }
@@ -22,10 +27,10 @@ class Artwork extends React.Component {
       <TouchableWithoutFeedback onPress={this.handleTap.bind(this)}>
         <View>
           <ImageView style={styles.image} aspectRatio={artwork.image.aspect_ratio} imageURL={artwork.image.url} />
-          { this.artists() }
-          { this.artworkTitle() }
-          { this.props.artwork.partner ? <SerifText style={styles.text}>{ this.props.artwork.partner.name }</SerifText> : null }
-          { this.saleMessage() }
+          {this.artists()}
+          {this.artworkTitle()}
+          {this.props.artwork.partner ? <SerifText style={styles.text}>{this.props.artwork.partner.name}</SerifText> : null}
+          {this.saleMessage()}
         </View>
       </TouchableWithoutFeedback>
     )
@@ -49,8 +54,8 @@ class Artwork extends React.Component {
     if (artwork.title) {
       return (
         <SerifText style={styles.text}>
-          <SerifText style={[styles.text, styles.title]}>{ artwork.title }</SerifText>
-          { artwork.date ? (', ' + artwork.date) : '' }
+          <SerifText style={[styles.text, styles.title]}>{artwork.title}</SerifText>
+          {artwork.date ? (', ' + artwork.date) : ''}
         </SerifText>
       )
     } else {
@@ -62,37 +67,25 @@ class Artwork extends React.Component {
     const artwork = this.props.artwork
     if (artwork.is_in_auction) {
       return (
-        <View style={{flexDirection: 'row'}}>
-          <Image style={{ marginRight: 4 }} source={require('../../../images/paddle.png')} />
+        <View style={{ flexDirection: 'row' }}>
+          {/*<Image style={{ marginRight: 4 }} source={require('../../../images/paddle.png')} />*/}
           <SerifText style={styles.text}>Bid now</SerifText>
         </View>
       )
     } else {
       return artwork.sale_message && <SerifText style={styles.text}>{artwork.sale_message}</SerifText>
     }
-   }
+  }
 }
 
-Artwork.propTypes = {
-  artwork: React.PropTypes.shape({
-    title: React.PropTypes.string,
-    sale_message: React.PropTypes.string,
-    image: React.PropTypes.shape({
-      url: React.PropTypes.string,
-      aspect_ratio: React.PropTypes.number,
-    }),
-    artists: React.PropTypes.arrayOf(
-      React.PropTypes.shape({
-        name: React.PropTypes.string,
-      }),
-    ),
-    partner: React.PropTypes.shape({
-      name: React.PropTypes.string,
-    }),
-  }),
+interface Styles {
+  image: ViewStyle,
+  text: TextStyle,
+  artist: TextStyle,
+  title: TextStyle,
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create<Styles>({
   image: {
     marginBottom: 10,
   },

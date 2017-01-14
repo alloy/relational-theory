@@ -1,8 +1,9 @@
 import * as React from "react"
-import { StyleSheet, Text } from "react-native-web"
+import { StyleSheet, Text, TextProperties } from "react-native-web"
 
-export default (props: { children?: React.ReactNode, style: Object }) => {
-  const { children, style, ...rest } = props
+export default (props: TextProperties) => {
+  // FIXME Only taking `ref` out of `rest` because the TS compiler complains about passing that on.
+  const { children, style, ref, ...rest } = props
   return (
     <Text style={[styles.default, style, styles.required]} numberOfLines={1} {...rest}>
       {children}

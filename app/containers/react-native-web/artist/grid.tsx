@@ -1,6 +1,3 @@
-/* @flow */
-'use strict'
-
 // 1. Get first layout pass of grid view so we have a total width and calculate the column width (componentDidMount?).
 // 2. Possibly do artwork column layout now, as we can do so based just on the aspect ratio, assuming the text height
 //    won't be too different between artworks.
@@ -9,16 +6,21 @@
 //    - leting the artwork component do a layout pass and calculate its own height based on the column width.
 // 4. Update height of grid to encompass all items.
 
-import Relay from 'react-relay'
-import React from 'react'
-import { Dimensions, View, ScrollView, StyleSheet } from 'react-native'
-import type { LayoutEvent } from '../../system/events'
+import * as Relay from 'react-relay'
+import * as React from 'react'
+import { Dimensions, View, ViewStyle, ScrollView, StyleSheet } from "react-native-web"
 
 import Artwork from './artwork'
-import Spinner from '../spinner'
+// import Spinner from '../spinner'
+const Spinner = ({ spinnerColor = null, style }) => <div></div>
 
-import metaphysics from '../../metaphysics'
-import {get, isEqual} from 'lodash'
+import metaphysics from './metaphysics'
+import GQL from '../../../gql'
+
+import { get, isEqual } from 'lodash'
+
+// const isPad = Dimensions.get('window').width > 700
+const isPad = true
 
 const PageSize = 10
 const PageEndThreshold = 1000
@@ -32,62 +34,62 @@ const PageEndThreshold = 1000
  *   - the calculation currently only takes into account the size of the image, not if e.g. the sale message is present
  */
 
-type Props = {
+interface Props {
   /** The direction for the grid, currently only 'column' is supported . */
-  sectionDirection: string;
+  sectionDirection: string,
 
   /** The arity of the number of sections (e.g. columns) to show */
-  sectionCount: number;
+  sectionCount: number,
 
   /** The inset margin for the whole grid */
-  sectionMargin: number;
+  sectionMargin: number,
 
   /** The per-item margin */
-  itemMargin: number;
+  itemMargin: number,
 
   /** All the artworks for the grid */
-  artworks: any[];
+  artworks: GQL.ArtworkType[],
 
   /** A non-optional object for the request state.
    *  When this changes, it will reset the component.
    *  We recommend sending in your query params.
    *  This gets passed back to your request query below.
    * */
-  queryState: any;
+  queryState: any,
 
   /** A non-optional callback to generate the GraphQL query. */
-  queryForPage: (component: InfiniteScrollArtworksGrid, page: number, queryState: any) => string;
+  queryForPage: (component: InfiniteScrollArtworksGrid, page: number, queryState: any) => string,
 
   /** A callback that is called once all artworks have been queried. */
-  onComplete?: () => void;
+  onComplete?: () => void,
 
   /** When you get the results from the GraphQL, this is the keypath from
    * which the artworks can be found, applied via `_.get()`
    * */
-  queryArtworksKeypath: string;
+  queryArtworksKeypath: string,
 }
 
-class InfiniteScrollArtworksGrid extends React.Component {
-  state: {
-    sectionDimension: number,
-    artworks: any[],
-    page: number,
-    completed: boolean,
-    fetchingNextPage: boolean,
-  }
+interface State {
+  sectionDimension: number,
+  artworks: GQL.ArtworkType[],
+  page: number,
+  completed: boolean,
+  fetchingNextPage: boolean,
+}
 
+class InfiniteScrollArtworksGrid extends React.Component<Props, State> {
   _sentEndForContentLength: null | number;
-  props: Props
 
   static defaultProps = {
     sectionDirection: 'column',
-    sectionCount: Dimensions.get('window').width > 700 ? 3 : 2,
+    sectionCount: isPad ? 3 : 2,
     sectionMargin: 20,
     itemMargin: 20,
   }
 
   constructor(props) {
     super(props)
+    console.log(props.artworks)
     this.state = {
       sectionDimension: 0,
       artworks: this.props.artworks,
@@ -100,7 +102,7 @@ class InfiniteScrollArtworksGrid extends React.Component {
   }
 
   // Initial setup
-  componentWillMount(){
+  componentWillMount() {
     if (this.state.artworks.length === 0) {
       this.fetchNextPage()
     }
@@ -125,11 +127,11 @@ class InfiniteScrollArtworksGrid extends React.Component {
 
     metaphysics(query)
       .then((results) => {
-        this.debugLog(query, results, null)
+        // this.debugLog(query, results, null)
 
-        const artworks = get(results, this.props.queryArtworksKeypath)
+        const artworks: GQL.ArtworkType[] = get(results, this.props.queryArtworksKeypath)
         if (artworks === undefined) { console.error('Your queryArtworksKeypath could be wrong in the infinite_scroll_grid') }
-        const completed = artworks < PageSize
+        const completed = artworks.length < PageSize
         if (completed && this.props.onComplete) {
           this.props.onComplete()
         }
@@ -138,63 +140,63 @@ class InfiniteScrollArtworksGrid extends React.Component {
           artworks: this.state.artworks.concat(artworks),
           completed: completed,
           fetchingNextPage: false,
-        })
+        } as State) // TODO Required until this is merged: https://github.com/DefinitelyTyped/DefinitelyTyped/pull/13155
       })
       .catch((error) => {
-        this.setState({ fetchingNextPage: false })
-        this.debugLog(query, null, error)
+        this.setState({ fetchingNextPage: false } as State)
+        // this.debugLog(query, null, error)
       })
 
-    this.setState({ fetchingNextPage: true })
+    this.setState({ fetchingNextPage: true } as State)
   }
 
   /** A simplified version of the Relay debugging logs for infinite scrolls */
-  debugLog(query: string, response: ?any, error: ?any) {
-    if (__DEV__ && global.originalXMLHttpRequest !== undefined) {
-      var groupName = '%c[' + this.state.page + '] ' + 'Infinite scroll request'
-      console.groupCollapsed(groupName, 'color:' + (response ? 'black' : 'red') + ';')
-      console.log('Query:\n', query)
-      if (response) {
-        console.log('Response:\n', response)
-      }
-      console.groupEnd()
-      if (error) {
-        console.error('Error:\n', error)
-      }
+  // debugLog(query: string, response?: any, error?: any) {
+  //   if (__DEV__ && global.originalXMLHttpRequest !== undefined) {
+  //     var groupName = '%c[' + this.state.page + '] ' + 'Infinite scroll request'
+  //     console.groupCollapsed(groupName, 'color:' + (response ? 'black' : 'red') + ';')
+  //     console.log('Query:\n', query)
+  //     if (response) {
+  //       console.log('Response:\n', response)
+  //     }
+  //     console.groupEnd()
+  //     if (error) {
+  //       console.error('Error:\n', error)
+  //     }
+  //   }
+  // }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.props === undefined) {
+      return true
     }
-  }
 
-shouldComponentUpdate(nextProps, nextState){
-  if (this.props === undefined) {
-    return true
-  }
-
-  if (!isEqual(this.props.queryState, nextProps.queryState)) {
-    // Empty the artworks, and reset the state as we have new a query object
-    this.setState({
-      artworks: [],
-      completed: false,
-      page: 0,
-      fetchingNextPage: false
-    })
-    return true
-  }
-
-  return (!isEqual(this.props, nextProps) || !isEqual(this.state, nextState))
-}
-
-  onLayout = (event: LayoutEvent) => {
-    const layout = event.nativeEvent.layout
-    if (layout.width > 0) {
-      // This is the sum of all margins in between sections, so do not count to the right of last column.
-      const sectionMargins = this.props.sectionMargin * (this.props.sectionCount - 1)
-      this.setState({ sectionDimension: (layout.width - sectionMargins) / this.props.sectionCount })
+    if (!isEqual(this.props.queryState, nextProps.queryState)) {
+      // Empty the artworks, and reset the state as we have new a query object
+      this.setState({
+        artworks: [],
+        completed: false,
+        page: 0,
+        fetchingNextPage: false
+      } as State)
+      return true
     }
+
+    return (!isEqual(this.props, nextProps) || !isEqual(this.state, nextState))
   }
+
+  // onLayout = (event: React.LayoutChangeEvent) => {
+  //   const layout = event.nativeEvent.layout
+  //   if (layout.width > 0) {
+  //     // This is the sum of all margins in between sections, so do not count to the right of last column.
+  //     const sectionMargins = this.props.sectionMargin * (this.props.sectionCount - 1)
+  //     this.setState({ sectionDimension: (layout.width - sectionMargins) / this.props.sectionCount } as State)
+  //   }
+  // }
 
   sectionedArtworks() {
-    const sectionedArtworks = []
-    const sectionRatioSums = []
+    const sectionedArtworks: GQL.ArtworkType[][] = []
+    const sectionRatioSums: number[] = []
     for (let i = 0; i < this.props.sectionCount; i++) {
       sectionedArtworks.push([])
       sectionRatioSums.push(0)
@@ -210,7 +212,7 @@ shouldComponentUpdate(nextProps, nextState){
       if (artwork.image) {
         // Find section with lowest *inverted* aspect ratio sum, which is the shortest column.
         let lowestRatioSum = Number.MAX_VALUE // Start higher, so we always find a
-        let sectionIndex: ?number = null
+        let sectionIndex: number = null
         for (let j = 0; j < sectionRatioSums.length; j++) {
           const ratioSum = sectionRatioSums[j]
           if (ratioSum < lowestRatioSum) {
@@ -246,7 +248,7 @@ shouldComponentUpdate(nextProps, nextState){
       const artworks = sectionedArtworks[i]
       for (let j = 0; j < artworks.length; j++) {
         const artwork = artworks[j]
-        artworkComponents.push(<Artwork artwork={artwork} key={'artwork-' + j + '-' + artwork.__id} />)
+        artworkComponents.push(<Artwork artwork={artwork} key={`artwork-${j}-${artwork.__id}`} />)
         // Setting a marginBottom on the artwork component didn’t work, so using a spacer view instead.
         if (j < artworks.length - 1) {
           artworkComponents.push(
@@ -261,7 +263,7 @@ shouldComponentUpdate(nextProps, nextState){
       }
 
       sections.push(
-        <View style={[styles.section, sectionSpecificStyle]} key={i} accessibilityLabel={'Section ' + i}>
+        <View style={[styles.section, sectionSpecificStyle]} key={i} accessibilityLabel={'Section ' + i} >
           {artworkComponents}
         </View>
       )
@@ -270,7 +272,7 @@ shouldComponentUpdate(nextProps, nextState){
   }
 
   // Lifted pretty much straight from RN’s ListView.js
-  onScroll = (event) => {
+  onScroll = (event: React.NativeSyntheticEvent<React.NativeScrollEvent>) => {
     const scrollProperties = event.nativeEvent
     const contentLength = scrollProperties.contentSize.height
     if (contentLength !== this._sentEndForContentLength) {
@@ -285,14 +287,15 @@ shouldComponentUpdate(nextProps, nextState){
   }
 
   render() {
-    const artworks = this.state.sectionDimension ? this.renderSections() : null
+    // const artworks = this.state.sectionDimension ? this.renderSections() : null
+    const artworks = this.renderSections()
     return (
       <ScrollView onScroll={this.onScroll}
-                  scrollEventThrottle={50}
-                  onLayout={this.onLayout}
-                  scrollsToTop={false}
-                  accessibilityLabel="Artworks ScrollView">
-        <View style={styles.container} accessibilityLabel="Artworks Content View">
+        scrollEventThrottle={50}
+        // onLayout={this.onLayout}
+        // scrollsToTop={false}
+        accessibilityLabel="Artworks ScrollView" >
+        <View style={styles.container} accessibilityLabel="Artworks Content View" >
           {artworks}
         </View>
         {this.state.fetchingNextPage ? <Spinner style={styles.spinner} /> : null}
@@ -301,13 +304,23 @@ shouldComponentUpdate(nextProps, nextState){
   }
 }
 
-const styles = StyleSheet.create({
+interface Styles {
+  container: ViewStyle,
+  section: ViewStyle,
+  spinner: ViewStyle,
+}
+
+const styles = StyleSheet.create<Styles>({
   container: {
-    flexDirection: 'row',
+    display: "flex",
+    flexDirection: "row",
   },
   section: {
+    // flex: "1 0 0px",
     flex: 1,
-    flexDirection: 'column',
+    flexDirection: "column",
+    marginRight: 20,
+    maxWidth: 300,
   },
   spinner: {
     marginTop: 20,
@@ -329,7 +342,8 @@ const InfiniteScrollArtworksGridContainer = Relay.createContainer(InfiniteScroll
 })
 
 // TODO: While we do pagination manually, we can’t actually use a Relay container around Artwork.
-InfiniteScrollArtworksGridContainer.artworksQuery = (artistID, filter, page) => {
+const container: any = InfiniteScrollArtworksGridContainer
+container.artworksQuery = (artistID, filter, page) => {
   return `
     query {
       artist(id: "${artistID}") {
@@ -340,7 +354,7 @@ InfiniteScrollArtworksGridContainer.artworksQuery = (artistID, filter, page) => 
           sale_message
           is_in_auction
           image {
-            url(version: "large")
+          url(version: "large")
             aspect_ratio
           }
           artist {

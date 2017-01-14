@@ -1,5 +1,3 @@
-"use strict"
-
 import * as React from "react"
 import * as Relay from "react-relay"
 import GQL from "../../gql"
@@ -22,14 +20,13 @@ class Header extends React.Component<Props, State> {
 
   render() {
     const artist = this.props.artist
-    artist.
-      return(
+    return (
       <div>
         <h1>{artist.name}</h1>
         {this.renderByline()}
         {this.renderFollowersCount()}
       </div>
-      )
+    )
   }
 
   renderFollowersCount() {
