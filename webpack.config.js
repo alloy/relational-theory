@@ -30,11 +30,11 @@ module.exports = {
     ],
   },
   module: {
-    loaders: [
-      { test: /\.json$/, loader: "json" },
+    rules: [
+      { test: /\.json$/, loader: "json-loader" },
       {
         exclude: /node_modules/,
-        loaders: ["react-hot", "babel-loader", "ts-loader?logLevel=warn"],
+        loaders: ["react-hot-loader", "babel-loader", "ts-loader?logLevel=warn"],
         test: /\.tsx?$/,
       },
     ],
@@ -51,7 +51,7 @@ module.exports = {
     alias: {
       "react-native": "react-native-web/core",
     },
-    extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"],
+    extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js"],
   },
   devtool: "#inline-source-map", // TODO: For production we should output a source-map file instead.
 };
