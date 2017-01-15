@@ -2,11 +2,6 @@
     "compilerOptions": {
         "module": "commonjs",
         "target": "es6",
-        "types": [
-            "react",
-            "node",
-            "jest"
-        ],
         "sourceMap": true,
         "rootDir": ".",
         "jsx": "react",

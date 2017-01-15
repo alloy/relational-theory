@@ -31,9 +31,10 @@ module.exports = {
   },
   module: {
     loaders: [
+      { test: /\.json$/, loader: "json" },
       {
         exclude: /node_modules/,
-        loaders: ["react-hot", "babel-loader", "ts-loader"],
+        loaders: ["react-hot", "babel-loader", "ts-loader?logLevel=warn"],
         test: /\.tsx?$/,
       },
     ],
@@ -52,4 +53,5 @@ module.exports = {
     },
     extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"],
   },
+  devtool: "#inline-source-map", // TODO: For production we should output a source-map file instead.
 };

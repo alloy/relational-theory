@@ -81,5 +81,5 @@ app.use(function (req, res, next) {
 });
 
 app.listen(3000, () => {
-  console.log("✨ Opened on http://localhost:3000"); // tslint:disable-line
+  console.log("✨  Listening on http://localhost:3000"); // tslint:disable-line
 });

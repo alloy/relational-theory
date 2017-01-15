@@ -1,3 +1,6 @@
 [submodule "externals/metaphysics"]
 	path = externals/metaphysics
 	url = https://github.com/artsy/metaphysics.git
+[submodule "externals/elan"]
+	path = externals/elan
+	url = https://github.com/artsy/elan.git

@@ -8,13 +8,15 @@
   "license": "MIT",
   "scripts": {
     "start": "ts-babel-node index.js",
-    "test": "yarn run tslint --project tsconfig.json **/**/**.tsx && jest",
+    "test": "yarn run tslint -- --project tsconfig.json app/**/**.{ts,tsx} && jest",
     "sync-schema": "cd externals/metaphysics && git fetch && git checkout origin/master && yarn install && npm run dump-schema -- ../../data",
+    "sync-colors": "cd externals/elan && git fetch && git checkout origin/master && cp components/lib/variables/colors.json ../../data",
     "create-types": "gql2ts data/schema.json",
     "storybook": "start-storybook -p 6006"
   },
   "devDependencies": {
     "@kadira/storybook": "^2.21.0",
+    "@types/isomorphic-fetch": "^0.0.31",
     "@types/jest": "^16.0.3",
     "@types/node": "^6.0.55",
     "@types/react": "^0.14.55",
@@ -36,6 +38,7 @@
     "babel-relay-plugin": "https://github.com/alloy/relay/releases/download/v0.9.3/babel-relay-plugin-0.9.3.tgz",
     "chokidar": "^1.6.1",
     "jest": "^18.0.0",
+    "json-loader": "^0.5.4",
     "longjohn": "alloy/longjohn#update-source-map-support",
     "react-hot-loader": "^1.3.1",
     "react-storybooks-relay-container": "^1.0.1",
@@ -52,6 +55,7 @@
   "dependencies": {
     "aphrodite": "^1.1.0",
     "express": "^4.14.0",
+    "isomorphic-fetch": "^2.2.1",
     "isomorphic-relay": "^0.7.3",
     "morgan": "^1.7.0",
     "react": "^15.4.1",

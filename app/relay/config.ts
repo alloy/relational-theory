@@ -1,6 +1,6 @@
 import * as Relay from "react-relay"
 
-const metaphysicsURL = "https://metaphysics-staging.artsy.net"
+export const metaphysicsURL = "https://metaphysics-staging.artsy.net"
 
 export function artsyNetworkLayer() {
   return new Relay.DefaultNetworkLayer(metaphysicsURL, {
@@ -10,8 +10,6 @@ export function artsyNetworkLayer() {
     },
   })
 }
-
-type Thing = { req: any, res: any, next: any }
 
 /*
  * For the server.
@@ -23,9 +21,9 @@ export function artsyRelayMiddleware(req: any, res: any, next: any) {
 
 // TODO: Send to definitely typed?
 declare module "react-relay" {
-    class Environment {
-        injectNetworkLayer(networkLayer: RelayNetworkLayer): void
-    }
+  class Environment {
+    injectNetworkLayer(networkLayer: RelayNetworkLayer): void
+  }
 }
 
 /*
