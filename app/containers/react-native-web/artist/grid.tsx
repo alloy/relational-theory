@@ -6,18 +6,18 @@
 //    - leting the artwork component do a layout pass and calculate its own height based on the column width.
 // 4. Update height of grid to encompass all items.
 
-import * as Relay from 'react-relay'
-import * as React from 'react'
-import { Dimensions, View, ViewStyle, ScrollView, StyleSheet } from "react-native-web"
+import * as React from "react"
+import { Dimensions, ScrollView, StyleSheet, View, ViewStyle } from "react-native-web"
+import * as Relay from "react-relay"
 
-import Artwork from './artwork'
+import Artwork from "./artwork"
 // import Spinner from '../spinner'
 const Spinner = ({ spinnerColor = null, style }) => <div></div>
 
-import metaphysics from './metaphysics'
-import GQL from '../../../gql'
+import GQL from "../../../gql"
+import metaphysics from "./metaphysics"
 
-import { get, isEqual } from 'lodash'
+import { get, isEqual } from "lodash"
 
 // const isPad = Dimensions.get('window').width > 700
 const isPad = true
@@ -54,7 +54,7 @@ interface Props {
    *  When this changes, it will reset the component.
    *  We recommend sending in your query params.
    *  This gets passed back to your request query below.
-   * */
+   */
   queryState: any,
 
   /** A non-optional callback to generate the GraphQL query. */
@@ -65,7 +65,7 @@ interface Props {
 
   /** When you get the results from the GraphQL, this is the keypath from
    * which the artworks can be found, applied via `_.get()`
-   * */
+   */
   queryArtworksKeypath: string,
 }
 
@@ -75,29 +75,27 @@ interface State {
   page: number,
   completed: boolean,
   fetchingNextPage: boolean,
+  sentEndForContentLength: null | number
 }
 
 class InfiniteScrollArtworksGrid extends React.Component<Props, State> {
-  _sentEndForContentLength: null | number;
-
   static defaultProps = {
-    sectionDirection: 'column',
-    sectionCount: isPad ? 3 : 2,
-    sectionMargin: 20,
     itemMargin: 20,
+    sectionCount: isPad ? 3 : 2,
+    sectionDirection: "column",
+    sectionMargin: 20,
   }
 
   constructor(props) {
     super(props)
     this.state = {
-      sectionDimension: 0,
       artworks: this.props.artworks,
-      page: this.props.artworks.length ? 1 : 0,
       completed: false,
       fetchingNextPage: false,
+      page: this.props.artworks.length ? 1 : 0,
+      sectionDimension: 0,
+      sentEndForContentLength: null,
     }
-
-    this._sentEndForContentLength = null
   }
 
   // Initial setup
@@ -129,16 +127,18 @@ class InfiniteScrollArtworksGrid extends React.Component<Props, State> {
         // this.debugLog(query, results, null)
 
         const artworks: GQL.ArtworkType[] = get(results, this.props.queryArtworksKeypath)
-        if (artworks === undefined) { console.error('Your queryArtworksKeypath could be wrong in the infinite_scroll_grid') }
+        if (artworks === undefined) {
+          console.error("Your queryArtworksKeypath could be wrong in the infinite_scroll_grid")
+        }
         const completed = artworks.length < PageSize
         if (completed && this.props.onComplete) {
           this.props.onComplete()
         }
         this.setState({
-          page: nextPage,
           artworks: this.state.artworks.concat(artworks),
-          completed: completed,
+          completed,
           fetchingNextPage: false,
+          page: nextPage,
         } as State) // TODO Required until this is merged: https://github.com/DefinitelyTyped/DefinitelyTyped/pull/13155
       })
       .catch((error) => {
@@ -175,8 +175,8 @@ class InfiniteScrollArtworksGrid extends React.Component<Props, State> {
       this.setState({
         artworks: [],
         completed: false,
+        fetchingNextPage: false,
         page: 0,
-        fetchingNextPage: false
       } as State)
       return true
     }
@@ -251,18 +251,18 @@ class InfiniteScrollArtworksGrid extends React.Component<Props, State> {
         // Setting a marginBottom on the artwork component didn’t work, so using a spacer view instead.
         if (j < artworks.length - 1) {
           artworkComponents.push(
-            <View style={spacerStyle} key={'spacer-' + j + '-' + artwork.__id} accessibilityLabel="Spacer View" />
+            <View style={spacerStyle} key={"spacer-" + j + "-" + artwork.__id} accessibilityLabel="Spacer View" />
           )
         }
       }
 
       const sectionSpecificStyle = {
-        width: this.state.sectionDimension,
         marginRight: (i === this.props.sectionCount - 1 ? 0 : this.props.sectionMargin),
+        width: this.state.sectionDimension,
       }
 
       sections.push(
-        <View style={[styles.section, sectionSpecificStyle]} key={i} accessibilityLabel={'Section ' + i} >
+        <View style={[styles.section, sectionSpecificStyle]} key={i} accessibilityLabel={"Section " + i} >
           {artworkComponents}
         </View>
       )
@@ -274,12 +274,12 @@ class InfiniteScrollArtworksGrid extends React.Component<Props, State> {
   onScroll = (event: React.NativeSyntheticEvent<React.NativeScrollEvent>) => {
     const scrollProperties = event.nativeEvent
     const contentLength = scrollProperties.contentSize.height
-    if (contentLength !== this._sentEndForContentLength) {
+    if (contentLength !== this.state.sentEndForContentLength) {
       const offset = scrollProperties.contentOffset.y
       const visibleLength = scrollProperties.layoutMeasurement.height
       const distanceFromEnd = contentLength - visibleLength - offset
       if (distanceFromEnd < PageEndThreshold) {
-        this._sentEndForContentLength = contentLength
+        this.state.sentEndForContentLength = contentLength
         this.fetchNextPage()
       }
     }
@@ -334,7 +334,7 @@ const InfiniteScrollArtworksGridContainer = Relay.createContainer(InfiniteScroll
         image {
           aspect_ratio
         }
-        ${Artwork.getFragment('artwork')}
+        ${Artwork.getFragment("artwork")}
       }
     `,
   }
