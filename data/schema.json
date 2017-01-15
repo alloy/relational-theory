@@ -4590,59 +4590,119 @@
             {
               "name": "created_at_asc",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
             },
             {
               "name": "created_at_desc",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
             },
             {
               "name": "end_at_asc",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
             },
             {
               "name": "end_at_desc",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
             },
             {
               "name": "start_at_asc",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
             },
             {
               "name": "start_at_desc",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
             },
             {
               "name": "name_asc",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
             },
             {
               "name": "name_desc",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
             },
             {
               "name": "publish_at_asc",
+              "description": null,
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
+            },
+            {
+              "name": "publish_at_desc",
+              "description": null,
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
+            },
+            {
+              "name": "CREATED_AT_ASC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "publish_at_desc",
+              "name": "CREATED_AT_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "END_AT_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "END_AT_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "START_AT_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "START_AT_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NAME_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NAME_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PUBLISH_AT_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PUBLISH_AT_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -4661,23 +4721,47 @@
             {
               "name": "current",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
             },
             {
               "name": "running",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
             },
             {
               "name": "closed",
+              "description": null,
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
+            },
+            {
+              "name": "upcoming",
+              "description": null,
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
+            },
+            {
+              "name": "CURRENT",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "upcoming",
+              "name": "RUNNING",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CLOSED",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UPCOMING",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -5330,8 +5414,8 @@
             {
               "name": "markdown",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "deprecated"
             }
           ],
           "possibleTypes": null
@@ -6655,71 +6739,143 @@
             {
               "name": "title_asc",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
             },
             {
               "name": "title_desc",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
             },
             {
               "name": "created_at_asc",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
             },
             {
               "name": "created_at_desc",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
             },
             {
               "name": "deleted_at_asc",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
             },
             {
               "name": "deleted_at_desc",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
             },
             {
               "name": "iconicity_desc",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
             },
             {
               "name": "merchandisability_desc",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
             },
             {
               "name": "published_at_asc",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
             },
             {
               "name": "published_at_desc",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
             },
             {
               "name": "partner_updated_at_desc",
+              "description": null,
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
+            },
+            {
+              "name": "availability_desc",
+              "description": null,
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
+            },
+            {
+              "name": "TITLE_ASC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "availability_desc",
+              "name": "TITLE_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CREATED_AT_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CREATED_AT_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "DELETED_AT_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "DELETED_AT_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ICONICITY_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MERCHANDISABILITY_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PUBLISHED_AT_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PUBLISHED_AT_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PARTNER_UPDATED_AT_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "AVAILABILITY_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -9717,6 +9873,18 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "SaleArtworkCounts",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "estimate_cents",
+              "description": "Singular estimate field, if specified",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -14667,17 +14835,35 @@
             {
               "name": "sortable_id_asc",
               "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
             },
             {
               "name": "sortable_id_desc",
+              "description": null,
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
+            },
+            {
+              "name": "trending_desc",
+              "description": null,
+              "isDeprecated": true,
+              "deprecationReason": "use capital enums"
+            },
+            {
+              "name": "SORTABLE_ID_ASC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "trending_desc",
+              "name": "SORTABLE_ID_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "TRENDING_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -15274,8 +15460,8 @@
                 "name": "Int",
                 "ofType": null
               },
-              "isDeprecated": false,
-              "deprecationReason": null
+              "isDeprecated": true,
+              "deprecationReason": "Favor `counts.total`"
             },
             {
               "name": "followed_artists_total",
@@ -15284,6 +15470,18 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": true,
+              "deprecationReason": "Favor `favor counts.followed_artists`"
+            },
+            {
+              "name": "counts",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "FilterArtworksCounts",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -15317,6 +15515,83 @@
                   "name": "ArtworksAggregationResults",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "FilterArtworksCounts",
+          "description": null,
+          "fields": [
+            {
+              "name": "total",
+              "description": null,
+              "args": [
+                {
+                  "name": "format",
+                  "description": "Returns a `String` when format is specified. e.g.`\"0,0.0000\"`",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "label",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "FormattedNumber",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "followed_artists",
+              "description": null,
+              "args": [
+                {
+                  "name": "format",
+                  "description": "Returns a `String` when format is specified. e.g.`\"0,0.0000\"`",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "label",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "FormattedNumber",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -15869,6 +16144,11 @@
             {
               "kind": "OBJECT",
               "name": "HomePageModuleContextRelatedArtist",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "HomePageModuleContextFollowedArtist",
               "ofType": null
             }
           ]
@@ -17452,6 +17732,29 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "HomePageModuleContextFollowedArtist",
+          "description": null,
+          "fields": [
+            {
+              "name": "artist",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Artist",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "ENUM",
           "name": "HomePageArtworkModuleTypes",
           "description": null,
@@ -17497,6 +17800,12 @@
             },
             {
               "name": "CURRENT_FAIRS",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FOLLOWED_ARTIST",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
