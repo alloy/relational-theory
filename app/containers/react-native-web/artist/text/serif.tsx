@@ -16,6 +16,6 @@ const styles = StyleSheet.create({
     fontSize: 17
   },
   required: {
-    fontFamily: "'Adobe Garamond W08', adobe-garamond-pro, AGaramondPro-Regular, 'Times New Roman', Times, serif",
+    fontFamily: "Adobe Garamond W08, adobe-garamond-pro, AGaramondPro-Regular, Times New Roman, Times, serif",
   }
 })

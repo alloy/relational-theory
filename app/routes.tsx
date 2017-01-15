@@ -10,6 +10,8 @@ import { ArtistQueryConfig } from "./relay/root_queries"
 
 import PureReactArtist from "./containers/pure-react/artist"
 import ReactInlineCSSArtist from "./containers/react-inline-css/artist"
+
+import * as ReactNative from "react-native-web"
 import ReactNativeWebArtist from "./containers/react-native-web/artist"
 
 import { StyleSheetServer } from "aphrodite"
@@ -212,8 +214,8 @@ app.get("/react-native-web/artist/:id", (req: any, res: any, next: any) => {
     queryConfig: new ArtistQueryConfig({ artistID: req.params.id }),
   }, res.locals.networkLayer).then(({ data, props }) => {
     const content = ReactDOMServer.renderToString(<IsomorphicRelay.Renderer {...props} />)
-    // TODO What do we do with this stylesheet?
-    // const stylesheet = ReactDOMServer.renderToString(ReactNative.StyleSheet.render())
+    const StyleSheet: any = ReactNative.StyleSheet
+    const styleElement = StyleSheet.renderToString()
     res.send(`
       <html>
       <head>
@@ -221,6 +223,7 @@ app.get("/react-native-web/artist/:id", (req: any, res: any, next: any) => {
         <script type="text/javascript">
         var ARTIST_ID = "${req.params.id}"; var ARTIST_PROPS = ${JSON.stringify(data)}
         </script>
+        ${styleElement}
       </head>
       <body>
         <div id="root">${content}</div>
