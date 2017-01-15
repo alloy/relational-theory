@@ -455,9 +455,12 @@ type ArtistSearchEntity implements Node {
 }
 
 enum ArtistSorts {
-  sortable_id_asc
-  sortable_id_desc
-  trending_desc
+  sortable_id_asc @deprecated(reason: "use capital enums")
+  sortable_id_desc @deprecated(reason: "use capital enums")
+  trending_desc @deprecated(reason: "use capital enums")
+  SORTABLE_ID_ASC
+  SORTABLE_ID_DESC
+  TRENDING_DESC
 }
 
 type ArtistStatuses {
@@ -926,18 +929,30 @@ type ArtworkSearchEntity implements Node {
 }
 
 enum ArtworkSorts {
-  title_asc
-  title_desc
-  created_at_asc
-  created_at_desc
-  deleted_at_asc
-  deleted_at_desc
-  iconicity_desc
-  merchandisability_desc
-  published_at_asc
-  published_at_desc
-  partner_updated_at_desc
-  availability_desc
+  title_asc @deprecated(reason: "use capital enums")
+  title_desc @deprecated(reason: "use capital enums")
+  created_at_asc @deprecated(reason: "use capital enums")
+  created_at_desc @deprecated(reason: "use capital enums")
+  deleted_at_asc @deprecated(reason: "use capital enums")
+  deleted_at_desc @deprecated(reason: "use capital enums")
+  iconicity_desc @deprecated(reason: "use capital enums")
+  merchandisability_desc @deprecated(reason: "use capital enums")
+  published_at_asc @deprecated(reason: "use capital enums")
+  published_at_desc @deprecated(reason: "use capital enums")
+  partner_updated_at_desc @deprecated(reason: "use capital enums")
+  availability_desc @deprecated(reason: "use capital enums")
+  TITLE_ASC
+  TITLE_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  DELETED_AT_ASC
+  DELETED_AT_DESC
+  ICONICITY_DESC
+  MERCHANDISABILITY_DESC
+  PUBLISHED_AT_ASC
+  PUBLISHED_AT_DESC
+  PARTNER_UPDATED_AT_DESC
+  AVAILABILITY_DESC
 }
 
 type Author {
@@ -1105,10 +1120,14 @@ type EditionSet {
 }
 
 enum EventStatus {
-  current
-  running
-  closed
-  upcoming
+  current @deprecated(reason: "use capital enums")
+  running @deprecated(reason: "use capital enums")
+  closed @deprecated(reason: "use capital enums")
+  upcoming @deprecated(reason: "use capital enums")
+  CURRENT
+  RUNNING
+  CLOSED
+  UPCOMING
 }
 
 type ExternalPartner {
@@ -1174,14 +1193,28 @@ type FeaturedLinkItem {
 type FilterArtworks {
   # Artwork results.
   hits: [Artwork]
-  total: Int
-  followed_artists_total: Int
+  total: Int @deprecated(reason: "Favor `counts.total`")
+  followed_artists_total: Int @deprecated(reason: "Favor `favor counts.followed_artists`")
+  counts: FilterArtworksCounts
 
   # Returns a list of merchandisable artists sorted by merch score.
   merchandisable_artists: [Artist]
 
   # Returns aggregation counts for the given filter query.
   aggregations: [ArtworksAggregationResults]
+}
+
+type FilterArtworksCounts {
+  total(
+    # Returns a `String` when format is specified. e.g.`"0,0.0000"`
+    format: String
+    label: String
+  ): FormattedNumber
+  followed_artists(
+    # Returns a `String` when format is specified. e.g.`"0,0.0000"`
+    format: String
+    label: String
+  ): FormattedNumber
 }
 
 type FilterPartners {
@@ -1202,7 +1235,7 @@ type FollowArtists {
 enum Format {
   HTML
   PLAIN
-  markdown
+  markdown @deprecated(reason: "deprecated")
 }
 
 # The `FormattedNumber` type represents a number that can optionally be returnedas
@@ -1496,6 +1529,7 @@ enum HomePageArtworkModuleTypes {
   RECOMMENDED_WORKS
   LIVE_AUCTIONS
   CURRENT_FAIRS
+  FOLLOWED_ARTIST
   RELATED_ARTISTS
   FOLLOWED_GENES
   GENERIC_GENES
@@ -1530,7 +1564,7 @@ enum HomePageHeroUnitPlatform {
   MARTSY
 }
 
-union HomePageModuleContext = HomePageModuleContextFair | HomePageModuleContextSale | HomePageModuleContextGene | HomePageModuleContextTrending | HomePageModuleContextFollowArtists | HomePageModuleContextRelatedArtist
+union HomePageModuleContext = HomePageModuleContextFair | HomePageModuleContextSale | HomePageModuleContextGene | HomePageModuleContextTrending | HomePageModuleContextFollowArtists | HomePageModuleContextRelatedArtist | HomePageModuleContextFollowedArtist
 
 type HomePageModuleContextFair {
   # A globally unique ID.
@@ -1566,6 +1600,10 @@ type HomePageModuleContextFair {
 type HomePageModuleContextFollowArtists {
   artists: [Artist]
   counts: FollowArtistCounts
+}
+
+type HomePageModuleContextFollowedArtist {
+  artist: Artist
 }
 
 type HomePageModuleContextGene implements Node {
@@ -2192,16 +2230,26 @@ type PartnerShowSearchEntity implements Node {
 }
 
 enum PartnerShowSorts {
-  created_at_asc
-  created_at_desc
-  end_at_asc
-  end_at_desc
-  start_at_asc
-  start_at_desc
-  name_asc
-  name_desc
-  publish_at_asc
-  publish_at_desc
+  created_at_asc @deprecated(reason: "use capital enums")
+  created_at_desc @deprecated(reason: "use capital enums")
+  end_at_asc @deprecated(reason: "use capital enums")
+  end_at_desc @deprecated(reason: "use capital enums")
+  start_at_asc @deprecated(reason: "use capital enums")
+  start_at_desc @deprecated(reason: "use capital enums")
+  name_asc @deprecated(reason: "use capital enums")
+  name_desc @deprecated(reason: "use capital enums")
+  publish_at_asc @deprecated(reason: "use capital enums")
+  publish_at_desc @deprecated(reason: "use capital enums")
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  END_AT_ASC
+  END_AT_DESC
+  START_AT_ASC
+  START_AT_DESC
+  NAME_ASC
+  NAME_DESC
+  PUBLISH_AT_ASC
+  PUBLISH_AT_DESC
 }
 
 enum PartnersSortType {
@@ -2620,6 +2668,9 @@ type SaleArtwork {
   artwork: Artwork
   estimate: String
   counts: SaleArtworkCounts
+
+  # Singular estimate field, if specified
+  estimate_cents: Int
   low_estimate_cents: Int @deprecated(reason: "Favor `low_estimate`")
   high_estimate_cents: Int @deprecated(reason: "Favor `high_estimate")
   opening_bid_cents: Int @deprecated(reason: "Favor `opening_bid`")
