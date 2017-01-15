@@ -6,6 +6,8 @@
 var webpack = require("webpack");
 var path = require("path");
 
+var { CheckerPlugin } = require("awesome-typescript-loader")
+
 module.exports = {
   entry: {
     "pure-react": [
@@ -30,11 +32,11 @@ module.exports = {
     ],
   },
   module: {
-    loaders: [
-      { test: /\.json$/, loader: "json" },
+    rules: [
+      { test: /\.json$/, loader: "json-loader" },
       {
         exclude: /node_modules/,
-        loaders: ["react-hot", "babel-loader", "ts-loader?logLevel=warn"],
+        loaders: ["react-hot-loader", "awesome-typescript-loader?configFileName=./tsconfig.json&silent=true&target=es6&useBabel=true&useCache=true"],
         test: /\.tsx?$/,
       },
     ],
@@ -45,13 +47,15 @@ module.exports = {
     publicPath: "/assets",
   },
   plugins: [
+    new CheckerPlugin(),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.CommonsChunkPlugin("commons.chunk"),
   ],
   resolve: {
     alias: {
       "react-native": "react-native-web/core",
     },
-    extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"],
+    extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js"],
   },
   devtool: "#inline-source-map", // TODO: For production we should output a source-map file instead.
 };

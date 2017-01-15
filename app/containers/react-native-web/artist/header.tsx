@@ -4,9 +4,7 @@ import * as Relay from "react-relay"
 
 // import Events from '../../native_modules/events'
 
-// import colors from "../../../../data/colors"
-// tslint:disable-next-line
-const colors = require("../../../../data/colors.json")
+import * as colors from "../../../../data/colors.json"
 
 import GQL from "../../../gql"
 

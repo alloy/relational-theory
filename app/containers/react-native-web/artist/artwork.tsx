@@ -11,8 +11,7 @@ const ImageView = (props: { style: ViewStyle, aspectRatio: number, imageURL: str
 import GQL from "../../../gql"
 import SerifText from "./text/serif"
 
-// tslint:disable-next-line
-const colors = require("../../../../data/colors.json")
+import * as colors from "../../../../data/colors.json"
 
 import SwitchBoard from "./switch_board"
 

@@ -3,9 +3,7 @@ import { Animated, StyleSheet, Text, TouchableHighlight, View } from "react-nati
 
 import Headline from "./text/headline"
 
-// import * as colors from "../../../../data/colors.json"
-// tslint:disable-next-line
-const colors = require("../../../../data/colors.json")
+import * as colors from "../../../../data/colors.json"
 
 // import Spinner from '../spinner'
 const Spinner = ({ spinnerColor, style }) => <div>SPINNER</div>

@@ -5,7 +5,7 @@ interface Props {
   artwork: any
 }
 interface State {
- }
+}
 
 export class Artwork extends React.Component<Props, State> {
   render() {

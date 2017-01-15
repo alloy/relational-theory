@@ -8,8 +8,7 @@ import SerifText from "./text/serif"
 
 import GQL from "../../../gql"
 
-// tslint:disable-next-line
-const colors = require("../../../../data/colors.json")
+import * as colors from "../../../../data/colors.json"
 
 export const Artist = ({ artist }: { artist: GQL.ArtistType }) => (
   <View style={styles.appContainer}>
