@@ -57,6 +57,7 @@ app.get("/pure-react/artist/:id", (req: any, res: any, next: any) => {
       <html>
       <head>
         <link rel="stylesheet" type="text/css" href="/pure-react/style.css" />
+        <script type="text/javascript" src="/assets/commons.chunk.js" defer></script>
         <script type="text/javascript" src="/assets/pure-react.js" defer></script>
         <script type="text/javascript">
         var ARTIST_ID = "${req.params.id}"; var ARTIST_PROPS = ${JSON.stringify(data)}
@@ -96,6 +97,7 @@ app.get("/react-inline-css/artist/:id", (req: any, res: any, next: any) => {
     res.send(`
       <html>
       <head>
+        <script type="text/javascript" src="/assets/commons.chunk.js" defer></script>
         <script type="text/javascript" src="/assets/react-inline-css.js" defer></script>
         <script type="text/javascript">
         var ARTIST_ID = "${req.params.id}"; var ARTIST_PROPS = ${JSON.stringify(data)}
@@ -134,6 +136,7 @@ app.get("/react-aphrodite/artist/:id", (req: any, res: any, next: any) => {
       <html>
       <head>
         <style data-aphrodite>${css.content}</style>
+        <script type="text/javascript" src="/assets/commons.chunk.js" defer></script>
         <script type="text/javascript" src="/assets/react-aphrodite.js" defer></script>
         <script type="text/javascript">
           var ARTIST_ID = "${req.params.id}";
@@ -178,6 +181,7 @@ app.get("/react-jss/artist/:id", (req: any, res: any, next: any) => {
       <html>
       <head>
         <style type="text/css">${sheets.toString()}</style>
+        <script type="text/javascript" src="/assets/commons.chunk.js" defer></script>
         <script type="text/javascript" src="/assets/react-jss.js" defer></script>
         <script type="text/javascript">
           var ARTIST_ID = "${req.params.id}";
@@ -219,6 +223,7 @@ app.get("/react-native-web/artist/:id", (req: any, res: any, next: any) => {
     res.send(`
       <html>
       <head>
+        <script type="text/javascript" src="/assets/commons.chunk.js" defer></script>
         <script type="text/javascript" src="/assets/react-native-web.js" defer></script>
         <script type="text/javascript">
         var ARTIST_ID = "${req.params.id}"; var ARTIST_PROPS = ${JSON.stringify(data)}
