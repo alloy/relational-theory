@@ -188,7 +188,7 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
-animated@^0.1.3:
+animated@^0.1.5:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/animated/-/animated-0.1.5.tgz#83df8dc443d57abab7b0bb04818b0b655b31c9b9"
   dependencies:
@@ -305,7 +305,7 @@ arrify@^1.0.0, arrify@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/arrify/-/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
 
-asap@^2.0.3, asap@~2.0.3:
+asap@^2.0.3, asap@^2.0.5, asap@~2.0.3:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/asap/-/asap-2.0.5.tgz#522765b50c3510490e52d7dcfe085ef9ba96958f"
 
@@ -2045,7 +2045,7 @@ fb-watchman@^1.8.0, fb-watchman@^1.9.0:
   dependencies:
     bser "^1.0.2"
 
-fbjs@^0.8.1, fbjs@^0.8.4:
+fbjs@^0.8.1, fbjs@^0.8.4, fbjs@^0.8.8:
   version "0.8.8"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.8.tgz#02f1b6e0ea0d46c24e0b51a2d24df069563a5ad6"
   dependencies:
@@ -2538,7 +2538,7 @@ ini@~1.3.0:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.4.tgz#0537cb79daf59b59a1a517dff706c86ec039162e"
 
-inline-style-prefixer@^2.0.0, inline-style-prefixer@^2.0.1:
+inline-style-prefixer@^2.0.0, inline-style-prefixer@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/inline-style-prefixer/-/inline-style-prefixer-2.0.5.tgz#c153c7e88fd84fef5c602e95a8168b2770671fe7"
   dependencies:
@@ -3741,9 +3741,9 @@ nopt@3.x, nopt@~3.0.6:
   dependencies:
     abbrev "1"
 
-normalize-css-color@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/normalize-css-color/-/normalize-css-color-1.0.1.tgz#792f59cae25036950a9127cfcfddc073048f4f9d"
+normalize-css-color@^1.0.1, normalize-css-color@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/normalize-css-color/-/normalize-css-color-1.0.2.tgz#02991e97cccec6623fe573afbbf0de6a1f3e9f8d"
 
 normalize-package-data@^2.3.2, normalize-package-data@^2.3.4:
   version "2.3.5"
@@ -4481,17 +4481,19 @@ react-modal@^1.2.0, react-modal@^1.2.1:
     exenv "1.2.0"
     lodash.assign "^4.2.0"
 
-react-native-web@^0.0.61:
-  version "0.0.61"
-  resolved "https://registry.yarnpkg.com/react-native-web/-/react-native-web-0.0.61.tgz#39b573f8beb0cde095a80bb25dbda0d5810df88d"
+react-native-web@^0.0.68:
+  version "0.0.68"
+  resolved "https://registry.yarnpkg.com/react-native-web/-/react-native-web-0.0.68.tgz#ca93bb6b3c0236c2a93a3e2e62c3a6226211a355"
   dependencies:
-    animated "^0.1.3"
+    animated "^0.1.5"
     array-find-index "^1.0.2"
-    babel-runtime "^6.11.6"
+    asap "^2.0.5"
+    babel-runtime "^6.20.0"
     debounce "^1.0.0"
     deep-assign "^2.0.0"
-    fbjs "^0.8.4"
-    inline-style-prefixer "^2.0.1"
+    fbjs "^0.8.8"
+    inline-style-prefixer "^2.0.5"
+    normalize-css-color "^1.0.2"
     react-dom "~15.4.1"
     react-textarea-autosize "^4.0.4"
     react-timer-mixin "^0.13.3"

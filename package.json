@@ -61,7 +61,7 @@
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-jss": "^5.1.1",
-    "react-native-web": "^0.0.61",
+    "react-native-web": "^0.0.68",
     "react-relay": "https://github.com/alloy/relay/releases/download/v0.9.3/react-relay-0.9.3.tgz",
     "typescript": "^2.1.4"
   },
