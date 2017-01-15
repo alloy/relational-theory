@@ -3,9 +3,10 @@ import * as Relay from "react-relay"
 
 import ArtistHeader from "../../../components/artist/header"
 import Grid from "./grid"
+import GQL from "../../../gql"
 
 interface Props {
-  artist: any
+  artist: GQL.ArtistType,
 }
 interface State {
   following: boolean | null,
