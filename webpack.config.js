@@ -6,6 +6,8 @@
 var webpack = require("webpack");
 var path = require("path");
 
+var { CheckerPlugin } = require("awesome-typescript-loader")
+
 module.exports = {
   entry: {
     "pure-react": [
@@ -34,7 +36,7 @@ module.exports = {
       { test: /\.json$/, loader: "json-loader" },
       {
         exclude: /node_modules/,
-        loaders: ["react-hot-loader", "babel-loader", "ts-loader?logLevel=warn"],
+        loaders: ["react-hot-loader", "awesome-typescript-loader?configFileName=./tsconfig.json&silent=true&target=es6&useBabel=true&useCache=true"],
         test: /\.tsx?$/,
       },
     ],
@@ -45,6 +47,7 @@ module.exports = {
     publicPath: "/assets",
   },
   plugins: [
+    new CheckerPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.CommonsChunkPlugin("commons.chunk"),
   ],
