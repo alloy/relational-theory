@@ -27,14 +27,6 @@ interface State {
 }
 
 export default class InvertedButton extends React.Component<Props, State> {
-  static propTypes: Object = {
-    text: React.PropTypes.string,
-    selected: React.PropTypes.bool,
-    inProgress: React.PropTypes.bool,
-    onPress: React.PropTypes.func,
-    onSelectionAnimationFinished: React.PropTypes.func,
-  }
-
   constructor(props: any) {
     super(props)
     this.state = {

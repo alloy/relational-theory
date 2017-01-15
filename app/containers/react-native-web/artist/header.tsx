@@ -7,6 +7,8 @@ import { FlexAlignType, StyleSheet, Text, TextStyle, View, ViewStyle, Dimensions
 // import colors from "../../../../data/colors"
 const colors = require("../../../../data/colors.json")
 
+import GQL from '../../../gql'
+
 import Headline from './text/headline'
 import InvertedButton from './inverted_button'
 import SerifText from './text/serif'
@@ -15,7 +17,7 @@ import SerifText from './text/serif'
 const isPad = true
 
 interface Props {
-  artist: any
+  artist: GQL.ArtistType,
 }
 
 interface State {
@@ -24,17 +26,6 @@ interface State {
 }
 
 class Header extends React.Component<Props, State> {
-  static propTypes: Object = {
-    artist: React.PropTypes.shape({
-      name: React.PropTypes.string,
-      nationality: React.PropTypes.string,
-      birthday: React.PropTypes.string,
-      counts: React.PropTypes.shape({
-        follows: React.PropTypes.number,
-      }),
-    }),
-  };
-
   constructor(props) {
     super(props)
     this.state = { following: true, followersCount: props.artist.counts.follows }

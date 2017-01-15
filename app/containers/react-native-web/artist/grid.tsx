@@ -89,7 +89,6 @@ class InfiniteScrollArtworksGrid extends React.Component<Props, State> {
 
   constructor(props) {
     super(props)
-    console.log(props.artworks)
     this.state = {
       sectionDimension: 0,
       artworks: this.props.artworks,
@@ -314,7 +313,7 @@ const styles = StyleSheet.create<Styles>({
   container: {
     display: "flex",
     flexDirection: "row",
-  },
+  } as ViewStyle, // FIXME: Needed because `display` is not a prop that non-web RN has.
   section: {
     // flex: "1 0 0px",
     flex: 1,
