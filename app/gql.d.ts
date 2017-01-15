@@ -23,64 +23,64 @@ declare namespace GQL {
   interface RootQueryTypeType {
     __typename: string;
     /** Fetches an object given its Globally Unique ID */
-    node: Node;
-    status: StatusType;
+    node: Node | null;
+    status: StatusType | null;
     /** An Article */
-    article: ArticleType;
+    article: ArticleType | null;
     /** A list of Articles */
-    articles: Array<ArticleType>;
+    articles: Array<ArticleType> | null;
     /** An Artwork */
-    artwork: ArtworkType;
+    artwork: ArtworkType | null;
     /** A list of Artworks */
-    artworks: Array<ArtworkType>;
+    artworks: Array<ArtworkType> | null;
     /** An Artist */
-    artist: ArtistType;
+    artist: ArtistType | null;
     /** A list of Artists */
-    artists: Array<ArtistType>;
+    artists: Array<ArtistType> | null;
     /** An External Partner not on the platform */
-    external_partner: ExternalPartnerType;
+    external_partner: ExternalPartnerType | null;
     /** A Fair */
-    fair: FairType;
+    fair: FairType | null;
     /** A list of Fairs */
-    fairs: Array<FairType>;
-    gene: GeneType;
+    fairs: Array<FairType> | null;
+    gene: GeneType | null;
     /** Home screen content */
-    home_page: HomePageType;
+    home_page: HomePageType | null;
     /** A Profile */
-    profile: ProfileType;
+    profile: ProfileType | null;
     /** A collection of OrderedSets */
-    ordered_sets: Array<OrderedSetType>;
+    ordered_sets: Array<OrderedSetType> | null;
     /** A Partner */
-    partner: PartnerType;
+    partner: PartnerType | null;
     /** A list of Partners */
-    partners: Array<PartnerType>;
+    partners: Array<PartnerType> | null;
     /** Partners Elastic Search results */
-    filter_partners: FilterPartnersType;
+    filter_partners: FilterPartnersType | null;
     /** Artworks Elastic Search results */
-    filter_artworks: FilterArtworksType;
+    filter_artworks: FilterArtworksType | null;
     /** A PartnerCategory */
-    partner_category: PartnerCategoryType;
+    partner_category: PartnerCategoryType | null;
     /** A list of PartnerCategories */
-    partner_categories: Array<PartnerCategoryType>;
+    partner_categories: Array<PartnerCategoryType> | null;
     /** A Partner Show */
-    partner_show: PartnerShowType;
+    partner_show: PartnerShowType | null;
     /** A list of PartnerShows */
-    partner_shows: Array<PartnerShowType>;
+    partner_shows: Array<PartnerShowType> | null;
     /** A Sale */
-    sale: SaleType;
+    sale: SaleType | null;
     /** A list of Sales */
-    sales: Array<SaleType>;
+    sales: Array<SaleType> | null;
     /** A Sale Artwork */
-    sale_artwork: SaleArtworkType;
+    sale_artwork: SaleArtworkType | null;
     /** A Search */
-    search: SearchType;
+    search: SearchType | null;
     /** A Show */
-    show: ShowType;
+    show: ShowType | null;
     /** Trending artists */
-    trending_artists: TrendingArtistsType;
-    me: MeType;
+    trending_artists: TrendingArtistsType | null;
+    me: MeType | null;
     /** Creates, and authorizes, a JWT custom for Causality */
-    causality_jwt: string;
+    causality_jwt: string | null;
   }
 
   /**
@@ -102,9 +102,9 @@ declare namespace GQL {
   */
   interface StatusType {
     __typename: string;
-    gravity: StatusGravityType;
+    gravity: StatusGravityType | null;
     /** Metaphysics ping */
-    ping: boolean;
+    ping: boolean | null;
   }
 
   /**
@@ -112,7 +112,7 @@ declare namespace GQL {
   */
   interface StatusGravityType {
     __typename: string;
-    ping: boolean;
+    ping: boolean | null;
   }
 
   /**
@@ -124,16 +124,16 @@ declare namespace GQL {
     __id: string;
     /** A type-specific ID. */
     id: string;
-    cached: number;
-    title: string;
-    published_at: string;
-    updated_at: string;
-    thumbnail_title: string;
-    thumbnail_teaser: string;
-    author: AuthorType;
-    thumbnail_image: ImageType;
-    slug: string;
-    href: string;
+    cached: number | null;
+    title: string | null;
+    published_at: string | null;
+    updated_at: string | null;
+    thumbnail_title: string | null;
+    thumbnail_teaser: string | null;
+    author: AuthorType | null;
+    thumbnail_image: ImageType | null;
+    slug: string | null;
+    href: string | null;
   }
 
   /**
@@ -145,9 +145,9 @@ declare namespace GQL {
     __id: string;
     /** A type-specific ID. */
     id: string;
-    name: string;
-    profile_handle: string;
-    href: string;
+    name: string | null;
+    profile_handle: string | null;
+    href: string | null;
   }
 
   /**
@@ -156,24 +156,24 @@ declare namespace GQL {
   interface ImageType {
     __typename: string;
     /** A type-specific ID. */
-    id: string;
-    href: string;
-    title: string;
-    width: number;
-    height: number;
-    orientation: string;
-    aspect_ratio: number;
-    versions: Array<string>;
-    caption: string;
-    is_default: boolean;
-    position: number;
-    url: string;
-    cropped: CroppedImageUrlType;
-    resized: ResizedImageUrlType;
-    deep_zoom: DeepZoomType;
-    is_zoomable: boolean;
+    id: string | null;
+    href: string | null;
+    title: string | null;
+    width: number | null;
+    height: number | null;
+    orientation: string | null;
+    aspect_ratio: number | null;
+    versions: Array<string> | null;
+    caption: string | null;
+    is_default: boolean | null;
+    position: number | null;
+    url: string | null;
+    cropped: CroppedImageUrlType | null;
+    resized: ResizedImageUrlType | null;
+    deep_zoom: DeepZoomType | null;
+    is_zoomable: boolean | null;
     /** Value to use when `padding-bottom` for fluid image placeholders */
-    placeholder: string;
+    placeholder: string | null;
   }
 
   /**
@@ -181,9 +181,9 @@ declare namespace GQL {
   */
   interface CroppedImageUrlType {
     __typename: string;
-    width: number;
-    height: number;
-    url: string;
+    width: number | null;
+    height: number | null;
+    url: string | null;
   }
 
   /**
@@ -191,10 +191,10 @@ declare namespace GQL {
   */
   interface ResizedImageUrlType {
     __typename: string;
-    factor: number;
-    width: number;
-    height: number;
-    url: string;
+    factor: number | null;
+    width: number | null;
+    height: number | null;
+    url: string | null;
   }
 
   /**
@@ -202,7 +202,7 @@ declare namespace GQL {
   */
   interface DeepZoomType {
     __typename: string;
-    Image: DeepZoomImageType;
+    Image: DeepZoomImageType | null;
   }
 
   /**
@@ -210,12 +210,12 @@ declare namespace GQL {
   */
   interface DeepZoomImageType {
     __typename: string;
-    xmlns: string;
-    Url: string;
-    Format: string;
-    TileSize: number;
-    Overlap: number;
-    Size: DeepZoomImageSizeType;
+    xmlns: string | null;
+    Url: string | null;
+    Format: string | null;
+    TileSize: number | null;
+    Overlap: number | null;
+    Size: DeepZoomImageSizeType | null;
   }
 
   /**
@@ -223,8 +223,8 @@ declare namespace GQL {
   */
   interface DeepZoomImageSizeType {
     __typename: string;
-    Width: number;
-    Height: number;
+    Width: number | null;
+    Height: number | null;
   }
 
   /**
@@ -243,83 +243,83 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
-    to_s: string;
-    href: string;
-    title: string;
-    category: string;
-    medium: string;
-    date: string;
-    image_rights: string;
-    website: string;
-    collecting_institution: string;
-    partner: PartnerType;
+    cached: number | null;
+    to_s: string | null;
+    href: string | null;
+    title: string | null;
+    category: string | null;
+    medium: string | null;
+    date: string | null;
+    image_rights: string | null;
+    website: string | null;
+    collecting_institution: string | null;
+    partner: PartnerType | null;
     /** Returns an HTML string representing the embedded content (video) */
-    embed: string;
-    can_share_image: boolean;
-    is_embeddable_video: boolean;
-    is_shareable: boolean;
-    is_hangable: boolean;
+    embed: string | null;
+    can_share_image: boolean | null;
+    is_embeddable_video: boolean | null;
+    is_shareable: boolean | null;
+    is_hangable: boolean | null;
     /** True for inquireable artworks that have an exact price. */
-    is_purchasable: boolean;
+    is_purchasable: boolean | null;
     /** Do we want to encourage inquiries on this work? */
-    is_inquireable: boolean;
+    is_inquireable: boolean | null;
     /** Are we able to display a contact form on artwork pages? */
-    is_contactable: boolean;
+    is_contactable: boolean | null;
     /** Is this artwork part of an auction? */
-    is_in_auction: boolean;
+    is_in_auction: boolean | null;
     /** Is this artwork part of a current show */
-    is_in_show: boolean;
-    is_for_sale: boolean;
+    is_in_show: boolean | null;
+    is_for_sale: boolean | null;
     /** Is this artwork part of an auction that is currently running? */
-    is_biddable: boolean;
-    is_unique: boolean;
-    is_sold: boolean;
-    is_ecommerce: boolean;
+    is_biddable: boolean | null;
+    is_unique: boolean | null;
+    is_sold: boolean | null;
+    is_ecommerce: boolean | null;
     /** Whether work can be purchased through e-commerce */
-    is_acquireable: boolean;
+    is_acquireable: boolean | null;
     /** When in an auction, can the work be bought before any bids are placed */
-    is_buy_nowable: boolean;
-    is_comparable_with_auction_results: boolean;
-    is_downloadable: boolean;
-    is_price_hidden: boolean;
-    is_price_range: boolean;
-    availability: string;
-    sale_message: string;
-    artist: ArtistType;
-    price: string;
-    contact_label: string;
-    cultural_maker: string;
-    artists: Array<ArtistType>;
-    artist_names: string;
-    dimensions: dimensionsType;
-    image: ImageType;
-    images: Array<ImageType>;
+    is_buy_nowable: boolean | null;
+    is_comparable_with_auction_results: boolean | null;
+    is_downloadable: boolean | null;
+    is_price_hidden: boolean | null;
+    is_price_range: boolean | null;
+    availability: string | null;
+    sale_message: string | null;
+    artist: ArtistType | null;
+    price: string | null;
+    contact_label: string | null;
+    cultural_maker: string | null;
+    artists: Array<ArtistType> | null;
+    artist_names: string | null;
+    dimensions: dimensionsType | null;
+    image: ImageType | null;
+    images: Array<ImageType> | null;
     /** Returns the associated Fair/Sale/PartnerShow */
-    context: ArtworkContextType;
+    context: ArtworkContextType | null;
     /** Returns the highlighted shows and articles */
-    highlights: Array<HighlightedType>;
-    articles: Array<ArticleType>;
-    shows: Array<PartnerShowType>;
-    show: PartnerShowType;
-    sale_artwork: SaleArtworkType;
-    sale: SaleType;
-    fair: FairType;
-    edition_of: string;
-    edition_sets: Array<EditionSetType>;
-    description: string;
-    exhibition_history: string;
-    provenance: string;
-    signature: string;
-    additional_information: string;
-    literature: string;
-    publisher: string;
-    manufacturer: string;
-    series: string;
-    meta: ArtworkMetaType;
-    related: Array<ArtworkType>;
-    layer: ArtworkLayerType;
-    layers: Array<ArtworkLayerType>;
+    highlights: Array<HighlightedType> | null;
+    articles: Array<ArticleType> | null;
+    shows: Array<PartnerShowType> | null;
+    show: PartnerShowType | null;
+    sale_artwork: SaleArtworkType | null;
+    sale: SaleType | null;
+    fair: FairType | null;
+    edition_of: string | null;
+    edition_sets: Array<EditionSetType> | null;
+    description: string | null;
+    exhibition_history: string | null;
+    provenance: string | null;
+    signature: string | null;
+    additional_information: string | null;
+    literature: string | null;
+    publisher: string | null;
+    manufacturer: string | null;
+    series: string | null;
+    meta: ArtworkMetaType | null;
+    related: Array<ArtworkType> | null;
+    layer: ArtworkLayerType | null;
+    layers: Array<ArtworkLayerType> | null;
   }
 
   /**
@@ -333,23 +333,23 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
-    name: string;
-    collecting_institution: string;
-    is_default_profile_public: boolean;
-    has_fair_partnership: boolean;
-    type: string;
-    href: string;
-    is_linkable: boolean;
-    is_pre_qualify: boolean;
-    initials: string;
-    default_profile_id: string;
-    profile: ProfileType;
-    shows: Array<PartnerShowType>;
-    artworks: Array<ArtworkType>;
-    locations: Array<LocationType>;
-    contact_message: string;
-    counts: PartnerCountsType;
+    cached: number | null;
+    name: string | null;
+    collecting_institution: string | null;
+    is_default_profile_public: boolean | null;
+    has_fair_partnership: boolean | null;
+    type: string | null;
+    href: string | null;
+    is_linkable: boolean | null;
+    is_pre_qualify: boolean | null;
+    initials: string | null;
+    default_profile_id: string | null;
+    profile: ProfileType | null;
+    shows: Array<PartnerShowType> | null;
+    artworks: Array<ArtworkType> | null;
+    locations: Array<LocationType> | null;
+    contact_message: string | null;
+    counts: PartnerCountsType | null;
   }
 
   /**
@@ -363,15 +363,15 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
-    name: string;
-    image: ImageType;
-    initials: string;
-    icon: ImageType;
-    href: string;
-    is_published: boolean;
-    bio: string;
-    counts: ProfileCountsType;
+    cached: number | null;
+    name: string | null;
+    image: ImageType | null;
+    initials: string | null;
+    icon: ImageType | null;
+    href: string | null;
+    is_published: boolean | null;
+    bio: string | null;
+    counts: ProfileCountsType | null;
   }
 
   /**
@@ -379,18 +379,18 @@ declare namespace GQL {
   */
   interface ProfileCountsType {
     __typename: string;
-    follows: any;
+    follows: any | null;
   }
 
   /**
     description: null
   */
-  type PartnerShowSortsEnum = "created_at_asc" | "created_at_desc" | "end_at_asc" | "end_at_desc" | "start_at_asc" | "start_at_desc" | "name_asc" | "name_desc" | "publish_at_asc" | "publish_at_desc";
+  type PartnerShowSortsEnum = "created_at_asc" | "created_at_desc" | "end_at_asc" | "end_at_desc" | "start_at_asc" | "start_at_desc" | "name_asc" | "name_desc" | "publish_at_asc" | "publish_at_desc" | "CREATED_AT_ASC" | "CREATED_AT_DESC" | "END_AT_ASC" | "END_AT_DESC" | "START_AT_ASC" | "START_AT_DESC" | "NAME_ASC" | "NAME_DESC" | "PUBLISH_AT_ASC" | "PUBLISH_AT_DESC";
 
   /**
     description: null
   */
-  type EventStatusEnum = "current" | "running" | "closed" | "upcoming";
+  type EventStatusEnum = "current" | "running" | "closed" | "upcoming" | "CURRENT" | "RUNNING" | "CLOSED" | "UPCOMING";
 
   /**
     description: null
@@ -412,36 +412,36 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
-    href: string;
-    kind: string;
+    cached: number | null;
+    href: string | null;
+    kind: string | null;
     /** The exhibition title */
-    name: string;
-    description: string;
-    type: string;
-    displayable: boolean;
+    name: string | null;
+    description: string | null;
+    type: string | null;
+    displayable: boolean | null;
     /** Gravity doesn’t expose the `active` flag. Temporarily re-state its logic. */
-    is_active: boolean;
-    is_displayable: boolean;
-    is_fair_booth: boolean;
-    press_release: string;
-    start_at: string;
-    end_at: string;
+    is_active: boolean | null;
+    is_displayable: boolean | null;
+    is_fair_booth: boolean | null;
+    press_release: string | null;
+    start_at: string | null;
+    end_at: string | null;
     /** A formatted description of the start to end dates */
-    exhibition_period: string;
-    artists: Array<ArtistType>;
-    partner: PartnerType;
-    fair: FairType;
-    location: LocationType;
-    status: string;
+    exhibition_period: string | null;
+    artists: Array<ArtistType> | null;
+    partner: PartnerType | null;
+    fair: FairType | null;
+    location: LocationType | null;
+    status: string | null;
     /** A formatted update on upcoming status changes */
-    status_update: string;
-    events: Array<PartnerShowEventTypeType>;
-    counts: PartnerShowCountsType;
-    artworks: Array<ArtworkType>;
-    meta_image: ImageType;
-    cover_image: ImageType;
-    images: Array<ImageType>;
+    status_update: string | null;
+    events: Array<PartnerShowEventTypeType> | null;
+    counts: PartnerShowCountsType | null;
+    artworks: Array<ArtworkType> | null;
+    meta_image: ImageType | null;
+    cover_image: ImageType | null;
+    images: Array<ImageType> | null;
   }
 
   /**
@@ -460,53 +460,53 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
-    href: string;
+    cached: number | null;
+    href: string | null;
     /** Use this attribute to sort by when sorting a collection of Artists */
-    sortable_id: string;
-    name: string;
-    initials: string;
-    gender: string;
-    years: string;
-    is_public: boolean;
-    is_consignable: boolean;
-    public: boolean;
-    consignable: boolean;
+    sortable_id: string | null;
+    name: string | null;
+    initials: string | null;
+    gender: string | null;
+    years: string | null;
+    is_public: boolean | null;
+    is_consignable: boolean | null;
+    public: boolean | null;
+    consignable: boolean | null;
     /** Only specific Artists should show a link to auction results. */
-    is_display_auction_link: boolean;
-    display_auction_link: boolean;
-    has_metadata: boolean;
-    hometown: string;
-    location: string;
-    nationality: string;
-    birthday: string;
-    deathday: string;
+    is_display_auction_link: boolean | null;
+    display_auction_link: boolean | null;
+    has_metadata: boolean | null;
+    hometown: string | null;
+    location: string | null;
+    nationality: string | null;
+    birthday: string | null;
+    deathday: string | null;
     /** A string of the form "Nationality, Birthday (or Birthday-Deathday)" */
-    formatted_nationality_and_birthday: string;
+    formatted_nationality_and_birthday: string | null;
     /** The Artist biography article written by Artsy */
-    biography: ArticleType;
-    alternate_names: Array<string>;
-    meta: ArtistMetaType;
-    blurb: string;
-    biography_blurb: ArtistBlurbType;
-    is_shareable: boolean;
-    bio: string;
-    counts: ArtistCountsType;
-    artworks: Array<ArtworkType>;
+    biography: ArticleType | null;
+    alternate_names: Array<string> | null;
+    meta: ArtistMetaType | null;
+    blurb: string | null;
+    biography_blurb: ArtistBlurbType | null;
+    is_shareable: boolean | null;
+    bio: string | null;
+    counts: ArtistCountsType | null;
+    artworks: Array<ArtworkType> | null;
     /** A string showing the total number of works and those for sale */
-    formatted_artworks_count: string;
-    image: ImageType;
-    artists: Array<ArtistType>;
-    contemporary: Array<ArtistType>;
-    carousel: ArtistCarouselType;
-    statuses: ArtistStatusesType;
+    formatted_artworks_count: string | null;
+    image: ImageType | null;
+    artists: Array<ArtistType> | null;
+    contemporary: Array<ArtistType> | null;
+    carousel: ArtistCarouselType | null;
+    statuses: ArtistStatusesType | null;
     /** Custom-sorted list of shows for an artist, in order of significance. */
-    exhibition_highlights: Array<ShowType>;
-    partner_shows: Array<PartnerShowType>;
-    shows: Array<ShowType>;
-    partner_artists: Array<PartnerArtistType>;
-    sales: Array<SaleType>;
-    articles: Array<ArticleType>;
+    exhibition_highlights: Array<ShowType> | null;
+    partner_shows: Array<PartnerShowType> | null;
+    shows: Array<ShowType> | null;
+    partner_artists: Array<PartnerArtistType> | null;
+    sales: Array<SaleType> | null;
+    articles: Array<ArticleType> | null;
   }
 
   /**
@@ -514,8 +514,8 @@ declare namespace GQL {
   */
   interface ArtistMetaType {
     __typename: string;
-    title: string;
-    description: string;
+    title: string | null;
+    description: string | null;
   }
 
   /**
@@ -523,10 +523,10 @@ declare namespace GQL {
   */
   interface ArtistBlurbType {
     __typename: string;
-    text: string;
-    credit: string;
+    text: string | null;
+    credit: string | null;
     /** The partner id of the partner who submitted the featured bio. */
-    partner_id: string;
+    partner_id: string | null;
   }
 
   /**
@@ -534,18 +534,18 @@ declare namespace GQL {
   */
   interface ArtistCountsType {
     __typename: string;
-    artworks: any;
-    follows: any;
-    for_sale_artworks: any;
-    partner_shows: any;
-    related_artists: any;
-    articles: any;
+    artworks: any | null;
+    follows: any | null;
+    for_sale_artworks: any | null;
+    partner_shows: any | null;
+    related_artists: any | null;
+    articles: any | null;
   }
 
   /**
     description: null
   */
-  type ArtworkSortsEnum = "title_asc" | "title_desc" | "created_at_asc" | "created_at_desc" | "deleted_at_asc" | "deleted_at_desc" | "iconicity_desc" | "merchandisability_desc" | "published_at_asc" | "published_at_desc" | "partner_updated_at_desc" | "availability_desc";
+  type ArtworkSortsEnum = "title_asc" | "title_desc" | "created_at_asc" | "created_at_desc" | "deleted_at_asc" | "deleted_at_desc" | "iconicity_desc" | "merchandisability_desc" | "published_at_asc" | "published_at_desc" | "partner_updated_at_desc" | "availability_desc" | "TITLE_ASC" | "TITLE_DESC" | "CREATED_AT_ASC" | "CREATED_AT_DESC" | "DELETED_AT_ASC" | "DELETED_AT_DESC" | "ICONICITY_DESC" | "MERCHANDISABILITY_DESC" | "PUBLISHED_AT_ASC" | "PUBLISHED_AT_DESC" | "PARTNER_UPDATED_AT_DESC" | "AVAILABILITY_DESC";
 
   /**
     description: null
@@ -557,7 +557,7 @@ declare namespace GQL {
   */
   interface ArtistCarouselType {
     __typename: string;
-    images: Array<ImageType>;
+    images: Array<ImageType> | null;
   }
 
   /**
@@ -565,14 +565,14 @@ declare namespace GQL {
   */
   interface ArtistStatusesType {
     __typename: string;
-    artworks: boolean;
-    shows: boolean;
-    cv: boolean;
-    artists: boolean;
-    contemporary: boolean;
-    articles: boolean;
-    auction_lots: boolean;
-    biography: boolean;
+    artworks: boolean | null;
+    shows: boolean | null;
+    cv: boolean | null;
+    artists: boolean | null;
+    contemporary: boolean | null;
+    articles: boolean | null;
+    auction_lots: boolean | null;
+    biography: boolean | null;
   }
 
   /**
@@ -586,39 +586,39 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
-    href: string;
-    kind: string;
+    cached: number | null;
+    href: string | null;
+    kind: string | null;
     /** The exhibition title */
-    name: string;
-    description: string;
-    type: string;
-    displayable: boolean;
+    name: string | null;
+    description: string | null;
+    type: string | null;
+    displayable: boolean | null;
     /** Gravity doesn’t expose the `active` flag. Temporarily re-state its logic. */
-    is_active: boolean;
-    is_displayable: boolean;
-    is_fair_booth: boolean;
-    is_reference: boolean;
-    press_release: string;
-    start_at: string;
-    end_at: string;
+    is_active: boolean | null;
+    is_displayable: boolean | null;
+    is_fair_booth: boolean | null;
+    is_reference: boolean | null;
+    press_release: string | null;
+    start_at: string | null;
+    end_at: string | null;
     /** A formatted description of the start to end dates */
-    exhibition_period: string;
-    artists: Array<ArtistType>;
-    artists_without_artworks: Array<ArtistType>;
-    partner: PartnerTypesType;
-    fair: FairType;
-    location: LocationType;
-    city: string;
-    status: string;
+    exhibition_period: string | null;
+    artists: Array<ArtistType> | null;
+    artists_without_artworks: Array<ArtistType> | null;
+    partner: PartnerTypesType | null;
+    fair: FairType | null;
+    location: LocationType | null;
+    city: string | null;
+    status: string | null;
     /** A formatted update on upcoming status changes */
-    status_update: string;
-    events: Array<PartnerShowEventTypeType>;
-    counts: ShowCountsType;
-    artworks: Array<ArtworkType>;
-    meta_image: ImageType;
-    cover_image: ImageType;
-    images: Array<ImageType>;
+    status_update: string | null;
+    events: Array<PartnerShowEventTypeType> | null;
+    counts: ShowCountsType | null;
+    artworks: Array<ArtworkType> | null;
+    meta_image: ImageType | null;
+    cover_image: ImageType | null;
+    images: Array<ImageType> | null;
   }
 
   /**
@@ -643,8 +643,8 @@ declare namespace GQL {
     __id: string;
     /** A type-specific ID. */
     id: string;
-    name: string;
-    city: string;
+    name: string | null;
+    city: string | null;
   }
 
   /**
@@ -658,25 +658,25 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
-    banner_size: string;
-    profile: ProfileType;
-    has_full_feature: boolean;
-    has_homepage_section: boolean;
-    has_listing: boolean;
-    has_large_banner: boolean;
-    href: string;
-    image: ImageType;
-    location: LocationType;
+    cached: number | null;
+    banner_size: string | null;
+    profile: ProfileType | null;
+    has_full_feature: boolean | null;
+    has_homepage_section: boolean | null;
+    has_listing: boolean | null;
+    has_large_banner: boolean | null;
+    href: string | null;
+    image: ImageType | null;
+    location: LocationType | null;
     /** Are we currently in the fair's active period? */
-    is_active: boolean;
-    start_at: string;
-    end_at: string;
-    name: string;
-    tagline: string;
-    published: boolean;
-    is_published: boolean;
-    organizer: organizerType;
+    is_active: boolean | null;
+    start_at: string | null;
+    end_at: string | null;
+    name: string | null;
+    tagline: string | null;
+    published: boolean | null;
+    is_published: boolean | null;
+    organizer: organizerType | null;
   }
 
   /**
@@ -688,17 +688,17 @@ declare namespace GQL {
     __id: string;
     /** A type-specific ID. */
     id: string;
-    cached: number;
-    city: string;
-    country: string;
-    coordinates: coordinatesType;
-    display: string;
-    address: string;
-    address_2: string;
-    postal_code: string;
-    state: string;
-    phone: string;
-    day_schedules: Array<DayScheduleType>;
+    cached: number | null;
+    city: string | null;
+    country: string | null;
+    coordinates: coordinatesType | null;
+    display: string | null;
+    address: string | null;
+    address_2: string | null;
+    postal_code: string | null;
+    state: string | null;
+    phone: string | null;
+    day_schedules: Array<DayScheduleType> | null;
   }
 
   /**
@@ -706,8 +706,8 @@ declare namespace GQL {
   */
   interface coordinatesType {
     __typename: string;
-    lat: number;
-    lng: number;
+    lat: number | null;
+    lng: number | null;
   }
 
   /**
@@ -715,9 +715,9 @@ declare namespace GQL {
   */
   interface DayScheduleType {
     __typename: string;
-    start_time: number;
-    end_time: number;
-    day_of_week: string;
+    start_time: number | null;
+    end_time: number | null;
+    day_of_week: string | null;
   }
 
   /**
@@ -725,7 +725,7 @@ declare namespace GQL {
   */
   interface organizerType {
     __typename: string;
-    profile_id: string;
+    profile_id: string | null;
   }
 
   /**
@@ -733,11 +733,11 @@ declare namespace GQL {
   */
   interface PartnerShowEventTypeType {
     __typename: string;
-    title: string;
-    description: string;
-    event_type: string;
-    start_at: string;
-    end_at: string;
+    title: string | null;
+    description: string | null;
+    event_type: string | null;
+    start_at: string | null;
+    end_at: string | null;
   }
 
   /**
@@ -745,8 +745,8 @@ declare namespace GQL {
   */
   interface ShowCountsType {
     __typename: string;
-    artworks: number;
-    eligible_artworks: any;
+    artworks: number | null;
+    eligible_artworks: any | null;
   }
 
   /**
@@ -758,14 +758,14 @@ declare namespace GQL {
     __id: string;
     /** A type-specific ID. */
     id: string;
-    counts: PartnerArtistCountsType;
-    is_display_on_partner_profile: boolean;
-    is_represented_by: boolean;
-    sortable_id: string;
-    is_use_default_biography: boolean;
-    biography: string;
-    partner: PartnerType;
-    artist: ArtistType;
+    counts: PartnerArtistCountsType | null;
+    is_display_on_partner_profile: boolean | null;
+    is_represented_by: boolean | null;
+    sortable_id: string | null;
+    is_use_default_biography: boolean | null;
+    biography: string | null;
+    partner: PartnerType | null;
+    artist: ArtistType | null;
   }
 
   /**
@@ -773,8 +773,8 @@ declare namespace GQL {
   */
   interface PartnerArtistCountsType {
     __typename: string;
-    artworks: any;
-    for_sale_artworks: any;
+    artworks: any | null;
+    for_sale_artworks: any | null;
   }
 
   /**
@@ -793,36 +793,36 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
-    name: string;
-    href: string;
-    description: string;
-    sale_type: string;
-    is_auction: boolean;
-    is_auction_promo: boolean;
-    is_preview: boolean;
-    is_open: boolean;
-    is_live_open: boolean;
-    is_closed: boolean;
-    is_with_buyers_premium: boolean;
-    auction_state: string;
-    status: string;
-    registration_ends_at: string;
-    start_at: string;
-    end_at: string;
-    live_start_at: string;
-    event_start_at: string;
-    event_end_at: string;
-    currency: string;
-    sale_artworks: Array<SaleArtworkType>;
-    artworks: Array<ArtworkType>;
-    cover_image: ImageType;
-    sale_artwork: SaleArtworkType;
-    profile: ProfileType;
+    cached: number | null;
+    name: string | null;
+    href: string | null;
+    description: string | null;
+    sale_type: string | null;
+    is_auction: boolean | null;
+    is_auction_promo: boolean | null;
+    is_preview: boolean | null;
+    is_open: boolean | null;
+    is_live_open: boolean | null;
+    is_closed: boolean | null;
+    is_with_buyers_premium: boolean | null;
+    auction_state: string | null;
+    status: string | null;
+    registration_ends_at: string | null;
+    start_at: string | null;
+    end_at: string | null;
+    live_start_at: string | null;
+    event_start_at: string | null;
+    event_end_at: string | null;
+    currency: string | null;
+    sale_artworks: Array<SaleArtworkType> | null;
+    artworks: Array<ArtworkType> | null;
+    cover_image: ImageType | null;
+    sale_artwork: SaleArtworkType | null;
+    profile: ProfileType | null;
     /** A bid increment policy that explains minimum bids in ranges. */
-    bid_increments: Array<BidIncrementType>;
+    bid_increments: Array<BidIncrementType> | null;
     /** Auction's buyer's premium policy. */
-    buyers_premium: Array<BuyersPremiumType>;
+    buyers_premium: Array<BuyersPremiumType> | null;
   }
 
   /**
@@ -836,37 +836,39 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
-    sale_id: string;
-    sale: SaleType;
-    position: number;
-    lot_number: string;
+    cached: number | null;
+    sale_id: string | null;
+    sale: SaleType | null;
+    position: number | null;
+    lot_number: string | null;
     /** Currency abbreviation (e.g. "USD") */
-    currency: string;
+    currency: string | null;
     /** Currency symbol (e.g. "$") */
-    symbol: string;
-    reserve_status: string;
-    is_with_reserve: boolean;
-    is_bid_on: boolean;
+    symbol: string | null;
+    reserve_status: string | null;
+    is_with_reserve: boolean | null;
+    is_bid_on: boolean | null;
     /** Can bids be placed on the artwork? */
-    is_biddable: boolean;
-    reserve_message: string;
-    reserve: SaleArtworkReserveType;
-    low_estimate: SaleArtworkLowEstimateType;
-    high_estimate: SaleArtworkHighEstimateType;
-    opening_bid: SaleArtworkOpeningBidType;
-    minimum_next_bid: SaleArtworkMinimumNextBidType;
-    current_bid: SaleArtworkCurrentBidType;
-    highest_bid: SaleArtworkHighestBidType;
-    artwork: ArtworkType;
-    estimate: string;
-    counts: SaleArtworkCountsType;
-    low_estimate_cents: number;
-    high_estimate_cents: number;
-    opening_bid_cents: number;
-    minimum_next_bid_cents: number;
-    bidder_positions_count: number;
-    bid_increments: Array<number>;
+    is_biddable: boolean | null;
+    reserve_message: string | null;
+    reserve: SaleArtworkReserveType | null;
+    low_estimate: SaleArtworkLowEstimateType | null;
+    high_estimate: SaleArtworkHighEstimateType | null;
+    opening_bid: SaleArtworkOpeningBidType | null;
+    minimum_next_bid: SaleArtworkMinimumNextBidType | null;
+    current_bid: SaleArtworkCurrentBidType | null;
+    highest_bid: SaleArtworkHighestBidType | null;
+    artwork: ArtworkType | null;
+    estimate: string | null;
+    counts: SaleArtworkCountsType | null;
+    /** Singular estimate field, if specified */
+    estimate_cents: number | null;
+    low_estimate_cents: number | null;
+    high_estimate_cents: number | null;
+    opening_bid_cents: number | null;
+    minimum_next_bid_cents: number | null;
+    bidder_positions_count: number | null;
+    bid_increments: Array<number> | null;
   }
 
   /**
@@ -875,11 +877,11 @@ declare namespace GQL {
   interface SaleArtworkReserveType {
     __typename: string;
     /** An amount of money expressed in cents. */
-    cents: number;
+    cents: number | null;
     /** A pre-formatted price. */
-    display: string;
+    display: string | null;
     /** A formatted price with various currency formatting options. */
-    amount: string;
+    amount: string | null;
   }
 
   /**
@@ -888,11 +890,11 @@ declare namespace GQL {
   interface SaleArtworkLowEstimateType {
     __typename: string;
     /** An amount of money expressed in cents. */
-    cents: number;
+    cents: number | null;
     /** A pre-formatted price. */
-    display: string;
+    display: string | null;
     /** A formatted price with various currency formatting options. */
-    amount: string;
+    amount: string | null;
   }
 
   /**
@@ -901,11 +903,11 @@ declare namespace GQL {
   interface SaleArtworkHighEstimateType {
     __typename: string;
     /** An amount of money expressed in cents. */
-    cents: number;
+    cents: number | null;
     /** A pre-formatted price. */
-    display: string;
+    display: string | null;
     /** A formatted price with various currency formatting options. */
-    amount: string;
+    amount: string | null;
   }
 
   /**
@@ -914,11 +916,11 @@ declare namespace GQL {
   interface SaleArtworkOpeningBidType {
     __typename: string;
     /** An amount of money expressed in cents. */
-    cents: number;
+    cents: number | null;
     /** A pre-formatted price. */
-    display: string;
+    display: string | null;
     /** A formatted price with various currency formatting options. */
-    amount: string;
+    amount: string | null;
   }
 
   /**
@@ -927,11 +929,11 @@ declare namespace GQL {
   interface SaleArtworkMinimumNextBidType {
     __typename: string;
     /** An amount of money expressed in cents. */
-    cents: number;
+    cents: number | null;
     /** A pre-formatted price. */
-    display: string;
+    display: string | null;
     /** A formatted price with various currency formatting options. */
-    amount: string;
+    amount: string | null;
   }
 
   /**
@@ -940,11 +942,11 @@ declare namespace GQL {
   interface SaleArtworkCurrentBidType {
     __typename: string;
     /** An amount of money expressed in cents. */
-    cents: number;
+    cents: number | null;
     /** A pre-formatted price. */
-    display: string;
+    display: string | null;
     /** A formatted price with various currency formatting options. */
-    amount: string;
+    amount: string | null;
   }
 
   /**
@@ -952,14 +954,14 @@ declare namespace GQL {
   */
   interface SaleArtworkHighestBidType {
     __typename: string;
-    id: string;
-    created_at: string;
-    is_cancelled: boolean;
+    id: string | null;
+    created_at: string | null;
+    is_cancelled: boolean | null;
     /** A formatted price with various currency formatting options. */
-    amount: string;
-    cents: number;
-    display: string;
-    amount_cents: number;
+    amount: string | null;
+    cents: number | null;
+    display: string | null;
+    amount_cents: number | null;
   }
 
   /**
@@ -967,7 +969,7 @@ declare namespace GQL {
   */
   interface SaleArtworkCountsType {
     __typename: string;
-    bidder_positions: any;
+    bidder_positions: any | null;
   }
 
   /**
@@ -975,9 +977,9 @@ declare namespace GQL {
   */
   interface BidIncrementType {
     __typename: string;
-    from: number;
-    to: number;
-    amount: number;
+    from: number | null;
+    to: number | null;
+    amount: number | null;
   }
 
   /**
@@ -986,9 +988,9 @@ declare namespace GQL {
   interface BuyersPremiumType {
     __typename: string;
     /** A formatted price with various currency formatting options. */
-    amount: string;
-    cents: number;
-    percent: number;
+    amount: string | null;
+    cents: number | null;
+    percent: number | null;
   }
 
   /**
@@ -996,8 +998,8 @@ declare namespace GQL {
   */
   interface PartnerShowCountsType {
     __typename: string;
-    artworks: number;
-    eligible_artworks: any;
+    artworks: number | null;
+    eligible_artworks: any | null;
   }
 
   /**
@@ -1005,17 +1007,17 @@ declare namespace GQL {
   */
   interface PartnerCountsType {
     __typename: string;
-    artworks: any;
-    artists: any;
-    partner_artists: any;
-    eligible_artworks: any;
-    published_for_sale_artworks: any;
-    published_not_for_sale_artworks: any;
-    shows: any;
-    displayable_shows: any;
-    current_displayable_shows: any;
-    artist_documents: any;
-    partner_show_documents: any;
+    artworks: any | null;
+    artists: any | null;
+    partner_artists: any | null;
+    eligible_artworks: any | null;
+    published_for_sale_artworks: any | null;
+    published_not_for_sale_artworks: any | null;
+    shows: any | null;
+    displayable_shows: any | null;
+    current_displayable_shows: any | null;
+    artist_documents: any | null;
+    partner_show_documents: any | null;
   }
 
   /**
@@ -1023,8 +1025,8 @@ declare namespace GQL {
   */
   interface dimensionsType {
     __typename: string;
-    in: string;
-    cm: string;
+    in: string | null;
+    cm: string | null;
   }
 
   /**
@@ -1051,36 +1053,36 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
-    name: string;
-    href: string;
-    description: string;
-    sale_type: string;
-    is_auction: boolean;
-    is_auction_promo: boolean;
-    is_preview: boolean;
-    is_open: boolean;
-    is_live_open: boolean;
-    is_closed: boolean;
-    is_with_buyers_premium: boolean;
-    auction_state: string;
-    status: string;
-    registration_ends_at: string;
-    start_at: string;
-    end_at: string;
-    live_start_at: string;
-    event_start_at: string;
-    event_end_at: string;
-    currency: string;
-    sale_artworks: Array<SaleArtworkType>;
-    artworks: Array<ArtworkType>;
-    cover_image: ImageType;
-    sale_artwork: SaleArtworkType;
-    profile: ProfileType;
+    cached: number | null;
+    name: string | null;
+    href: string | null;
+    description: string | null;
+    sale_type: string | null;
+    is_auction: boolean | null;
+    is_auction_promo: boolean | null;
+    is_preview: boolean | null;
+    is_open: boolean | null;
+    is_live_open: boolean | null;
+    is_closed: boolean | null;
+    is_with_buyers_premium: boolean | null;
+    auction_state: string | null;
+    status: string | null;
+    registration_ends_at: string | null;
+    start_at: string | null;
+    end_at: string | null;
+    live_start_at: string | null;
+    event_start_at: string | null;
+    event_end_at: string | null;
+    currency: string | null;
+    sale_artworks: Array<SaleArtworkType> | null;
+    artworks: Array<ArtworkType> | null;
+    cover_image: ImageType | null;
+    sale_artwork: SaleArtworkType | null;
+    profile: ProfileType | null;
     /** A bid increment policy that explains minimum bids in ranges. */
-    bid_increments: Array<BidIncrementType>;
+    bid_increments: Array<BidIncrementType> | null;
     /** Auction's buyer's premium policy. */
-    buyers_premium: Array<BuyersPremiumType>;
+    buyers_premium: Array<BuyersPremiumType> | null;
   }
 
   /**
@@ -1094,36 +1096,36 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
-    name: string;
-    href: string;
-    description: string;
-    sale_type: string;
-    is_auction: boolean;
-    is_auction_promo: boolean;
-    is_preview: boolean;
-    is_open: boolean;
-    is_live_open: boolean;
-    is_closed: boolean;
-    is_with_buyers_premium: boolean;
-    auction_state: string;
-    status: string;
-    registration_ends_at: string;
-    start_at: string;
-    end_at: string;
-    live_start_at: string;
-    event_start_at: string;
-    event_end_at: string;
-    currency: string;
-    sale_artworks: Array<SaleArtworkType>;
-    artworks: Array<ArtworkType>;
-    cover_image: ImageType;
-    sale_artwork: SaleArtworkType;
-    profile: ProfileType;
+    cached: number | null;
+    name: string | null;
+    href: string | null;
+    description: string | null;
+    sale_type: string | null;
+    is_auction: boolean | null;
+    is_auction_promo: boolean | null;
+    is_preview: boolean | null;
+    is_open: boolean | null;
+    is_live_open: boolean | null;
+    is_closed: boolean | null;
+    is_with_buyers_premium: boolean | null;
+    auction_state: string | null;
+    status: string | null;
+    registration_ends_at: string | null;
+    start_at: string | null;
+    end_at: string | null;
+    live_start_at: string | null;
+    event_start_at: string | null;
+    event_end_at: string | null;
+    currency: string | null;
+    sale_artworks: Array<SaleArtworkType> | null;
+    artworks: Array<ArtworkType> | null;
+    cover_image: ImageType | null;
+    sale_artwork: SaleArtworkType | null;
+    profile: ProfileType | null;
     /** A bid increment policy that explains minimum bids in ranges. */
-    bid_increments: Array<BidIncrementType>;
+    bid_increments: Array<BidIncrementType> | null;
     /** Auction's buyer's premium policy. */
-    buyers_premium: Array<BuyersPremiumType>;
+    buyers_premium: Array<BuyersPremiumType> | null;
   }
 
   /**
@@ -1137,25 +1139,25 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
-    banner_size: string;
-    profile: ProfileType;
-    has_full_feature: boolean;
-    has_homepage_section: boolean;
-    has_listing: boolean;
-    has_large_banner: boolean;
-    href: string;
-    image: ImageType;
-    location: LocationType;
+    cached: number | null;
+    banner_size: string | null;
+    profile: ProfileType | null;
+    has_full_feature: boolean | null;
+    has_homepage_section: boolean | null;
+    has_listing: boolean | null;
+    has_large_banner: boolean | null;
+    href: string | null;
+    image: ImageType | null;
+    location: LocationType | null;
     /** Are we currently in the fair's active period? */
-    is_active: boolean;
-    start_at: string;
-    end_at: string;
-    name: string;
-    tagline: string;
-    published: boolean;
-    is_published: boolean;
-    organizer: organizerType;
+    is_active: boolean | null;
+    start_at: string | null;
+    end_at: string | null;
+    name: string | null;
+    tagline: string | null;
+    published: boolean | null;
+    is_published: boolean | null;
+    organizer: organizerType | null;
   }
 
   /**
@@ -1169,36 +1171,36 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
-    href: string;
-    kind: string;
+    cached: number | null;
+    href: string | null;
+    kind: string | null;
     /** The exhibition title */
-    name: string;
-    description: string;
-    type: string;
-    displayable: boolean;
+    name: string | null;
+    description: string | null;
+    type: string | null;
+    displayable: boolean | null;
     /** Gravity doesn’t expose the `active` flag. Temporarily re-state its logic. */
-    is_active: boolean;
-    is_displayable: boolean;
-    is_fair_booth: boolean;
-    press_release: string;
-    start_at: string;
-    end_at: string;
+    is_active: boolean | null;
+    is_displayable: boolean | null;
+    is_fair_booth: boolean | null;
+    press_release: string | null;
+    start_at: string | null;
+    end_at: string | null;
     /** A formatted description of the start to end dates */
-    exhibition_period: string;
-    artists: Array<ArtistType>;
-    partner: PartnerType;
-    fair: FairType;
-    location: LocationType;
-    status: string;
+    exhibition_period: string | null;
+    artists: Array<ArtistType> | null;
+    partner: PartnerType | null;
+    fair: FairType | null;
+    location: LocationType | null;
+    status: string | null;
     /** A formatted update on upcoming status changes */
-    status_update: string;
-    events: Array<PartnerShowEventTypeType>;
-    counts: PartnerShowCountsType;
-    artworks: Array<ArtworkType>;
-    meta_image: ImageType;
-    cover_image: ImageType;
-    images: Array<ImageType>;
+    status_update: string | null;
+    events: Array<PartnerShowEventTypeType> | null;
+    counts: PartnerShowCountsType | null;
+    artworks: Array<ArtworkType> | null;
+    meta_image: ImageType | null;
+    cover_image: ImageType | null;
+    images: Array<ImageType> | null;
   }
 
   /**
@@ -1225,36 +1227,36 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
-    href: string;
-    kind: string;
+    cached: number | null;
+    href: string | null;
+    kind: string | null;
     /** The exhibition title */
-    name: string;
-    description: string;
-    type: string;
-    displayable: boolean;
+    name: string | null;
+    description: string | null;
+    type: string | null;
+    displayable: boolean | null;
     /** Gravity doesn’t expose the `active` flag. Temporarily re-state its logic. */
-    is_active: boolean;
-    is_displayable: boolean;
-    is_fair_booth: boolean;
-    press_release: string;
-    start_at: string;
-    end_at: string;
+    is_active: boolean | null;
+    is_displayable: boolean | null;
+    is_fair_booth: boolean | null;
+    press_release: string | null;
+    start_at: string | null;
+    end_at: string | null;
     /** A formatted description of the start to end dates */
-    exhibition_period: string;
-    artists: Array<ArtistType>;
-    partner: PartnerType;
-    fair: FairType;
-    location: LocationType;
-    status: string;
+    exhibition_period: string | null;
+    artists: Array<ArtistType> | null;
+    partner: PartnerType | null;
+    fair: FairType | null;
+    location: LocationType | null;
+    status: string | null;
     /** A formatted update on upcoming status changes */
-    status_update: string;
-    events: Array<PartnerShowEventTypeType>;
-    counts: PartnerShowCountsType;
-    artworks: Array<ArtworkType>;
-    meta_image: ImageType;
-    cover_image: ImageType;
-    images: Array<ImageType>;
+    status_update: string | null;
+    events: Array<PartnerShowEventTypeType> | null;
+    counts: PartnerShowCountsType | null;
+    artworks: Array<ArtworkType> | null;
+    meta_image: ImageType | null;
+    cover_image: ImageType | null;
+    images: Array<ImageType> | null;
   }
 
   /**
@@ -1266,16 +1268,16 @@ declare namespace GQL {
     __id: string;
     /** A type-specific ID. */
     id: string;
-    cached: number;
-    title: string;
-    published_at: string;
-    updated_at: string;
-    thumbnail_title: string;
-    thumbnail_teaser: string;
-    author: AuthorType;
-    thumbnail_image: ImageType;
-    slug: string;
-    href: string;
+    cached: number | null;
+    title: string | null;
+    published_at: string | null;
+    updated_at: string | null;
+    thumbnail_title: string | null;
+    thumbnail_teaser: string | null;
+    author: AuthorType | null;
+    thumbnail_image: ImageType | null;
+    slug: string | null;
+    href: string | null;
   }
 
   /**
@@ -1287,12 +1289,12 @@ declare namespace GQL {
     __id: string;
     /** A type-specific ID. */
     id: string;
-    dimensions: dimensionsType;
-    edition_of: string;
-    is_acquireable: boolean;
-    is_sold: boolean;
-    is_for_sale: boolean;
-    price: string;
+    dimensions: dimensionsType | null;
+    edition_of: string | null;
+    is_acquireable: boolean | null;
+    is_sold: boolean | null;
+    is_for_sale: boolean | null;
+    price: string | null;
   }
 
   /**
@@ -1300,9 +1302,9 @@ declare namespace GQL {
   */
   interface ArtworkMetaType {
     __typename: string;
-    title: string;
-    description: string;
-    image: string;
+    title: string | null;
+    description: string | null;
+    image: string | null;
   }
 
   /**
@@ -1314,17 +1316,17 @@ declare namespace GQL {
     __id: string;
     /** A type-specific ID. */
     id: string;
-    type: string;
-    name: string;
-    href: string;
-    description: string;
-    artworks: Array<ArtworkType>;
+    type: string | null;
+    name: string | null;
+    href: string | null;
+    description: string | null;
+    artworks: Array<ArtworkType> | null;
   }
 
   /**
     description: null
   */
-  type ArtistSortsEnum = "sortable_id_asc" | "sortable_id_desc" | "trending_desc";
+  type ArtistSortsEnum = "sortable_id_asc" | "sortable_id_desc" | "trending_desc" | "SORTABLE_ID_ASC" | "SORTABLE_ID_DESC" | "TRENDING_DESC";
 
   /**
     description: null
@@ -1342,15 +1344,15 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
+    cached: number | null;
     /** Artworks Elastic Search results */
-    filtered_artworks: FilterArtworksType;
-    href: string;
-    name: string;
-    description: string;
-    image: ImageType;
-    artists: Array<ArtistType>;
-    trending_artists: Array<ArtistType>;
+    filtered_artworks: FilterArtworksType | null;
+    href: string | null;
+    name: string | null;
+    description: string | null;
+    image: ImageType | null;
+    artists: Array<ArtistType> | null;
+    trending_artists: Array<ArtistType> | null;
   }
 
   /**
@@ -1364,13 +1366,23 @@ declare namespace GQL {
   interface FilterArtworksType {
     __typename: string;
     /** Artwork results. */
-    hits: Array<ArtworkType>;
-    total: number;
-    followed_artists_total: number;
+    hits: Array<ArtworkType> | null;
+    total: number | null;
+    followed_artists_total: number | null;
+    counts: FilterArtworksCountsType | null;
     /** Returns a list of merchandisable artists sorted by merch score. */
-    merchandisable_artists: Array<ArtistType>;
+    merchandisable_artists: Array<ArtistType> | null;
     /** Returns aggregation counts for the given filter query. */
-    aggregations: Array<ArtworksAggregationResultsType>;
+    aggregations: Array<ArtworksAggregationResultsType> | null;
+  }
+
+  /**
+    description: null
+  */
+  interface FilterArtworksCountsType {
+    __typename: string;
+    total: any | null;
+    followed_artists: any | null;
   }
 
   /**
@@ -1378,8 +1390,8 @@ declare namespace GQL {
   */
   interface ArtworksAggregationResultsType {
     __typename: string;
-    slice: ArtworkAggregationEnum;
-    counts: Array<AggregationCountType>;
+    slice: ArtworkAggregationEnum | null;
+    counts: Array<AggregationCountType> | null;
   }
 
   /**
@@ -1391,8 +1403,8 @@ declare namespace GQL {
     __id: string;
     /** A type-specific ID. */
     id: string;
-    name: string;
-    count: number;
+    name: string | null;
+    count: number | null;
   }
 
   /**
@@ -1401,15 +1413,15 @@ declare namespace GQL {
   interface HomePageType {
     __typename: string;
     /** Single artwork module to show on the home screen */
-    artwork_module: HomePageArtworkModuleType;
+    artwork_module: HomePageArtworkModuleType | null;
     /** Artwork modules to show on the home screen */
-    artwork_modules: Array<HomePageArtworkModuleType>;
+    artwork_modules: Array<HomePageArtworkModuleType> | null;
     /** Single artist module to show on the home screen. */
-    artist_module: HomePageArtistModuleType;
+    artist_module: HomePageArtistModuleType | null;
     /** Artist modules to show on the home screen */
-    artist_modules: Array<HomePageArtistModuleType>;
+    artist_modules: Array<HomePageArtistModuleType> | null;
     /** A list of enabled hero units to show on the requested platform */
-    hero_units: Array<HomePageHeroUnitType>;
+    hero_units: Array<HomePageHeroUnitType> | null;
   }
 
   /**
@@ -1419,13 +1431,13 @@ declare namespace GQL {
     __typename: string;
     /** A globally unique ID. */
     __id: string;
-    key: string;
-    display: string;
-    is_displayable: boolean;
-    params: HomePageModulesParamsType;
-    context: HomePageModuleContextType;
-    title: string;
-    results: Array<ArtworkType>;
+    key: string | null;
+    display: string | null;
+    is_displayable: boolean | null;
+    params: HomePageModulesParamsType | null;
+    context: HomePageModuleContextType | null;
+    title: string | null;
+    results: Array<ArtworkType> | null;
   }
 
   /**
@@ -1433,18 +1445,18 @@ declare namespace GQL {
   */
   interface HomePageModulesParamsType {
     __typename: string;
-    gene_id: string;
-    medium: string;
-    price_range: string;
-    id: string;
-    followed_artist_id: string;
-    related_artist_id: string;
+    gene_id: string | null;
+    medium: string | null;
+    price_range: string | null;
+    id: string | null;
+    followed_artist_id: string | null;
+    related_artist_id: string | null;
   }
 
   /**
     description: null
   */
-  type HomePageModuleContext = HomePageModuleContextFairType | HomePageModuleContextSaleType | HomePageModuleContextGeneType | HomePageModuleContextTrendingType | HomePageModuleContextFollowArtistsType | HomePageModuleContextRelatedArtistType;
+  type HomePageModuleContext = HomePageModuleContextFairType | HomePageModuleContextSaleType | HomePageModuleContextGeneType | HomePageModuleContextTrendingType | HomePageModuleContextFollowArtistsType | HomePageModuleContextRelatedArtistType | HomePageModuleContextFollowedArtistType;
 
   /**
     description: null
@@ -1465,25 +1477,25 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
-    banner_size: string;
-    profile: ProfileType;
-    has_full_feature: boolean;
-    has_homepage_section: boolean;
-    has_listing: boolean;
-    has_large_banner: boolean;
-    href: string;
-    image: ImageType;
-    location: LocationType;
+    cached: number | null;
+    banner_size: string | null;
+    profile: ProfileType | null;
+    has_full_feature: boolean | null;
+    has_homepage_section: boolean | null;
+    has_listing: boolean | null;
+    has_large_banner: boolean | null;
+    href: string | null;
+    image: ImageType | null;
+    location: LocationType | null;
     /** Are we currently in the fair's active period? */
-    is_active: boolean;
-    start_at: string;
-    end_at: string;
-    name: string;
-    tagline: string;
-    published: boolean;
-    is_published: boolean;
-    organizer: organizerType;
+    is_active: boolean | null;
+    start_at: string | null;
+    end_at: string | null;
+    name: string | null;
+    tagline: string | null;
+    published: boolean | null;
+    is_published: boolean | null;
+    organizer: organizerType | null;
   }
 
   /**
@@ -1497,36 +1509,36 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
-    name: string;
-    href: string;
-    description: string;
-    sale_type: string;
-    is_auction: boolean;
-    is_auction_promo: boolean;
-    is_preview: boolean;
-    is_open: boolean;
-    is_live_open: boolean;
-    is_closed: boolean;
-    is_with_buyers_premium: boolean;
-    auction_state: string;
-    status: string;
-    registration_ends_at: string;
-    start_at: string;
-    end_at: string;
-    live_start_at: string;
-    event_start_at: string;
-    event_end_at: string;
-    currency: string;
-    sale_artworks: Array<SaleArtworkType>;
-    artworks: Array<ArtworkType>;
-    cover_image: ImageType;
-    sale_artwork: SaleArtworkType;
-    profile: ProfileType;
+    cached: number | null;
+    name: string | null;
+    href: string | null;
+    description: string | null;
+    sale_type: string | null;
+    is_auction: boolean | null;
+    is_auction_promo: boolean | null;
+    is_preview: boolean | null;
+    is_open: boolean | null;
+    is_live_open: boolean | null;
+    is_closed: boolean | null;
+    is_with_buyers_premium: boolean | null;
+    auction_state: string | null;
+    status: string | null;
+    registration_ends_at: string | null;
+    start_at: string | null;
+    end_at: string | null;
+    live_start_at: string | null;
+    event_start_at: string | null;
+    event_end_at: string | null;
+    currency: string | null;
+    sale_artworks: Array<SaleArtworkType> | null;
+    artworks: Array<ArtworkType> | null;
+    cover_image: ImageType | null;
+    sale_artwork: SaleArtworkType | null;
+    profile: ProfileType | null;
     /** A bid increment policy that explains minimum bids in ranges. */
-    bid_increments: Array<BidIncrementType>;
+    bid_increments: Array<BidIncrementType> | null;
     /** Auction's buyer's premium policy. */
-    buyers_premium: Array<BuyersPremiumType>;
+    buyers_premium: Array<BuyersPremiumType> | null;
   }
 
   /**
@@ -1540,15 +1552,15 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
+    cached: number | null;
     /** Artworks Elastic Search results */
-    filtered_artworks: FilterArtworksType;
-    href: string;
-    name: string;
-    description: string;
-    image: ImageType;
-    artists: Array<ArtistType>;
-    trending_artists: Array<ArtistType>;
+    filtered_artworks: FilterArtworksType | null;
+    href: string | null;
+    name: string | null;
+    description: string | null;
+    image: ImageType | null;
+    artists: Array<ArtistType> | null;
+    trending_artists: Array<ArtistType> | null;
   }
 
   /**
@@ -1556,7 +1568,7 @@ declare namespace GQL {
   */
   interface HomePageModuleContextTrendingType {
     __typename: string;
-    artists: Array<ArtistType>;
+    artists: Array<ArtistType> | null;
   }
 
   /**
@@ -1564,8 +1576,8 @@ declare namespace GQL {
   */
   interface HomePageModuleContextFollowArtistsType {
     __typename: string;
-    artists: Array<ArtistType>;
-    counts: FollowArtistCountsType;
+    artists: Array<ArtistType> | null;
+    counts: FollowArtistCountsType | null;
   }
 
   /**
@@ -1573,7 +1585,7 @@ declare namespace GQL {
   */
   interface FollowArtistCountsType {
     __typename: string;
-    artists: number;
+    artists: number | null;
   }
 
   /**
@@ -1581,14 +1593,22 @@ declare namespace GQL {
   */
   interface HomePageModuleContextRelatedArtistType {
     __typename: string;
-    artist: ArtistType;
-    based_on: ArtistType;
+    artist: ArtistType | null;
+    based_on: ArtistType | null;
   }
 
   /**
     description: null
   */
-  type HomePageArtworkModuleTypesEnum = "ACTIVE_BIDS" | "FOLLOWED_ARTISTS" | "FOLLOWED_GALLERIES" | "SAVED_WORKS" | "RECOMMENDED_WORKS" | "LIVE_AUCTIONS" | "CURRENT_FAIRS" | "RELATED_ARTISTS" | "FOLLOWED_GENES" | "GENERIC_GENES";
+  interface HomePageModuleContextFollowedArtistType {
+    __typename: string;
+    artist: ArtistType | null;
+  }
+
+  /**
+    description: null
+  */
+  type HomePageArtworkModuleTypesEnum = "ACTIVE_BIDS" | "FOLLOWED_ARTISTS" | "FOLLOWED_GALLERIES" | "SAVED_WORKS" | "RECOMMENDED_WORKS" | "LIVE_AUCTIONS" | "CURRENT_FAIRS" | "FOLLOWED_ARTIST" | "RELATED_ARTISTS" | "FOLLOWED_GENES" | "GENERIC_GENES";
 
   /**
     description: null
@@ -1603,8 +1623,8 @@ declare namespace GQL {
     /** A globally unique ID. */
     __id: string;
     /** Module identifier. */
-    key: string;
-    results: Array<ArtistType>;
+    key: string | null;
+    results: Array<ArtistType> | null;
   }
 
   /**
@@ -1623,12 +1643,12 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
-    heading: string;
-    href: string;
-    title: string;
+    cached: number | null;
+    heading: string | null;
+    href: string | null;
+    title: string | null;
     /** The image to show, on desktop this defaults to the wide version. */
-    background_image_url: string;
+    background_image_url: string | null;
   }
 
   /**
@@ -1645,12 +1665,12 @@ declare namespace GQL {
     __id: string;
     /** A type-specific ID. */
     id: string;
-    cached: number;
-    key: string;
-    name: string;
-    description: string;
-    item_type: string;
-    items: Array<ItemType>;
+    cached: number | null;
+    key: string | null;
+    name: string | null;
+    description: string | null;
+    item_type: string | null;
+    items: Array<ItemType> | null;
   }
 
   /**
@@ -1677,53 +1697,53 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
-    href: string;
+    cached: number | null;
+    href: string | null;
     /** Use this attribute to sort by when sorting a collection of Artists */
-    sortable_id: string;
-    name: string;
-    initials: string;
-    gender: string;
-    years: string;
-    is_public: boolean;
-    is_consignable: boolean;
-    public: boolean;
-    consignable: boolean;
+    sortable_id: string | null;
+    name: string | null;
+    initials: string | null;
+    gender: string | null;
+    years: string | null;
+    is_public: boolean | null;
+    is_consignable: boolean | null;
+    public: boolean | null;
+    consignable: boolean | null;
     /** Only specific Artists should show a link to auction results. */
-    is_display_auction_link: boolean;
-    display_auction_link: boolean;
-    has_metadata: boolean;
-    hometown: string;
-    location: string;
-    nationality: string;
-    birthday: string;
-    deathday: string;
+    is_display_auction_link: boolean | null;
+    display_auction_link: boolean | null;
+    has_metadata: boolean | null;
+    hometown: string | null;
+    location: string | null;
+    nationality: string | null;
+    birthday: string | null;
+    deathday: string | null;
     /** A string of the form "Nationality, Birthday (or Birthday-Deathday)" */
-    formatted_nationality_and_birthday: string;
+    formatted_nationality_and_birthday: string | null;
     /** The Artist biography article written by Artsy */
-    biography: ArticleType;
-    alternate_names: Array<string>;
-    meta: ArtistMetaType;
-    blurb: string;
-    biography_blurb: ArtistBlurbType;
-    is_shareable: boolean;
-    bio: string;
-    counts: ArtistCountsType;
-    artworks: Array<ArtworkType>;
+    biography: ArticleType | null;
+    alternate_names: Array<string> | null;
+    meta: ArtistMetaType | null;
+    blurb: string | null;
+    biography_blurb: ArtistBlurbType | null;
+    is_shareable: boolean | null;
+    bio: string | null;
+    counts: ArtistCountsType | null;
+    artworks: Array<ArtworkType> | null;
     /** A string showing the total number of works and those for sale */
-    formatted_artworks_count: string;
-    image: ImageType;
-    artists: Array<ArtistType>;
-    contemporary: Array<ArtistType>;
-    carousel: ArtistCarouselType;
-    statuses: ArtistStatusesType;
+    formatted_artworks_count: string | null;
+    image: ImageType | null;
+    artists: Array<ArtistType> | null;
+    contemporary: Array<ArtistType> | null;
+    carousel: ArtistCarouselType | null;
+    statuses: ArtistStatusesType | null;
     /** Custom-sorted list of shows for an artist, in order of significance. */
-    exhibition_highlights: Array<ShowType>;
-    partner_shows: Array<PartnerShowType>;
-    shows: Array<ShowType>;
-    partner_artists: Array<PartnerArtistType>;
-    sales: Array<SaleType>;
-    articles: Array<ArticleType>;
+    exhibition_highlights: Array<ShowType> | null;
+    partner_shows: Array<PartnerShowType> | null;
+    shows: Array<ShowType> | null;
+    partner_artists: Array<PartnerArtistType> | null;
+    sales: Array<SaleType> | null;
+    articles: Array<ArticleType> | null;
   }
 
   /**
@@ -1732,12 +1752,12 @@ declare namespace GQL {
   interface FeaturedLinkItemType {
     __typename: string;
     /** Attempt to get the ID of the entity of the FeaturedLink */
-    id: string;
-    title: string;
-    initials: string;
-    subtitle: string;
-    href: string;
-    image: ImageType;
+    id: string | null;
+    title: string | null;
+    initials: string | null;
+    subtitle: string | null;
+    href: string | null;
+    image: ImageType | null;
   }
 
   /**
@@ -1751,15 +1771,15 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
+    cached: number | null;
     /** Artworks Elastic Search results */
-    filtered_artworks: FilterArtworksType;
-    href: string;
-    name: string;
-    description: string;
-    image: ImageType;
-    artists: Array<ArtistType>;
-    trending_artists: Array<ArtistType>;
+    filtered_artworks: FilterArtworksType | null;
+    href: string | null;
+    name: string | null;
+    description: string | null;
+    image: ImageType | null;
+    artists: Array<ArtistType> | null;
+    trending_artists: Array<ArtistType> | null;
   }
 
   /**
@@ -1782,9 +1802,9 @@ declare namespace GQL {
   */
   interface FilterPartnersType {
     __typename: string;
-    hits: Array<PartnerType>;
-    total: number;
-    aggregations: Array<PartnersAggregationResultsType>;
+    hits: Array<PartnerType> | null;
+    total: number | null;
+    aggregations: Array<PartnersAggregationResultsType> | null;
   }
 
   /**
@@ -1792,8 +1812,8 @@ declare namespace GQL {
   */
   interface PartnersAggregationResultsType {
     __typename: string;
-    slice: PartnersAggregationEnum;
-    counts: Array<AggregationCountType>;
+    slice: PartnersAggregationEnum | null;
+    counts: Array<AggregationCountType> | null;
   }
 
   /**
@@ -1805,10 +1825,10 @@ declare namespace GQL {
     __id: string;
     /** A type-specific ID. */
     id: string;
-    cached: number;
-    name: string;
-    category_type: CategoryTypeEnum;
-    partners: Array<PartnerType>;
+    cached: number | null;
+    name: string | null;
+    category_type: CategoryTypeEnum | null;
+    partners: Array<PartnerType> | null;
   }
 
   /**
@@ -1821,9 +1841,9 @@ declare namespace GQL {
   */
   interface SearchType {
     __typename: string;
-    cached: number;
-    total: number;
-    results: Array<SearchResultType>;
+    cached: number | null;
+    total: number | null;
+    results: Array<SearchResultType> | null;
   }
 
   /**
@@ -1831,13 +1851,13 @@ declare namespace GQL {
   */
   interface SearchResultType {
     __typename: string;
-    id: string;
-    title: string;
-    href: string;
-    snippet: string;
-    image: ImageType;
-    type: string;
-    entity: SearchEntityType;
+    id: string | null;
+    title: string | null;
+    href: string | null;
+    snippet: string | null;
+    image: ImageType | null;
+    type: string | null;
+    entity: SearchEntityType | null;
   }
 
   /**
@@ -1864,53 +1884,53 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
-    href: string;
+    cached: number | null;
+    href: string | null;
     /** Use this attribute to sort by when sorting a collection of Artists */
-    sortable_id: string;
-    name: string;
-    initials: string;
-    gender: string;
-    years: string;
-    is_public: boolean;
-    is_consignable: boolean;
-    public: boolean;
-    consignable: boolean;
+    sortable_id: string | null;
+    name: string | null;
+    initials: string | null;
+    gender: string | null;
+    years: string | null;
+    is_public: boolean | null;
+    is_consignable: boolean | null;
+    public: boolean | null;
+    consignable: boolean | null;
     /** Only specific Artists should show a link to auction results. */
-    is_display_auction_link: boolean;
-    display_auction_link: boolean;
-    has_metadata: boolean;
-    hometown: string;
-    location: string;
-    nationality: string;
-    birthday: string;
-    deathday: string;
+    is_display_auction_link: boolean | null;
+    display_auction_link: boolean | null;
+    has_metadata: boolean | null;
+    hometown: string | null;
+    location: string | null;
+    nationality: string | null;
+    birthday: string | null;
+    deathday: string | null;
     /** A string of the form "Nationality, Birthday (or Birthday-Deathday)" */
-    formatted_nationality_and_birthday: string;
+    formatted_nationality_and_birthday: string | null;
     /** The Artist biography article written by Artsy */
-    biography: ArticleType;
-    alternate_names: Array<string>;
-    meta: ArtistMetaType;
-    blurb: string;
-    biography_blurb: ArtistBlurbType;
-    is_shareable: boolean;
-    bio: string;
-    counts: ArtistCountsType;
-    artworks: Array<ArtworkType>;
+    biography: ArticleType | null;
+    alternate_names: Array<string> | null;
+    meta: ArtistMetaType | null;
+    blurb: string | null;
+    biography_blurb: ArtistBlurbType | null;
+    is_shareable: boolean | null;
+    bio: string | null;
+    counts: ArtistCountsType | null;
+    artworks: Array<ArtworkType> | null;
     /** A string showing the total number of works and those for sale */
-    formatted_artworks_count: string;
-    image: ImageType;
-    artists: Array<ArtistType>;
-    contemporary: Array<ArtistType>;
-    carousel: ArtistCarouselType;
-    statuses: ArtistStatusesType;
+    formatted_artworks_count: string | null;
+    image: ImageType | null;
+    artists: Array<ArtistType> | null;
+    contemporary: Array<ArtistType> | null;
+    carousel: ArtistCarouselType | null;
+    statuses: ArtistStatusesType | null;
     /** Custom-sorted list of shows for an artist, in order of significance. */
-    exhibition_highlights: Array<ShowType>;
-    partner_shows: Array<PartnerShowType>;
-    shows: Array<ShowType>;
-    partner_artists: Array<PartnerArtistType>;
-    sales: Array<SaleType>;
-    articles: Array<ArticleType>;
+    exhibition_highlights: Array<ShowType> | null;
+    partner_shows: Array<PartnerShowType> | null;
+    shows: Array<ShowType> | null;
+    partner_artists: Array<PartnerArtistType> | null;
+    sales: Array<SaleType> | null;
+    articles: Array<ArticleType> | null;
   }
 
   /**
@@ -1924,83 +1944,83 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
-    to_s: string;
-    href: string;
-    title: string;
-    category: string;
-    medium: string;
-    date: string;
-    image_rights: string;
-    website: string;
-    collecting_institution: string;
-    partner: PartnerType;
+    cached: number | null;
+    to_s: string | null;
+    href: string | null;
+    title: string | null;
+    category: string | null;
+    medium: string | null;
+    date: string | null;
+    image_rights: string | null;
+    website: string | null;
+    collecting_institution: string | null;
+    partner: PartnerType | null;
     /** Returns an HTML string representing the embedded content (video) */
-    embed: string;
-    can_share_image: boolean;
-    is_embeddable_video: boolean;
-    is_shareable: boolean;
-    is_hangable: boolean;
+    embed: string | null;
+    can_share_image: boolean | null;
+    is_embeddable_video: boolean | null;
+    is_shareable: boolean | null;
+    is_hangable: boolean | null;
     /** True for inquireable artworks that have an exact price. */
-    is_purchasable: boolean;
+    is_purchasable: boolean | null;
     /** Do we want to encourage inquiries on this work? */
-    is_inquireable: boolean;
+    is_inquireable: boolean | null;
     /** Are we able to display a contact form on artwork pages? */
-    is_contactable: boolean;
+    is_contactable: boolean | null;
     /** Is this artwork part of an auction? */
-    is_in_auction: boolean;
+    is_in_auction: boolean | null;
     /** Is this artwork part of a current show */
-    is_in_show: boolean;
-    is_for_sale: boolean;
+    is_in_show: boolean | null;
+    is_for_sale: boolean | null;
     /** Is this artwork part of an auction that is currently running? */
-    is_biddable: boolean;
-    is_unique: boolean;
-    is_sold: boolean;
-    is_ecommerce: boolean;
+    is_biddable: boolean | null;
+    is_unique: boolean | null;
+    is_sold: boolean | null;
+    is_ecommerce: boolean | null;
     /** Whether work can be purchased through e-commerce */
-    is_acquireable: boolean;
+    is_acquireable: boolean | null;
     /** When in an auction, can the work be bought before any bids are placed */
-    is_buy_nowable: boolean;
-    is_comparable_with_auction_results: boolean;
-    is_downloadable: boolean;
-    is_price_hidden: boolean;
-    is_price_range: boolean;
-    availability: string;
-    sale_message: string;
-    artist: ArtistType;
-    price: string;
-    contact_label: string;
-    cultural_maker: string;
-    artists: Array<ArtistType>;
-    artist_names: string;
-    dimensions: dimensionsType;
-    image: ImageType;
-    images: Array<ImageType>;
+    is_buy_nowable: boolean | null;
+    is_comparable_with_auction_results: boolean | null;
+    is_downloadable: boolean | null;
+    is_price_hidden: boolean | null;
+    is_price_range: boolean | null;
+    availability: string | null;
+    sale_message: string | null;
+    artist: ArtistType | null;
+    price: string | null;
+    contact_label: string | null;
+    cultural_maker: string | null;
+    artists: Array<ArtistType> | null;
+    artist_names: string | null;
+    dimensions: dimensionsType | null;
+    image: ImageType | null;
+    images: Array<ImageType> | null;
     /** Returns the associated Fair/Sale/PartnerShow */
-    context: ArtworkContextType;
+    context: ArtworkContextType | null;
     /** Returns the highlighted shows and articles */
-    highlights: Array<HighlightedType>;
-    articles: Array<ArticleType>;
-    shows: Array<PartnerShowType>;
-    show: PartnerShowType;
-    sale_artwork: SaleArtworkType;
-    sale: SaleType;
-    fair: FairType;
-    edition_of: string;
-    edition_sets: Array<EditionSetType>;
-    description: string;
-    exhibition_history: string;
-    provenance: string;
-    signature: string;
-    additional_information: string;
-    literature: string;
-    publisher: string;
-    manufacturer: string;
-    series: string;
-    meta: ArtworkMetaType;
-    related: Array<ArtworkType>;
-    layer: ArtworkLayerType;
-    layers: Array<ArtworkLayerType>;
+    highlights: Array<HighlightedType> | null;
+    articles: Array<ArticleType> | null;
+    shows: Array<PartnerShowType> | null;
+    show: PartnerShowType | null;
+    sale_artwork: SaleArtworkType | null;
+    sale: SaleType | null;
+    fair: FairType | null;
+    edition_of: string | null;
+    edition_sets: Array<EditionSetType> | null;
+    description: string | null;
+    exhibition_history: string | null;
+    provenance: string | null;
+    signature: string | null;
+    additional_information: string | null;
+    literature: string | null;
+    publisher: string | null;
+    manufacturer: string | null;
+    series: string | null;
+    meta: ArtworkMetaType | null;
+    related: Array<ArtworkType> | null;
+    layer: ArtworkLayerType | null;
+    layers: Array<ArtworkLayerType> | null;
   }
 
   /**
@@ -2014,15 +2034,15 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
-    name: string;
-    image: ImageType;
-    initials: string;
-    icon: ImageType;
-    href: string;
-    is_published: boolean;
-    bio: string;
-    counts: ProfileCountsType;
+    cached: number | null;
+    name: string | null;
+    image: ImageType | null;
+    initials: string | null;
+    icon: ImageType | null;
+    href: string | null;
+    is_published: boolean | null;
+    bio: string | null;
+    counts: ProfileCountsType | null;
   }
 
   /**
@@ -2036,36 +2056,36 @@ declare namespace GQL {
     id: string;
     /** A type-specific Gravity Mongo Document ID. */
     _id: string;
-    cached: number;
-    href: string;
-    kind: string;
+    cached: number | null;
+    href: string | null;
+    kind: string | null;
     /** The exhibition title */
-    name: string;
-    description: string;
-    type: string;
-    displayable: boolean;
+    name: string | null;
+    description: string | null;
+    type: string | null;
+    displayable: boolean | null;
     /** Gravity doesn’t expose the `active` flag. Temporarily re-state its logic. */
-    is_active: boolean;
-    is_displayable: boolean;
-    is_fair_booth: boolean;
-    press_release: string;
-    start_at: string;
-    end_at: string;
+    is_active: boolean | null;
+    is_displayable: boolean | null;
+    is_fair_booth: boolean | null;
+    press_release: string | null;
+    start_at: string | null;
+    end_at: string | null;
     /** A formatted description of the start to end dates */
-    exhibition_period: string;
-    artists: Array<ArtistType>;
-    partner: PartnerType;
-    fair: FairType;
-    location: LocationType;
-    status: string;
+    exhibition_period: string | null;
+    artists: Array<ArtistType> | null;
+    partner: PartnerType | null;
+    fair: FairType | null;
+    location: LocationType | null;
+    status: string | null;
     /** A formatted update on upcoming status changes */
-    status_update: string;
-    events: Array<PartnerShowEventTypeType>;
-    counts: PartnerShowCountsType;
-    artworks: Array<ArtworkType>;
-    meta_image: ImageType;
-    cover_image: ImageType;
-    images: Array<ImageType>;
+    status_update: string | null;
+    events: Array<PartnerShowEventTypeType> | null;
+    counts: PartnerShowCountsType | null;
+    artworks: Array<ArtworkType> | null;
+    meta_image: ImageType | null;
+    cover_image: ImageType | null;
+    images: Array<ImageType> | null;
   }
 
   /**
@@ -2078,7 +2098,7 @@ declare namespace GQL {
   */
   interface TrendingArtistsType {
     __typename: string;
-    artists: Array<ArtistType>;
+    artists: Array<ArtistType> | null;
   }
 
   /**
@@ -2090,26 +2110,26 @@ declare namespace GQL {
     __id: string;
     /** A type-specific ID. */
     id: string;
-    type: string;
-    created_at: string;
-    email: string;
-    name: string;
-    paddle_number: string;
+    type: string | null;
+    created_at: string | null;
+    email: string | null;
+    name: string | null;
+    paddle_number: string | null;
     /** A list of the current user’s bidder registrations */
-    bidders: Array<BidderType>;
+    bidders: Array<BidderType> | null;
     /** The current user's status relating to bids on artworks */
-    bidder_status: LotStandingType;
+    bidder_status: LotStandingType | null;
     /** A list of the current user's bidder positions */
-    bidder_positions: Array<BidderPositionType>;
+    bidder_positions: Array<BidderPositionType> | null;
     /** The current user's status relating to bids on artworks */
-    lot_standing: LotStandingType;
+    lot_standing: LotStandingType | null;
     /** A list of the current user's auction standings for given lots */
-    lot_standings: Array<LotStandingType>;
-    sale_registrations: Array<SaleRegistrationType>;
+    lot_standings: Array<LotStandingType> | null;
+    sale_registrations: Array<SaleRegistrationType> | null;
     /** A list of the current user’s artist follows */
-    follow_artists: FollowArtistsType;
+    follow_artists: FollowArtistsType | null;
     /** A list of the current user’s suggested artists, based on a single artist */
-    suggested_artists: Array<ArtistType>;
+    suggested_artists: Array<ArtistType> | null;
   }
 
   /**
@@ -2121,10 +2141,10 @@ declare namespace GQL {
     __id: string;
     /** A type-specific ID. */
     id: string;
-    created_at: string;
-    pin: string;
-    sale: SaleType;
-    qualified_for_bidding: boolean;
+    created_at: string | null;
+    pin: string | null;
+    sale: SaleType | null;
+    qualified_for_bidding: boolean | null;
   }
 
   /**
@@ -2132,16 +2152,16 @@ declare namespace GQL {
   */
   interface LotStandingType {
     __typename: string;
-    bidder: BidderType;
-    sale_artwork: SaleArtworkType;
+    bidder: BidderType | null;
+    sale_artwork: SaleArtworkType | null;
     /** You are winning and reserve is met */
-    is_highest_bidder: boolean;
+    is_highest_bidder: boolean | null;
     /** You are the leading bidder without regard to reserve */
-    is_leading_bidder: boolean;
+    is_leading_bidder: boolean | null;
     /** Your bid if it is currently winning */
-    active_bid: BidderPositionType;
+    active_bid: BidderPositionType | null;
     /** Your most recent bid—which is not necessarily winning (may be higher or lower) */
-    most_recent_bid: BidderPositionType;
+    most_recent_bid: BidderPositionType | null;
   }
 
   /**
@@ -2153,21 +2173,21 @@ declare namespace GQL {
     __id: string;
     /** A type-specific ID. */
     id: string;
-    created_at: string;
-    updated_at: string;
-    processed_at: string;
-    is_active: boolean;
-    is_retracted: boolean;
-    is_with_bid_max: boolean;
-    is_winning: boolean;
-    max_bid: BidderPositionMaxBidType;
-    suggested_next_bid: BidderPositionSuggestedNextBidType;
-    sale_artwork: SaleArtworkType;
-    highest_bid: HighestBidType;
-    display_max_bid_amount_dollars: string;
-    display_suggested_next_bid_dollars: string;
-    max_bid_amount_cents: number;
-    suggested_next_bid_cents: number;
+    created_at: string | null;
+    updated_at: string | null;
+    processed_at: string | null;
+    is_active: boolean | null;
+    is_retracted: boolean | null;
+    is_with_bid_max: boolean | null;
+    is_winning: boolean | null;
+    max_bid: BidderPositionMaxBidType | null;
+    suggested_next_bid: BidderPositionSuggestedNextBidType | null;
+    sale_artwork: SaleArtworkType | null;
+    highest_bid: HighestBidType | null;
+    display_max_bid_amount_dollars: string | null;
+    display_suggested_next_bid_dollars: string | null;
+    max_bid_amount_cents: number | null;
+    suggested_next_bid_cents: number | null;
   }
 
   /**
@@ -2176,11 +2196,11 @@ declare namespace GQL {
   interface BidderPositionMaxBidType {
     __typename: string;
     /** An amount of money expressed in cents. */
-    cents: number;
+    cents: number | null;
     /** A pre-formatted price. */
-    display: string;
+    display: string | null;
     /** A formatted price with various currency formatting options. */
-    amount: string;
+    amount: string | null;
   }
 
   /**
@@ -2189,11 +2209,11 @@ declare namespace GQL {
   interface BidderPositionSuggestedNextBidType {
     __typename: string;
     /** An amount of money expressed in cents. */
-    cents: number;
+    cents: number | null;
     /** A pre-formatted price. */
-    display: string;
+    display: string | null;
     /** A formatted price with various currency formatting options. */
-    amount: string;
+    amount: string | null;
   }
 
   /**
@@ -2205,15 +2225,15 @@ declare namespace GQL {
     __id: string;
     /** A type-specific ID. */
     id: string;
-    created_at: string;
-    number: number;
-    is_cancelled: boolean;
+    created_at: string | null;
+    number: number | null;
+    is_cancelled: boolean | null;
     /** A formatted price with various currency formatting options. */
-    amount: string;
-    cents: number;
-    display: string;
-    amount_cents: number;
-    display_amount_dollars: string;
+    amount: string | null;
+    cents: number | null;
+    display: string | null;
+    amount_cents: number | null;
+    display_amount_dollars: string | null;
   }
 
   /**
@@ -2221,9 +2241,9 @@ declare namespace GQL {
   */
   interface SaleRegistrationType {
     __typename: string;
-    is_registered: boolean;
-    bidder: BidderType;
-    sale: SaleType;
+    is_registered: boolean | null;
+    bidder: BidderType | null;
+    sale: SaleType | null;
   }
 
   /**
@@ -2231,8 +2251,8 @@ declare namespace GQL {
   */
   interface FollowArtistsType {
     __typename: string;
-    artists: Array<ArtistType>;
-    counts: FollowArtistCountsType;
+    artists: Array<ArtistType> | null;
+    counts: FollowArtistCountsType | null;
   }
 
   /**
@@ -2240,5 +2260,3 @@ declare namespace GQL {
   */
   type RoleEnum = "PARTICIPANT" | "OPERATOR";
 }
-
-export default GQL;
