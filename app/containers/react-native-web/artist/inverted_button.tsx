@@ -1,9 +1,10 @@
 import * as React from "react"
 import { Animated, StyleSheet, Text, TouchableHighlight, View } from "react-native-web"
 
-import Headline from './text/headline'
+import Headline from "./text/headline"
 
-// import colors from '../../../data/colors'
+// import * as colors from "../../../../data/colors.json"
+// tslint:disable-next-line
 const colors = require("../../../../data/colors.json")
 
 // import Spinner from '../spinner'
@@ -30,8 +31,8 @@ export default class InvertedButton extends React.Component<Props, State> {
   constructor(props: any) {
     super(props)
     this.state = {
+      backgroundColor: new Animated.Value(props.selected ? 1 : 0),
       textOpacity: new Animated.Value(1),
-      backgroundColor: new Animated.Value(props.selected ? 1 : 0)
     }
   }
 
@@ -43,9 +44,10 @@ export default class InvertedButton extends React.Component<Props, State> {
 
   componentDidUpdate(prevProps: any, prevState: any) {
     if (this.props.selected !== prevProps.selected) {
+      const duration = AnimationDuration
       Animated.parallel([
-        Animated.timing(this.state.textOpacity, { toValue: 1, duration: AnimationDuration }),
-        Animated.timing(this.state.backgroundColor, { toValue: this.props.selected ? 1 : 0, duration: AnimationDuration }),
+        Animated.timing(this.state.textOpacity, { toValue: 1, duration }),
+        Animated.timing(this.state.backgroundColor, { toValue: this.props.selected ? 1 : 0, duration }),
       ]).start(this.props.onSelectionAnimationFinished)
     }
   }
@@ -53,17 +55,21 @@ export default class InvertedButton extends React.Component<Props, State> {
   render() {
     const backgroundColor = this.state.backgroundColor.interpolate({
       inputRange: [0, 1],
-      outputRange: (['black', colors['purple-regular']])
+      outputRange: (["black", colors["purple-regular"]])
     })
     const styling = {
-      underlayColor: (this.props.selected ? 'black' : colors['purple-regular']),
       style: [styles.button, { backgroundColor }],
+      underlayColor: (this.props.selected ? "black" : colors["purple-regular"]),
     }
     let content = null
     if (this.props.inProgress) {
-      content = <Spinner spinnerColor="white" style={{ backgroundColor: 'transparent' }} />
+      content = <Spinner spinnerColor="white" style={{ backgroundColor: "transparent" }} />
     } else {
-      content = <AnimatedHeadline style={[styles.text, { opacity: this.state.textOpacity }]}>{this.props.text}</AnimatedHeadline>
+      content = (
+        <AnimatedHeadline style={[styles.text, { opacity: this.state.textOpacity }]}>
+          {this.props.text}
+        </AnimatedHeadline>
+      )
     }
     return (
       <AnimatedTouchable onPress={this.props.onPress} activeOpacity={1} disabled={this.props.inProgress} {...styling}>
@@ -75,12 +81,11 @@ export default class InvertedButton extends React.Component<Props, State> {
 
 const styles = StyleSheet.create({
   button: {
+    alignItems: "center",
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
   },
   text: {
-    color: 'white'
+    color: "white"
   }
 })
-

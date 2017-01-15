@@ -2,11 +2,13 @@ import * as React from "react"
 import { StyleSheet, TextStyle, View, ViewStyle } from "react-native-web"
 import * as Relay from "react-relay"
 
-import ArtistHeader from "./header"
 import ArtworksGrid from "./grid"
+import ArtistHeader from "./header"
 import SerifText from "./text/serif"
 
 import GQL from "../../../gql"
+
+// tslint:disable-next-line
 const colors = require("../../../../data/colors.json")
 
 export const Artist = ({ artist }: { artist: GQL.ArtistType }) => (
@@ -15,12 +17,14 @@ export const Artist = ({ artist }: { artist: GQL.ArtistType }) => (
     <hr />
     <View>
       <SerifText style={styles.heading}>
-        <SerifText style={styles.text}>Works for Sale</SerifText> <SerifText style={[styles.text, styles.count]}>({artist.counts.for_sale_artworks})</SerifText>
+        <SerifText style={styles.text}>Works for Sale </SerifText>
+        <SerifText style={[styles.text, styles.count]}>({artist.counts.for_sale_artworks})</SerifText>
       </SerifText>
       <ArtworksGrid
         artworks={artist.artworks}
         queryState={{ availability: "IS_FOR_SALE" }}
         queryForPage={resolveQuery(artist._id)}
+        // tslint:disable-next-line
         onComplete={() => console.log("Done paging!")}
         queryArtworksKeypath="artist.artworks" />
     </View>
@@ -53,14 +57,14 @@ const styles = StyleSheet.create<Styles>({
     right: 40,
     top: 0,
   },
+  count: {
+    color: colors["gray-semibold"],
+  },
   heading: {
     marginBottom: 20,
   },
   text: {
     fontSize: 20,
-  },
-  count: {
-    color: colors['gray-semibold'],
   },
 })
 

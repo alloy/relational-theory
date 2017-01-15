@@ -73,8 +73,6 @@ class Header extends React.Component<Props, State> {
   }
 }
 
-
-
 // TODO: Orta - what's up with this?
 export default Relay.createContainer(Header as any, {
   fragments: {

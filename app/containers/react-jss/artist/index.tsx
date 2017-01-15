@@ -1,8 +1,8 @@
 import * as React from "react"
 import * as Relay from "react-relay"
 
-import ArtistHeader from '../../../components/artist/header'
-import Grid from './grid'
+import ArtistHeader from "../../../components/artist/header"
+import Grid from "./grid"
 
 interface Props {
   artist: any
@@ -35,9 +35,9 @@ export default Relay.createContainer(Artist, {
           articles
         }
         artworks(size: 30) {
-          ${Grid.getFragment('artworks')}
+          ${Grid.getFragment("artworks")}
         }
-        ${ArtistHeader.getFragment('artist')}
+        ${ArtistHeader.getFragment("artist")}
       }
     `,
   },
